@@ -1,0 +1,43 @@
+Инструкции по сборке
+
+Данные пошаговые инструкции служат для сборки Nginx с модулем в ознакомительных целях, не “засоряя” систему. 
+
+Гораздо более корректным способом установки приложений является использование той пакетной системы, которая поставляется с вашим дистрибутивом. Вы можете легко (ориентируясь на руководство ниже) модифицировать уже существующий в вашей системе рецепт по сборке пакета c Nginx, включив в него CT++ модуль.
+
+Получение CT++
+Для сборки Nginx с модулем требуется библиотека ctpp2 одной из рекомендуемых выше версий. В Arch Linux вы можете воспользоваться пакетом из AUR, во freeBSD поставить из портов (textproc/ctpp2), а для Gentoo есть ebuild в rion-overlay. Если в репозитории вашего дистрибутива её нет, то необходимо собрать вручную.
+Рекомендую ознакомиться с информацией на официальном сайте шаблонизатора.
+wget http://ctpp.havoc.ru/download/ctpp2-2.7.1.tar.gz
+tar xzf ctpp2-2.7.1.tar.gz
+cd ctpp2-2.7.1
+cmake -DCMAKE_INSTALL_PREFIX=build
+make install
+cd ..
+
+
+Скомпилировать tmpl файл
+ctpp2c newlist.tmpl newlist.ct2
+
+Сгенерировать html по созданному ct2 файлу и json файлу
+ctpp2vm newlist.ct2 newlist.json
+
+===== ДАЛЬШЕ ПОКА НЕ ДЕЛАЕМ
+
+Сборка Nginx модуля 
+Также рекомендуется ознакомиться с информацией на сайте Игоря Сысоева (разработчика Nginx).
+
+wget http://dl.vbart.ru/ngx-ctpp/ngx_ctpp2-0.5.tar.gz
+tar xzf ngx_ctpp2-0.5.tar.gz
+wget http://nginx.org/download/nginx-1.0.6.tar.gz
+tar xzf nginx-1.0.6.tar.gz
+cd nginx-1.0.6
+Если ctpp2 установлен в вашей системе:
+./configure --add-module=../ngx_ctpp2-0.5 --prefix=build
+make install
+
+Если вы собирали ctpp2 как было описано выше:
+./configure --add-module=../ngx_ctpp2-0.5 --with-cc-opt='-I ../ctpp2-2.7.1/build/include' \
+--with-ld-opt="-L ../ctpp2-2.7.1/build/lib -Wl,-rpath,$PWD/../ctpp2-2.7.1/build/lib" \
+--prefix=build
+make install
+cd ..

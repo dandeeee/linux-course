@@ -1,0 +1,83 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+ <TITLE> LS command.</TITLE>
+</head>
+
+<body background=../iip_1.jpg>
+<a name=top>
+
+<p>
+<table width=100%>
+  <tr>
+    <td width=20%>&nbsp;</td>
+    <td>
+      <table border>
+        <tr><td align=center><big><b>man</b></big><br>
+            &nbsp;&nbsp; форматирование и отображение онлайновых справочных страниц &nbsp;&nbsp;
+        </tr></td>
+      </table>
+</td></tr></table>
+
+
+<p><b>Синтаксис</b>
+<table width=100%>
+  <tr><td width=10%>&nbsp;</td>
+  <td>
+    <pre>
+man  [раздел] имя...</pre>
+</td></tr></table>
+
+<p><b>Описание</b>
+
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td>
+<p>Команда <samp>man</samp> выполняет форматирование и
+   отображение онлайновых справочных страниц Unix. Если задан
+   <samp>раздел</samp>, то <samp>man</samp> ищет только в
+   заданном разделе руководства. <samp>имя</samp> - это обычно
+   имя страницы руководства, которое, как правило, является
+   именем команды, функции или файла.
+<p>Имеющиеся справочные страницы разбиты на несколько разделов.
+   Важнейшими являются разделы:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1 - команды Unix;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2, 3 - системные вызовы Unix;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4, 5 - форматы файлов Unix.
+</td></tr></table>
+
+<p>Когда команда отображает страницу подсказки, в нижней строке
+экрана выводится приглашение <samp>man</samp> - символ
+'<samp>:</samp>'. После приглашения можно вводить внутренние
+команды <samp>man</samp>.
+В кратком руководстве следует упомянуть только две внутренние
+команды <samp>man</samp>:
+<p><table>
+  <tr>
+    <td width=5% align=center valign=top><samp>&nbsp;h&nbsp;</samp></td>
+    <td>получение подробной информации о внутренних командах
+<samp>man</samp></td>   </tr>
+  <tr>
+    <td width=5% align=center valign=top><samp>&nbsp;q&nbsp;</samp></td>
+    <td>выход из <samp>man</samp> или переход к следующей
+      странице, если команда <samp>man</samp> была введена с
+      указанием нескольких имен команд.</td>   </tr>
+</table>
+<p>Двигаться по отображаемой странице можно при помощи клавиш
+   управления курсором.
+<p>Для получения более подробной информации о команде <samp>man</samp>
+введите:
+<pre>
+    man man
+</pre>
+<table>
+<tr>
+<td colspan=2><b><br>СМ.ТАКЖЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+  <a href=_info.html>info</a>.
+</td></tr></table>
+
+<p><hr>
+<a href=mind.html#man>Список команд</a>
+</body>
+</html>

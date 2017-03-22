@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Transitional//EN">
+<HTML>
+<HEAD>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+   <meta name="Generator" content="Far Editor">
+   
+   
+   
+
+<TITLE>Лабораторная работа 5.</TITLE>
+<!--                                                                   -->
+
+
+
+</head>
+
+<body background=iip_1.jpg>
+<p>
+
+<table cellpadding=10>
+<tr><td><a href=l1_4.html>Назад</a></td><td><a href=index.htm>Оглавление</a></td><td><a href=l1_6.html>Вперед</a></td></tr>
+</table>
+</p>
+<hr>
+
+<table width=90%>
+<tr><td align=center><img src=logo_5.gif><samp>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<h2 align=center>Лабораторная работа 5</h2>
+<p><b>Цель работы</b>: ознакомление с утилитой <a href=./man/_awk.html><samp>awk</samp></a>
+и языком <samp>awk</samp>. 
+</td></tr></table>
+
+<h3>Выполнение  работы</h3>
+
+<p>Выполняя предыдущую работу, Вы, возможно, не раз посетовали на отсутствие в 
+элементарных фильтрах Unix вычислительных и логических возможностей. Этот недостаток компенсируется в утилите <a href=./man/_awk.html><samp>awk</samp></a>, которая, являясь одной из утилит, 
+работающих с регулярными выражениями, в то же время предоставляет программисту 
+алгоритмические и вычислительные возможности, базирующиеся на синтаксисе языка 
+C. Как вы увидите ниже, многие из тех предыдущих задач, для решения которых нам приходилось создавать длинные конвейерные цепочки команд, могут быть решены одним обращением к утилите <samp>awk</samp>.
+<p><samp>awk</samp> может применяться также и как фильтр и, сочетаясь в цепочке фильтрации с другими утилитами, неограниченно расширять возможности командного управления.
+<p>Хотя синтаксис внутреннего языка <samp>awk</samp> базируется на синтаксисе языка C, следует помнить, что язык <samp>awk</samp> - язык обработки текстов, в этом языке существует единственный тип данных - строка символов, а при выполнении вычислительных операций происходят "прозрачные" преобразования строковых операндов в числовые и числовых результатов - в строковый тип.
+
+В данной лабораторной работе Вам предлагается разработать программы <samp>awk</samp> для решения задач обработки текстовых файлов. Вы можете комбинировать вызов <samp>awk</samp> с вызовами других утилит, но в большинстве случаев в этом нет необходимости.
+
+<p>В лабораторной работе используются те же файлы исходных данных, которые
+использовались в работе 3:
+<ul>
+<li>текстовый файл, созданный в работе N1;
+<li><a href=fq1a.html>структура</a> файла <samp>../metod/query1</samp>;
+    <a href=fq1b.html>содержимое</a> файла <samp>../metod/query1</samp>
+<li><a href=fq2a.html>структура</a> файла <samp>../metod/query2</samp>;
+    <a href=fq2b.html>содержимое</a> файла <samp>../metod/query2</samp>
+<li><a href=fq3a.html>структура</a> файла <samp>../metod/query3</samp>;
+    <a href=fq3b.html>содержимое</a> файла <samp>../metod/query3</samp>
+<li><a href=fq4a.html>структура</a> файла <samp>../metod/query4</samp>;
+    <a href=fq4b.html>содержимое</a> файла <samp>../metod/query4</samp>
+</ul>
+
+<p><table>
+<tr>
+<td width=30% valign=top><b>Задача 1</b> </td>
+<td>Выполните при помощи <samp>awk</samp> ту же обработку текстового файла, которую Вы выполняли в Задаче 1 работы N4.</td>
+</tr>
+<tr>
+<td width=30% valign=top><b>Задачи 2-3</b> </td>
+<td>Выполните при помощи <samp>awk</samp> обработку файлов <samp>../metod/query...</samp>, в соответствии с Вашим вариантом индивидуального задания.</td>
+</tr>
+</table>
+
+<p>Для протоколирования работы используйте команду 
+<a href=./man/_script.html><samp>script</samp></a>.
+
+<h3>Варианты индивидуальных заданий</h3>
+<p><table width=100%>
+ <tr>
+  <td align=center width=20%>
+   <A href=./var/v5_01.html>1</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v5_02.html>2</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v5_03.html>3</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v5_04.html>4</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v5_05.html>5</A>
+  </td>   
+ </tr>
+ <tr>
+  <td align=center width=20%>
+   <A href=./var/v5_06.html>6</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v5_07.html>7</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v5_08.html>8</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v5_09.html>9</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v5_10.html>10</A>
+  </td>   
+ </tr>
+ <tr>
+  <td align=center width=20%>
+   <A href=./var/v5_11.html>11</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v5_12.html>12</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v5_13.html>13</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v5_14.html>14</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v5_15.html>15</A>
+  </td>   
+ </tr>
+</table>
+
+<h3>Предъявление результатов и содержание отчета.</h3>
+<p>Отчет по лабораторной работе 5 должен содержать протокол выполнения трех 
+программ <samp>awk</samp></a> (в соответствии с Вашим вариантом).
+<p><a href=ex1_5.html>Пример</a> выполнения задания.
+
+
+<h3>Справка</h3>
+<ul>
+<li>Команда <a href=./man/_awk.html><samp>awk</samp></a>
+<li><a href=./man/brexpr.html>Базовые регулярные выражения</a>
+</ul>
+
+<hr>
+<p>
+<table cellpadding=10>
+<tr><td><a href=l1_4.html>Назад</a></td><td><a href=index.htm>Оглавление</a></td><td><a href=l1_6.html>Вперед</a></td></tr>
+</table>
+
+
+</body>
+</html>
+

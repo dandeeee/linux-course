@@ -1,0 +1,900 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <TITLE>Пример 1.4</TITLE>
+</head>
+<body background=iip_1.jpg>
+<a href=l1_4.html#ex>Назад</a>
+<hr>
+<h3>Пример выполнения лабораторной работы N4</h3>
+<p>Здесь мы рассматриваем примеры выполнения нескольких вариантов каждого
+задания.
+<p><a href=#t1>Задание 1</a><br>
+&nbsp;&nbsp;&nbsp;<a href=#t1v1>вариант 1</a><br>
+&nbsp;&nbsp;&nbsp;<a href=#t1v2>вариант 2</a><br>
+&nbsp;&nbsp;&nbsp;<a href=#t1v3>вариант 3</a><br>
+<p><a href=#t2>Задание 2</a><br>
+&nbsp;&nbsp;&nbsp;<a href=#t2v1>вариант 1</a><br>
+&nbsp;&nbsp;&nbsp;<a href=#t2v2>вариант 2</a><br>
+&nbsp;&nbsp;&nbsp;<a href=#t2v3>вариант 3</a><br>
+<p><a href=#t3>Задание 3</a><br>
+&nbsp;&nbsp;&nbsp;<a href=#t3v1>вариант 1</a><br>
+&nbsp;&nbsp;&nbsp;<a href=#t3v2>вариант 2</a><br>
+<hr>
+<a name=t1>
+<h4 algn=center>Задание 1</h4>
+<p>Работа всех вариантов демонстрируется на обработке файла с именем
+<samp>Hum-Dum.txt</samp>, исходное содержимое которого показано в следующем
+протоколе:
+
+<p><table align=center border><tr><td>
+<pre>
+Script started on Thu Sep  5 07:56:10 2002
+bash2-2.05$ <b>cat</b> Hum-Dum
+Humpty-Dumpty
+Set on the wall.
+Humpty-Dumpty
+Had a greate fall.
+And all the king's horses,
+And all the king's man.
+Can not Humpty,
+Can not Dumpty,
+Humpty-Dumpty,
+Dumpty-Humpty,
+Set on this wall
+Again.
+bash2-2.05$
+Script done on Thu Sep  5 07:56:21 2002
+</pre>
+</td></tr></table>
+<p>Ниже приводятся некоторые общие соображения по решению задач 1-го задания.
+<p>В большинстве случаев мы можем легко сформулировать операторы потокового
+редактора, необходимые для выполнения заданного преобразования, за исключением
+одного компонента - адреса строки, к которой это преобразование должно быть применено.
+В некоторых случаях нам также заранее неизвестен и текст, который
+необходимо вставить в целевую строку. Поэтому типовая схема решения следующая:
+<ol>
+<li>Определяются номера строк, к которым должны быть применены преобразования,
+а при необходимости - также и текст, который должен вставляться в целевой файл.
+Для определения применяются статические (заранее известные и заложенные в
+текст команд) команды потокового редактора. Результаты этого шага сохраняются в
+файле. <li>Путем редактирования результатов 1-го шага динамически формируются
+команды <samp>sed</samp> для выполнения преобразования, содержащие адреса и
+тексты, определенные на 1-м шаге. Эти команды сохраняются в файле.
+<li>Выполняется редактирование исходного текста командами, сохраненными на 2-м
+шаге.
+</ol>
+<p>Возможны два подхода к получению номеров строк, подлежащих
+преобразованию:<ul>
+<li>выполнить нумерование всех строк исходного файла (это можно сделать
+командой <samp>pr</samp> или командой <samp>cat</samp> с опцией
+<samp>-n</samp>), а затем из пронумерованной последовательности строк выбрать
+строку, предназначенную для обработки с ее номером; такой прием
+применен в решениях для вариантов 1 и 2;
+<li>выбрать номер строки, предназначенной для обработки, при
+помощи команды <samp>sed</samp> "<samp>=</samp>"; такой прием применен для
+варианта 3. </ul>
+<p>Поскольку Unix имеет большое число утилит для обработки текстов, причем
+функции многих утилит перекрываются, каждая из предложенных задач может быть
+решена множеством различных способов.
+
+
+<a name=t1v1>
+<h4>Задание 1, вариант 1</h4>
+<p><i>Каждое второе слово каждой строки вывести в отдельную следующую строку.
+Если в строке только одно слово, ничего не делать.</i>
+
+<p><b>Решение:</b>
+<table>
+<tr>
+<td valign=top width=40%><pre>pr -n' ' -T Hum-Dum.txt |&nbsp;&nbsp;</pre></td>
+<td>Вывести файл без заголовка и лишних строк, но с номерами строк.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n 's/^ *//p' |&nbsp;&nbsp;</pre></td>
+<td>Удалить головные пробелы.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f1,3 -d' ' |&nbsp;&nbsp;</pre></td>
+<td>Вырезать номер и 2-е слово.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n '/[^0-9]/p' >temp01&nbsp;&nbsp;</pre></td>
+<td>Удалить строки, содержащие только номер, результат сохранить в 1-м временном
+файле.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f1 -d' ' temp01 |&nbsp;&nbsp;</pre></td>
+<td>Выбрать из 1-го временного файла номера строк.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n 's/$/a\\/p' >temp02&nbsp;&nbsp;</pre></td>
+<td>Добавить к ним 'a\' и сохранить во 2-м временном файле.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f2 -d' ' temp01 >temp03&nbsp;&nbsp;</pre></td>
+<td>Выбрать из 1-го временного файла слова и сохранить в 3-м временном файле.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>paste -d'\n' temp02 temp03 >temp01&nbsp;&nbsp;</pre></td>
+<td>Сцепить построчно 2-й и 3-й временные файлы, вставив между сцепляемыми строками перевод строки. Результат сохранить в 1-м временном файле. Результат -
+набор команд <samp>sed</samp> на вставку.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -f temp01 Hum-Dum.txt >result&nbsp;&nbsp;</pre></td>
+<td>Выполнить команды из 1-го временного файла, сохранить результат.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>rm -f temp*&nbsp;&nbsp;</pre></td>
+<td>Удалить временные файлы.
+</tr>
+</table>
+
+
+<p>Протокол выполнения:
+<p><table align=center border><tr><td>
+<pre>
+Script started on Thu Sep  5 08:00:29 2002
+bash2-2.05$ <b>pr</b> -n' ' -T Hum-Dum.txt |
+&gt; <b>sed</b> -n 's/^ *//p' |
+&gt; <b>cut</b> -f1,3 -d' ' |
+&gt; <b>sed</b> -n '/[^0-9]/p' >temp01
+bash2-2.05$ <b>cut</b> -f1 -d' ' temp01 |
+&gt; <b>sed</b> -n 's/$/a\\/p' >temp02
+bash2-2.05$ <b>cut</b> -f2 -d' ' temp01 >temp03
+bash2-2.05$ <b>paste</b> -d'\n' temp02 temp03 >temp01
+bash2-2.05$ <b>sed</b> -f temp01 Hum-Dum.txt >result
+bash2-2.05$ <b>rm</b> -f temp*
+bash2-2.05$ <b>cat</b> result
+Humpty-Dumpty
+Set on the wall.
+on
+Humpty-Dumpty
+Had a greate fall.
+a
+And all the king's horses,
+all
+And all the king's man.
+all
+Can not Humpty,
+not
+Can not Dumpty,
+not
+Humpty-Dumpty,
+Dumpty-Humpty,
+Set on this wall
+on
+Again.
+bash2-2.05$
+Script done on Thu Sep  5 08:00:47 2002
+</pre>
+</td></tr></table>
+<p>Обратите внимание на то, что в вышеприведенном протоколе некоторые приглашения
+системы выглядят как "<samp>$</samp>", а некоторые - как "<samp>&gt;</samp>".
+Система печатает приглашение "<samp>&gt;</samp>" (вторичное приглашение), если предыдущая команда заканчивается признаком конвейера "<samp>|</samp>" 
+и, следовательно, обязательно ожидается ввод следующей команды. В противном случае
+печатается первичное приглашение - "<samp>$</samp>". Символы первичного и вторичного
+приглашения определяются переменными окружения <samp>PS1</samp> и <samp>PS2</samp>
+соответственно.
+<p></p>
+<hr>
+<a name=t1v2>
+<h4>Задание 1, вариант 2</h4>
+<p><i>Первый символ каждой строки заменить на первый символ следующей строки.
+ Последняя строка остается без изменений.</i>
+
+<p><b>Решение:</b>
+<table>
+<tr>
+<td valign=top width=40%><pre>pr -n' ' -T Hum-Dum.txt |&nbsp;&nbsp;</pre></td>
+<td>Вывод с нумерацией строк.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -c7 |&nbsp;&nbsp;</pre></td>
+<td>Выделение 1-го символа.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n '2,$p' >temp01&nbsp;&nbsp;</pre></td>
+<td>Удаление 1-й строки, символ из нее никуда не подставляется. 1-е символы строк
+сохраняются во временном файле.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>pr -n' ' -T Hum-Dum.txt |&nbsp;&nbsp;</pre></td>
+<td>Вывод с нумерацией строк.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n 's/^[ ]*//p' |&nbsp;&nbsp;</pre></td>
+<td>Удаление головных пробелов.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f1 -d' ' |&nbsp;&nbsp;</pre></td>
+<td>Вывод только столбца номеров.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>paste -d' ' - temp01 |&nbsp;&nbsp;</pre></td>
+<td>Сцепление номера строки (входной поток) с 1-м символом следующей строки (временный файл). Получается, например: '<samp>3
+H</samp>'.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed '$d' |&nbsp;&nbsp;</pre></td>
+<td>Удаление последней строки - в нее ничего не подставляется.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n 's/ /s\/\^\.\//p' |&nbsp;&nbsp;</pre></td>
+<td>Замена пробела между номером и символом на служебные символы. Получается:
+'<samp>3s/^./H</samp>'.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n 's/$/\//p' >temp01&nbsp;&nbsp;</pre></td>
+<td>Добавление служебных символов в конец строки. Получается:
+'<samp>3s/^./H/</samp>' - команда <samp>sed</samp> на изменение 1-го символа
+строки. (Обратите внимание: эта команда не заканчивается флагом
+'<samp>p</samp>'.) Команды сохраняются во временном файле.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -f temp01 Hum-Dum.txt >result&nbsp;&nbsp;</pre></td>
+<td>Временный файл используется как командный скрипт <samp>sed</samp>. (Обратите
+внимание: если бы в командах скрипта не было бы флага '<samp>p</samp>', а в данной
+команде не было бы опции <samp>-n</samp>, не вывелась бы последняя строка, для
+которой нет подстановки в скрипте). Результат сохраняется.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>rm -f temp*&nbsp;&nbsp;</pre></td>
+<td>Удаление временного файла.</td>
+</tr>
+</table>
+<p>Протокол выполнения:
+<p><table align=center border><tr><td>
+<pre>
+Script started on Thu Sep  5 08:05:45 2002
+bash2-2.05$ <b>pr</b> -n' ' -T Hum-Dum.txt |
+&gt; <b>cut</b> -c7 |
+&gt; <b>sed</b> -n '2,$p' >temp01
+bash2-2.05$ <b>pr</b> -n' ' -T Hum-Dum.txt |
+&gt; <b>sed</b> -n 's/^[ ]*//p' |
+&gt; <b>cut</b> -f1 -d' ' |
+&gt; <b>paste</b> -d' ' - temp01 |
+&gt; <b>sed</b> '$d' |
+&gt; <b>sed</b> -n 's/ /s\/\^\.\//p' |
+&gt; <b>sed</b> -n 's/$/\//p' >temp01
+bash2-2.05$ <b>sed</b> -f temp01 Hum-Dum.txt >result
+bash2-2.05$ <b>rm</b> -f temp*
+bash2-2.05$ <b>cat</b> result
+Sumpty-Dumpty
+Het on the wall.
+Humpty-Dumpty
+Aad a greate fall.
+And all the king's horses,
+Cnd all the king's man.
+Can not Humpty,
+Han not Dumpty,
+Dumpty-Dumpty,
+Sumpty-Humpty,
+Aet on this wall
+Again.
+bash2-2.05$
+Script done on Thu Sep  5 08:06:12 2002
+</pre>
+</td></tr></table>
+<p></p>
+<hr>
+<a name=t1v3>
+<h4>Задание 1, вариант 3</h4>
+<p><i>В предпоследней строке, которая заканчивается точкой,
+поменять местами
+первое слово с последним.</i>
+
+
+<p><b>Решение:</b>
+<table>
+<tr>
+<td valign=top width=40%><pre>sed -n '/\.$/=' Hum-Dum.txt |&nbsp;&nbsp;</pre></td>
+<td>Вывод номеров всех строк, которые заканчиваются точкой.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>tail -2 |&nbsp;&nbsp;</pre></td>
+<td>Вывод двух последних из этих номеров.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>head -n1 > temp01&nbsp;&nbsp;</pre></td>
+<td>Вывод первого из двух последних номеров. Сохранение в <samp>temp01</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n 's/$/s\/ \.\*\/\/p/p' temp01 >temp02&nbsp;&nbsp;</pre></td>
+<td>Формирование команды <samp>sed</samp> на вывод 1-го слова строки с номером,
+сохраненным в <samp>temp01</samp>. Команда сохраняется в <samp>temp02</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n -f temp02 Hum-Dum.txt >temp03&nbsp;&nbsp;</pre></td>
+<td>Выполнение команды из <samp>temp02</samp>, запись 1-го слова в
+<samp>temp03</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n 's/$/s\/\[\^ \]\* \/\/gp/p' temp01 >temp02&nbsp;&nbsp;</pre></td>
+<td>Формирование команды <samp>sed</samp> на вывод последнего слова строки с
+номером, сохраненным в <samp>temp01</samp>. Команда сохраняется в <samp>temp02</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n -f temp02 Hum-Dum.txt >temp04&nbsp;&nbsp;</pre></td>
+<td>Выполнение команды из <samp>temp02</samp>, запись последнего слова в
+<samp>temp04</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>paste -d' ' temp01 temp03 |&nbsp;&nbsp;</pre></td>
+<td>Сцепление через пробел номера строки и последнего слова строки.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n 's/ /s\/\ [\^ \]\*$\/ /p' |&nbsp;&nbsp;</pre></td>
+<td>Формирование команды <samp>sed</samp> на замену в строке с номером, выбранным
+из <samp>temp01</samp>, 1-го слова на текст, выбранный из
+<samp>temp03</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n 's/$/\//p' >temp03&nbsp;&nbsp;</pre></td>
+<td>Завершение формирование команды и сохранение ее в <samp>temp03</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>paste -d' ' temp01 temp04 |&nbsp;&nbsp;</pre></td>
+<td>Сцепление через пробел номера строки и 1-го слова строки.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n 's/ /s\/\^\[\^ \]\* \//p' |&nbsp;&nbsp;</pre></td>
+<td>Формирование команды <samp>sed</samp> на замену в строке с номером, выбранным
+из <samp>temp01</samp>, последнего слова на текст, выбранный из
+<samp>temp04</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n 's/$/ \//p' >temp04&nbsp;&nbsp;</pre></td>
+<td>Завершение формирование команды и сохранение ее в <samp>temp04</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -f temp03 Hum-Dum.txt |
+<td>Выполнение для исходного файла команды из <samp>temp03</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -f temp04 >result&nbsp;&nbsp;</pre></td>
+<td>Выполнение для того, что получилось, команды из
+<samp>temp04</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>rm -f temp*&nbsp;&nbsp;</pre></td>
+<td>Удаление временных файлов.</td>
+</tr>
+</table>
+<p>Протокол выполнения:
+<p><table align=center border><tr><td>
+<pre>
+Script started on Thu Sep  5 08:10:13 2002
+bash2-2.05$ <b>sed</b> -n '/\.$/=' Hum-Dum.txt |
+&gt; <b>tail</b> -2 |
+&gt; <b>head</b> -n1 > temp01
+bash2-2.05$ <b>sed</b> -n 's/$/s\/ \.\*\/\/p/p' temp01 >temp02
+bash2-2.05$ <b>sed</b> -n -f temp02 Hum-Dum.txt >temp03
+bash2-2.05$ <b>sed</b> -n 's/$/s\/\[\^ \]\* \/\/gp/p' temp01 >temp02
+bash2-2.05$ <b>sed</b> -n -f temp02 Hum-Dum.txt >temp04
+bash2-2.05$ <b>paste</b> -d' ' temp01 temp03 |
+&gt; <b>sed</b> -n 's/ /s\/\ [\^ \]\*$\/ /p' |
+&gt; <b>sed</b> -n 's/$/\//p' >temp03
+bash2-2.05$ <b>paste</b> -d' ' temp01 temp04 |
+&gt; <b>sed</b> -n 's/ /s\/\^\[\^ \]\* \//p' |
+&gt; <b>sed</b> -n 's/$/ \//p' >temp04
+bash2-2.05$ <b>sed</b> -f temp03 Hum-Dum.txt |
+&gt; <b>sed</b> -f temp04 >result
+&gt; bash2-2.05$ <b>rm</b> -f temp*
+bash2-2.05$ <b>cat</b> result
+Humpty-Dumpty
+Set on the wall.
+Humpty-Dumpty
+Had a greate fall.
+And all the king's horses,
+man. all the king's And
+Can not Humpty,
+Can not Dumpty,
+Humpty-Dumpty,
+Dumpty-Humpty,
+Set on this wall
+Again.
+bash2-2.05$
+Script done on Thu Sep  5 08:10:46 2002
+</td></tr></table>
+<p></p>
+<hr>
+<hr>
+
+<a name=t2>
+<h4 algn=center>Задание 2</h4>
+<p>Работа всех вариантов этого задания происходит на наборе
+файлов: <a href=fq1a.html><samp>../metod/query*.</samp></a>,
+<a href=fq1a.html><samp>query1</samp></a>,
+<a href=fq2a.html><samp>query2</samp></a>,
+<a href=fq3a.html><samp>query3</samp></a>,
+<a href=fq4a.html><samp>query4</samp></a>,
+<a href=fq5a.html><samp>query5</samp></a>.
+Те, кто не приложил еще достаточно усилий для того, чтобы забыть наш курс
+"Организация баз данных", без труда узнают в этих файлах результаты
+выполнения запросов к базе данных "Корпорация Кинга". Эти результаты
+представляют собой таблицы (реляционные таблицы) и составляют как бы базу
+данных, схема которой показана ниже:
+<p align=center><img src=king.gif>
+<p>Варианты задания 2 представляют собой задания на выборку данных из "таблиц"
+этой "базы данных". Утилиты Unix предоставляют в наше распоряжение следующие
+средства, которые в той или иной мере могут служить аналогом реляционных
+операций:
+<ul>
+<li>Операция <b>проекции</b> может быть осуществлена вырезанием определенных
+полей строки - командой <a href=./man/_cat.html><samp>cut</samp></a>.
+<li>Операция <b>ограничения</b> может быть осуществлена какой-либо из утилит,
+осуществляющих поиск строки по шаблону -
+<a href=./man/_grep.html><samp>grep</samp></a> или
+<a href=./man/_sed.html><samp>sed</samp></a>.
+<li>Операция <b>естественного соединения</b> может быть осуществлена
+утилитой <a href=./man/_join.html><samp>join</samp></a>.
+Следует однако помнить, что для применения утилиты <samp>join</samp>
+таблицы должны быть отсортированы по тому столбцу, по которому происходит
+соединение, это можно сделать при помощи утилиты
+<a href=./man/_sort.html><samp>sort</samp></a>.
+<li>Дубликаты в файлах-таблицах могут быть устранены при помощи утилиты
+<a href=./man/_uniq.html><samp>uniq</samp></a> или утилиты <samp>sort</samp>
+с опцией <samp>-u</samp>. Следует иметь в виду, что в первом случае
+дубликатами считаются совпадения полных строк, а во втором - только тех полей,
+по которым выполняется сортировка.
+<li>Рассматриваемые нами утилиты не предоставляют тех возможностей, которые
+предоставляют агрегатные функции SQL, однако функции <samp>MAX()</samp> и
+<samp>MIN()</samp> можно промоделировать, выполнив сортировку таблицы и
+выбрав затем первую (утилита <a href=./man/_head.html><samp>head</samp></a>)
+или последнюю (утилита <a href=./man/_tail.html><samp>tail</samp></a>) строку.
+</ul>
+<p>В пояснениях к нашим примерам выполнения мы часто используем терминологию
+реляционных операций.
+<p>Большинство утилит, работающих с полями форматированного текста, по
+умолчанию предполагают символом-разделителем полей символ табуляции. Однако
+работать с символом табуляции неудобно, поскольку он по умолчанию  явно не отображается.
+Поэтому мы рекомендуем назначать разделителем какой-либо отображаемый
+символ. Обратите внимание на то, что в наших файлах-таблицах используются
+различные разделители полей. Для выполнения операции соединения необходимо
+установить общий разделитель для обеих соединяемых таблиц.
+<p>Мы всегда выполняли проекцию (отбор необходимых столбцов) прежде,
+чем соединение. Возможно выполнять проекцию и после соединения. Во втором
+случае может даже быть сэкономлено несколько команд, но упреждающий отбор
+только необходимых столбцов уменьшает объем промежуточных результатов, чем
+существенно облегчает отладку.
+<hr>
+<a name=t2v1>
+<h4>Задание 2 вариант 1</h4>
+<p><i>Определить фамилии продавцов, которые выполняли заказы,
+состоящие из более чем 5 пунктов.</i>
+<p><b>Решение:</b>
+<table>
+<tr>
+<td valign=top width=40%><pre>sed 's/ \{1,\}/\:/g' ../metod/query5 |&nbsp;&nbsp;</pre></td>
+<td>Установка в файле <samp>query5</samp> разделителя "<samp>:</samp>".</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f1,2 -d':' |&nbsp;&nbsp;</pre></td>
+<td>Проекция по номеру пункта и номеру заказа.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sort +0 -1 -t':' -n |&nbsp;&nbsp;</pre></td>
+<td>Числовая (опция <samp>-n</samp>) - сортировка по номеру пункта.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed '/^[1-4]:/d' >temp01&nbsp;&nbsp;</pre></td>
+<td>Удаление тех строк, в которых номер пункта 1-4.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sort +1 -2 -t':' >temp01&nbsp;&nbsp;</pre></td>
+<td>Сортировка по номеру заказа. Результат сохраняется в <samp>temp01</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed 's/ \{1,\}/\:/g' ../metod/query4 |&nbsp;&nbsp;</pre></td>
+<td>Установка в файле <samp>query4</samp> разделителя "<samp>:</samp>".</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f1,2 -d':' |&nbsp;&nbsp;</pre></td>
+<td>Проекция по номеру заказа и фамилии продавца.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sort +0 -1 -t':' |&nbsp;&nbsp;</pre></td>
+<td>Сортировка по номеру заказа.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>join -j1 1 -j2 2 -t':' - temp01 |&nbsp;&nbsp;</pre></td>
+<td>Соединение с сохраненным в <samp>temp01</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f2 -d':' |&nbsp;&nbsp;</pre></td>
+<td>Проекция по фамилии продавца.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sort +0 -1 -t':' -u >result&nbsp;&nbsp;</pre></td>
+<td>Сортировка по фамилии продавца с устранением дубликатов.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>rm -f temp*&nbsp;&nbsp;</pre></td>
+<td>Удаление временного файла.</td>
+</tr>
+</table>
+<p>Протокол выполнения:
+<p><table align=center border><tr><td>
+<pre>
+Script started on Thu Sep  5 08:13:56 2002
+bash2-2.05$ <b>sed</b> 's/ \{1,\}/\:/g' ../metod/query5 |
+&gt; <b>cut</b> -f1,2 -d':' |
+&gt; <b>sort</b> +0 -1 -t':' -n |
+&gt; <b>sed</b> '/^[1-4]:/d' |
+&gt; <b>sort</b> +1 -2 -t':' >temp01
+bash2-2.05$ <b>sed</b> 's/ \{1,\}/\:/g' ../metod/query4 |
+&gt; <b>cut</b> -f1,2 -d':' |
+&gt; <b>sort</b> +0 -1 -t':' |
+&gt; <b>joi</b>n -j1 1 -j2 2 -t':' - temp01 |
+&gt; <b>cut</b> -f2 -d':' |
+&gt; <b>sort</b> +0 -1 -t':' -u >result
+bash2-2.05$ <b>rm</b> -f temp*
+bash2-2.05$ <b>cat</b> result
+DUNCAN
+ROSS
+SHAW
+TURNER
+WARD
+bash2-2.05$
+Script done on Thu Sep  5 08:14:14 2002
+</pre>
+</td></tr></table>
+<p></p>
+<hr>
+<a name=t2v2>
+<h4>Задание 2, вариант 2</h4>
+<p><i>Определить покупателей, которые ничего не покупали в феврале 1990 г.</i>
+
+
+<p><b>Решение:</b>
+<table>
+<tr>
+<td valign=top width=40%><pre>cut -f1,2 -d':' ../metod/query2 |&nbsp;&nbsp;</pre></td>
+<td>Проекция по коду и имени покупателя.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sort +0 -1 -t':' >temp01&nbsp;&nbsp;</pre></td>
+<td>Сортировка по коду, сохранение.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed 's/ \{1,\}/\:/g' ../metod/query4 |&nbsp;&nbsp;</pre></td>
+<td>Установка разделителя ':'.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f3,4 -d':' |&nbsp;&nbsp;</pre></td>
+<td>Выделение кода покупателя и даты.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n '/-FEB-91/p' |&nbsp;&nbsp;</pre></td>
+<td>Ограничение по дате.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sort +0 -1 -t':' -u |&nbsp;&nbsp;</pre></td>
+<td>Сортировка по коду покупателя, ликвидация дубликатов кодов.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>join -j1 1 -j2 1 -t':' -a2 - temp01 |&nbsp;&nbsp;</pre></td>
+<td>Соединение по коду покупателя (правое внешнее).</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n '/^[^:]*:[^:]*$/'p |&nbsp;&nbsp;</pre></td>
+<td>Выборка тех строк, в которых только один раз встречается разделитель полей, то
+есть, нет даты.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f2 -d':' |&nbsp;&nbsp;</pre></td>
+<td>Проекция по имени покупателя.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sort +0 -1 >result&nbsp;&nbsp;</pre></td>
+<td>Сортировка по имени.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>rm -f temp*&nbsp;&nbsp;</pre></td>
+<td>Удаление временных файлов.</td>
+</tr>
+</table>
+<p>Протокол выполнения:
+<p><table align=center border><tr><td>
+<pre>
+Script started on Thu Sep  5 08:16:50 2002
+bash2-2.05$ <b>cut</b> -f1,2 -d':' ../metod/query2 |
+&gt; <b>sort</b> +0 -1 -t':' >temp01
+bash2-2.05$ <b>sed</b> 's/ \{1,\}/\:/g' ../metod/query4 |
+&gt; <b>cut</b> -f3,4 -d':' |
+&gt; <b>sed</b> -n '/-FEB-91/p' |
+&gt; <b>sort</b> +0 -1 -t':' -u |
+&gt; <b>join</b> -j1 1 -j2 1 -t':' -a2 - temp01 |
+&gt; <b>sed</b> -n '/^[^:]*:[^:]*$/'p |
+&gt; <b>cut</b> -f2 -d':' |
+&gt; <b>sort</b> +0 -1 >result
+bash2-2.05$ <b>rm</b> -f temp*
+bash2-2.05$ <b>cat</b> result
+AL AND BOB'S SPORTS
+AL'S PRO SHOP
+ALL SPORT
+AT BAT
+BOB'S FAMILY SPORTS
+BOB'S SWIM, CYCLE, AND RUN
+CENTURY SHOP
+EVERY MOUNTAIN
+FAST BREAK
+GOOD SPORT
+HIT, THROW, AND RUN
+HOOPS
+JOCKSPORTS
+JOE'S BIKE SHOP
+JUST BIKES
+JUST TENNIS
+POINT GUARD
+REBOUND SPORTS
+SHAPE UP
+STADIUM SPORTS
+THE ALL AMERICAN
+THE COLISEUM
+THE OUTFIELD
+THE POWER FORWARD
+THE TOUR
+TKB SPORT SHOP
+VELO SPORTS
+WHEELS AND DEALS
+WOMENS SPORTS
+bash2-2.05$
+Script done on Thu Sep  5 08:17:08 2002
+</pre>
+</td></tr></table>
+<p></p>
+<hr>
+<a name=t2v3>
+<h4>Задание 2, вариант 3</h4>
+<p><i>Определить имена и фамилии всех служащих фирмы, которые работают в одном
+городе с президентом.</i>
+<p>В принципе, эту задачу можно решить, и не прибегая к реляционным операциям,
+но мы решим ее именно таким образом, потому что среди не рассматриваемых
+нами имеются варианты, которые требуют именно такого подхода.
+<p>Хотя все выбираемые данные находятся в одной таблице, нам необходимо будет
+применить здесь автосоединение - соединение таблицы с самой собой.
+<p><b>Решение:</b>
+<table>
+<tr>
+<td valign=top width=40%><pre>sed 's/ \{1,\}/\:/g' ../metod/query1 >temp01&nbsp;&nbsp;</pre></td>
+<td>Установка разделителя ':' в файле <samp>query1</samp>
+(просто для удобства). Сохранение в <samp>temp01</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed -n '/:PRESIDENT:/p' temp01 >temp02&nbsp;&nbsp;</pre></td>
+<td>Выделение строки президента. Сохранение в <samp>temp02</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sed '/:PRESIDENT:/d' temp01 |&nbsp;&nbsp;</pre></td>
+<td>Удаление строки президента.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f4,6,7 -d':' temp01 >temp03&nbsp;&nbsp;</pre></td>
+<td>Выделение полей фамилии, названия отдела, города. Сохранение в
+<samp>temp03</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f6 -d':' temp02 >temp01&nbsp;&nbsp;</pre></td>
+<td>Выделение названия отдела в строке президента. Сохранение в <samp>temp01</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sort +1 -2 -t':' temp03 |&nbsp;&nbsp;</pre></td>
+<td>Сортировка остальных служащих по полю названия отдела.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>join -j1 2 -j2 1 -t':' - temp01 |&nbsp;&nbsp;</pre></td>
+<td>Соединение с названием отдела президента, сохраненным в <samp>temp01</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f2 -d':' |&nbsp;&nbsp;</pre></td>
+<td>Выделение из результата фамилий служащих.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sort +0 -1 -t':' >temp04&nbsp;&nbsp;</pre></td>
+<td>Сортировка фамилий и сохранение их в <samp>temp04</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f7 -d':' temp02 >temp01&nbsp;&nbsp;</pre></td>
+<td>Выделение города в строке президента. Сохранение в <samp>temp01</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sort +2 -3 -t':' temp03 |&nbsp;&nbsp;</pre></td>
+<td>Сортировка остальных служащих по полю города.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>join -j1 3 -j2 1 -t':' - temp01 |&nbsp;&nbsp;</pre></td>
+<td>Соединение с городом президента, сохраненным в <samp>temp01</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>cut -f2 -d':' |&nbsp;&nbsp;</pre></td>
+<td>Выделение из результата фамилий служащих.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>sort +0 -1 -t':' |&nbsp;&nbsp;</pre></td>
+<td>Сортировка фамилий.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>join -j1 1 -j2 1 - temp04 >result&nbsp;&nbsp;</pre></td>
+<td>Соединение тех, у кого совпадает отдел, с теми, у кого совпадает город.
+Результат сохраняется.</td>
+</tr>
+<tr>
+<td valign=top width=40%><pre>rm -f temp*&nbsp;&nbsp;</pre></td>
+<td>Удаление временных файлов.</td>
+</tr>
+</table>
+<p>Протокол выполнения:
+<p><table align=center border><tr><td>
+<pre>
+Script started on Thu Sep  5 08:20:36 2002
+bash2-2.05$ <b>sed</b> 's/ \{1,\}/\:/g' ../metod/query1 >temp01
+bash2-2.05$ <b>sed</b> -n '/:PRESIDENT:/p' temp01 >temp02
+bash2-2.05$ <b>sed</b> '/:PRESIDENT:/d' temp01 |
+&gt; <b>cut</b> -f4,6,7 -d':' temp01 >temp03
+bash2-2.05$ <b>cut</b> -f6 -d':' temp02 >temp01
+bash2-2.05$ <b>sort</b> +1 -2 -t':' temp03 |
+&gt; <b>join</b> -j1 2 -j2 1 -t':' - temp01 |
+&gt; <b>cut</b> -f2 -d':' |
+&gt; <b>sort</b> +0 -1 -t':' >temp04
+bash2-2.05$ <b>cut</b> -f7 -d':' temp02 >temp01
+bash2-2.05$ <b>sort</b> +2 -3 -t':' temp03 |
+&gt; <b>join</b> -j1 3 -j2 1 -t':' - temp01 |
+&gt; <b>cut</b> -f2 -d':' |
+&gt; <b>sort</b> +0 -1 -t':' |
+&gt; <b>join</b> -j1 1 -j2 1 - temp04 >result
+bash2-2.05$ rm -f temp*
+bash2-2.05$ cat result
+CLARK
+KING
+MILLER
+bash2-2.05$
+Script done on Thu Sep  5 08:20:56 2002
+</pre>
+</td></tr></table>
+<p></p>
+
+<hr><hr>
+<a name=t3>
+<h4 algn=center>Задание 3</h4>
+<p>Источником входных данных для всех вариантов этого задания 
+может быть команда печати содержимого каталогов 
+<a href=./man/_ls.html><samp>ls</samp></a> или
+команда поиска файлов <a href=./man/_find.html><samp>find</samp></a>.
+Выходной поток первой команды направляется в конвейер,
+где он может последовательно обрабатываться командами
+обработки текстов: 
+<a href=./man/_grep.html><samp>grep</samp></a>, 
+<a href=./man/_sed.html><samp>sed</samp></a>, 
+<a href=./man/_cut.html><samp>cut</samp></a>, 
+<a href=./man/_sort.html><samp>sort</samp></a> и т.п. Если в задании
+требуется подсчитать число элементов, в последнем звене конвейера
+может быть применена команда 
+<a href=./man/_wc.html><samp>wc</samp></a>.
+
+<p>При выполнении задания следует иметь в виду, что пользовательские
+группы в системе совпадают с кодами студенческих групп (например:
+"<samp>ap109</samp>", "<samp>ap070b</samp>" и т.д.), все коды начинаются с букв "<samp>ap</samp>"; а имена пользователей формируются
+как: <samp><i>имя_группы</i>nn</samp>, где <samp>nn</samp> - порядковый номер в группе.
+
+<hr>
+<a name=t3v1>
+<h4>Задание 3 вариант 1</h4>
+<p><i>Определить общее количество студенческих групп.</i>               
+<p><b>Решение:</b>
+<table>
+<tr>                              
+<td valign=top width=30%><pre>ls -ld ../* | </pre></td>
+<td>Команды выполняются из домашнего каталога пользователя - <samp>/home/<i>имя_пользователя</i></samp>,
+а информацию о созданных для групп каталогах можно получить из каталога <samp>/home/</samp>,
+который может адресоваться из текущего каталога как: <samp>../</samp>. Выводим информацию
+о содержимом этого каталога. Опция <samp>-l</samp> указывается, чтобы получить полную
+информацию, включая группу, опция <samp>-d</samp> предотвращает обход подкаталогов.
+Печать команды <samp>ls</samp> перенаправляется в поток.</td>
+</tr>
+<tr>
+<td valign=top width=30%><pre>grep "^d.\{24\}ap" | </pre></td>
+<td>Признак подкаталога - буква "<samp>-d</samp>" в первой позиции выдачи команды <samp>ls</samp>, 
+а имена групп начинаются c 25-й позиции выдачи. Команде <samp>grep</samp> задается
+шаблон, который определяет признак каталога в 1-й позиции и имя группы, 
+начинающееся с букв "<samp>ap</samp>".</td>
+</tr>
+<tr>
+<td valign=top width=30%><pre>sed -n 's/[ ]\{2,\}/ /gp' |</pre></td>
+<td>Поскольку дальше потребуется выделять поля, избавимся от множественных
+пробелов с помощью команды <samp>sed</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=30%><pre>cut -f4 -d ' ' | </pre></td>
+<td>Выделяется 4-е поле, содержащее имя группы.</td>
+</tr>
+<tr>
+<td valign=top width=30%><pre>sort |</pre></td>
+<td>Результат сортируется, это понадобится для следующей команды.
+Поскольку сейчас в тексте остался только один столбец, никаких опций для сортировки
+мы не указываем.</td>
+</tr>
+<tr>
+<td valign=top width=30%><pre>uniq | </pre></td>
+<td>Одна и та же группа повторяется для многих каталогов, поэтому следует
+избавиться от повторяющихся строк.</td>
+</tr>
+<tr>
+<td valign=top width=30%><pre>wc -l</pre></td>
+<td>Команда <samp>wc</samp> подсчитывает число оставшихся строк, результат выводится на печать.</td>
+</tr>
+</table>
+<p>Протокол выполнения:
+<p><table align=center border><tr><td>
+<pre>
+Script started on Thu Sep  5 08:20:56 2002
+bash2-2.05$ <b>ls</b> -lad ../* | <b>grep</b> "^d.\{24\}ap" | <b>sed</b> -n 's/[ ]\{2,\}/ /gp' | <b>cut</b> -f4 -d ' ' |
+&gt; <b>sort</b> +0 -1 | <b>uniq</b> | <b>wc</b> -l
+      7
+bash2-2.05$
+Script done on Thu Sep  5 08:21:03 2002
+</pre>
+</td></tr></table>
+
+<p></p>
+<hr>
+<a name=t3v2>
+<h4>Задание 3 вариант 2</h4>
+<p><i>Определить файлы в каталоге <samp>/etc</samp>, которые являются 
+символическими ссылками.
+Вывести имена файлов и имена тех файлов, на которые они ссылаются,
+упорядочив список по первому имени.</i>               
+<p><b>Решение:</b>
+<table>
+<tr>                              
+<td valign=top width=30%><pre>ls -ld /etc/* |</pre></td>
+<td>Выводится информация о содержимом интересующего нас каталога. 
+Печать команды <samp>ls</samp> перенаправляется в поток.</td>
+</tr>
+<tr>
+<td valign=top width=30%><pre>grep "^[l]" | </td>
+<td>Выделяются те строки, которые имеют в 1-й позиции букву "<samp>l</samp>" -
+признак мягкой ссылки.</td>
+</tr>
+<tr>
+<td valign=top width=30%><pre>sort +8 -9 | </td>
+<td>Выполняется сортировка по 9-му столбцу - имени файла</td>
+</tr>
+<tr>
+<td valign=top width=30%><pre>sed -n 's/[ ]\{2,\}/ /gp' | </td>
+<td>Множественные пробелы заменяются одним пробелом.</td>
+</tr>
+<tr>
+<td valign=top width=30%><pre>cut -f9-100 -d' '</td>
+<td>Выделяются поля, начиная с 9-го - и до конца. 
+</tr>
+</table>
+<p>Протокол выполнения:
+<p><table align=center border><tr><td>
+<pre>
+Script started on Thu Sep  5 08:21:44 2002
+bash2-2.05$ <b>ls</b> -ld /etc/* | <b>grep</b> "^[l]" | <b>sort</b> +8 -9 | <b>sed</b> -n 's/[ ]\{2,\}/ /gp' | <b>cut</b> -f9-100 -d' '
+/etc/grub.conf -&gt; ../boot/grub/grub.conf
+/etc/init.d -&gt; rc.d/init.d
+/etc/rc -&gt; rc.d/rc
+/etc/rc0.d -&gt; rc.d/rc0.d
+/etc/rc1.d -&gt; rc.d/rc1.d
+/etc/rc2.d -&gt; rc.d/rc2.d
+/etc/rc3.d -&gt; rc.d/rc3.d
+/etc/rc4.d -&gt; rc.d/rc4.d
+/etc/rc5.d -&gt; rc.d/rc5.d
+/etc/rc6.d -&gt; rc.d/rc6.d
+/etc/rc.local -&gt; rc.d/rc.local
+/etc/rc.sysinit -&gt; rc.d/rc.sysinit
+/etc/rmt -&gt; ../sbin/rmt
+bash2-2.05$
+Script done on Thu Sep  5 08:21:51 2002
+</pre>
+</td></tr></table>
+
+
+<p><hr><hr>
+<a href=l1_4.html#ex>Назад</a>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+ <TITLE> FIND command.</TITLE>
+</head>
+
+<body background=../iip_1.jpg>
+<a name=top>
+
+<p>
+<table width=100%>
+  <tr>
+    <td width=20%>&nbsp;</td>
+    <td>
+      <table border> 
+        <tr><td align=center><big><b>find</b></big><br>
+            &nbsp; поиск файлов &nbsp;
+        </tr></td>
+      </table>
+</td></tr></table>
+
+
+<table>
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+  <td><pre>find [маршрут] [выражение]</pre>
+</td></tr>
+
+
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+  <p>Команда <samp>find</samp> рекурсивно просматривает каталоги, перечисленные в <samp>маршруте</samp>, и отыскивает файлы, удовлетворяющие <samp>выражению</samp>, построенному с помощью описанных ниже средств. В <samp>маршрут</samp> могут входить и обычные файлы. 
+
+<p><samp>Выражение</samp> строится из элементарных опций (которые задают общие операции, а не обработку конкретного файла, всегда возвращают "истину"), проверок (которые возвращают значения "истина" или "ложь") и действий (которые также возвращают "истину" или "ложь", но имеют побочные эффекты) и операторов. 
+</td></tr>
+</table>
+
+<table>
+<tr>
+<td colspan=2><b><br>ОПЦИИ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+<tr>
+<td valign=top width=25%><samp>-daystart&nbsp;&nbsp;</samp></td>
+<td valign=top>Задает измерение времени в проверках  <samp>-amin</samp>,  <samp>-atime</samp>,  <samp>-cmin</samp>,  <samp>-ctime</samp>, <samp>-mmin</samp>,  <samp>-mtime</samp> от начала сегодняшнего дня, а не от текущего часа.
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-depth&nbsp;&nbsp;</samp></td>
+<td valign=top>Изменяет способ просмотра каталогов: сначала просматриваются входящие в каталог файлы, а затем уже сам каталог. 
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-follow &nbsp;&nbsp;</samp></td>
+<td valign=top>Задает обработку символических связей (по умолчанию символические связи не рассматриваются).
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-maxdepth <i>число</i> &nbsp;&nbsp;</samp></td>
+<td valign=top>Задает максимальный уровень глубины обработки подкаталогов относительно каталога заданного в командной строке (уровень 0).
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-mindepth <i>число</i> &nbsp;&nbsp;</samp></td>
+<td valign=top>Задает минимальный уровень глубины обработки подкаталогов относительно каталога заданного в командной строке (уровень 0). К каталогам, лежащим ниже заданного уровня никакие проверки и действия не применяются.
+</td>
+</tr>
+</table>
+</table>
+
+<table>
+<tr>
+<td colspan=2><b><br>ПРОВЕРКИ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>Числовые аргументы проверок <samp><i>n</i></samp> могут задаваться как:
+<table>
+<tr>
+<td width=25%>&nbsp;</td>
+<td><samp><i>n</i>&nbsp;&nbsp;</samp></td>
+<td>- точно равно <samp><i>n</i></samp></td></tr>
+<tr>
+<td width=25%>&nbsp;</td>
+<td><samp>-<i>n</i>&nbsp;&nbsp;</samp></td>
+<td>- меньше, чем <samp><i>n</i></samp></td></tr>
+<tr>
+<td width=25%>&nbsp;</td>
+<td><samp>+<i>n</i>&nbsp;&nbsp;</samp></td>
+<td>- больше, чем <samp><i>n</i></samp></td></tr>
+</table></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+<tr>
+<td valign=top width=25%><samp>-amin <i>n</i>&nbsp;&nbsp;<br>
+-atime <i>n</i>&nbsp;&nbsp;<br>
+-cmin <i>n</i>&nbsp;&nbsp;<br>
+-ctime <i>n</i>&nbsp;&nbsp;<br>
+-mmin <i>n</i>&nbsp;&nbsp;<br>
+-mtime <i>n</i>&nbsp;&nbsp;<br></samp></td>
+<td valign=top>Последний доступ к файлу (<samp>a</samp>) или последнее изменение характеристик файла (<samp>с</samp>) или последняя модификация файла (<samp>m</samp>) производилась <samp><i>n</i></samp> минут (<samp>min</samp>) или <samp><i>n</i></samp> дней (<samp>time</samp>) назад.<br>
+Сама команда <samp>find</samp> изменяет время доступа к каталогам, входящим в <samp>маршрут<samp>.
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-anewer <i>файл</i>&nbsp;&nbsp;<br>
+-cnewer <i>файл</i>&nbsp;&nbsp;<br>
+-newer <i>файл</i>&nbsp;&nbsp;<br></samp></td>
+<td valign=top>Последний доступ к файлу (<samp>anewer</samp>) или последнее изменение характеристик файла (<samp>сnewer</samp>) или последняя модификация файла (<samp>newer</samp>) производилась позднее указанного <samp><i>файла</i></samp>.
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-empty &nbsp;&nbsp;</samp></td>
+<td valign=top>Файл или каталог пустой 
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-group <i>группа</i> &nbsp;&nbsp;</samp></td>
+<td valign=top>Файл принадлежит данной <samp><i>группе</I></samp>. Группа может задаваться символьным именем или числом - идентификатором группы.
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-name <i>шаблон_файлов</I> &nbsp;&nbsp;</samp></td>
+<td valign=top> 
+Истина, если текущий файл удовлетворяет <samp><i>шаблону_файлов</i></samp>. 
+Символы шаблона, имеющие для shell'а специальный смысл, должны быть экранированы. 
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-links <i>n</i> &nbsp;&nbsp;</samp></td>
+<td valign=top>На файл имеется <samp><i>n</i></samp> ссылок. 
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-perm <i>режим</i> &nbsp;&nbsp;</samp></td>
+<td valign=top>Режим доступа к текущему файлу в точности равен указанному  <samp><i>режиму</i></samp> [см. <samp><a href=_chmod.html>chmod</a></samp>]. 
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-perm -<i>режим</i> &nbsp;&nbsp;</samp></td>
+<td valign=top>Все биты указанного <samp><i>режима</i></samp> установлены в текущему файле.
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-perm +<i>режим</i> &nbsp;&nbsp;</samp></td>
+<td valign=top>Хотя бы один из битов указанного <samp><i>режима</i></samp> установлен в текущему файле.
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-size <i>n</n>[bckw] &nbsp;&nbsp;</samp></td>
+<td valign=top>Файл занимает <samp><i>n</i></samp> единиц памяти. Необязательный символ задает размер единицы измерения:
+<table>
+<tr><td width=10% valign=top><samp>b</samp></td>
+<td> - блоки по 512 байт (по умолчанию);</td></tr>
+<tr><td width=10% valign=top><samp>c</samp></td>
+<td> - байты;</td></tr>
+<tr><td width=10% valign=top><samp>c</samp></td>
+<td> - килобайты;</td></tr>
+<tr><td width=10% valign=top><samp>c</samp></td>
+<td> - 2-байтные слова.</td></tr>
+</table>
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-type <i>c</i> &nbsp;&nbsp;</samp></td>
+<td valign=top>Файл имеет тип <samp><i>c</i><samp>, где <samp><i>c</i><samp>:
+<table>
+<tr><td width=10% valign=top><samp>b</samp></td>
+<td>блочный специальный файл;</td></tr>
+<tr><td width=10% valign=top><samp>c</samp></td>
+<td>символьный специальный файл;</td></tr>
+<tr><td width=10% valign=top><samp>d</samp></td>
+<td>каталог;</td></tr>
+<tr><td width=10% valign=top><samp>f</samp></td>
+<td>обычный файл;</td></tr>
+<tr><td width=10% valign=top><samp>l</samp></td>
+<td>символическая связь;</td></tr>
+<tr><td width=10% valign=top><samp>p</samp></td>
+<td>именованный канал.</td></tr>
+</table>
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-user <i>пользователь</i> &nbsp;&nbsp;</samp></td>
+<td valign=top>Файл принадлежит данному <samp><i>пользователю</I></samp>. Пользователь может задаваться символьным именем или числом - идентификатором пользователя.
+</td>
+</tr>
+<tr></tr>
+</table></td></tr>
+</table>
+
+<table>
+<tr>
+<td colspan=2><b><br>ДЕЙСТВИЯ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+<tr>
+<td valign=top width=25%><samp>-exec <i>команда</i> &nbsp;&nbsp;<br>
+-ok <i>команда</i> &nbsp;&nbsp;</samp></td>
+<td valign=top>Выполнение <samp><i>команды</i></samp>. Возвращает "истину", если команда выполнена успешно.<br> Запись команды должна заканчиваться экранированной точкой с запятой. Аргумент команды <samp>{ }</samp> заменяется именем текущего файла.<br>
+ <samp>ok</samp>, в отличие от <samp>exec</samp> запрашивает подтверждения выполнения команды, на которое следует отвечать <samp>'y'</samp> или <samp>'Y'</samp>.
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=25%><samp>-print [<i>формат</i>] &nbsp;&nbsp;<br>
+-fprint <i>файл</i> [<i>формат</i>] &nbsp;&nbsp;<br></samp></td>
+<td valign=top>Вывод полного имени текущего файла в стандартный вывод (<samp>print</samp>) или в <samp><i>файл</i></samp> (<samp>fprint</samp>).<br>
+<samp><i>Формат</i></samp> - символьная строка, в которой задаются спецификации печати. Некоторые из спецификаций:
+<table>
+<tr><td width=10% valign=top><samp>%a</samp></td>
+<td>время последнего доступа к файлу;</td></tr>
+<tr><td width=10% valign=top><samp>%b</samp></td>
+<td>размер файла (в блоках по 512 байт);</td></tr>
+<tr><td width=10% valign=top><samp>%с</samp></td>
+<td>время последнего изменения характеристик файла;</td></tr>
+<tr><td width=10% valign=top><samp>%d</samp></td>
+<td>уровень в дереве каталогов;</td></tr>
+<tr><td width=10% valign=top><samp>%f</samp></td>
+<td>имя файла без маршрута;</td></tr>
+<tr><td width=10% valign=top><samp>%g</samp></td>
+<td>имя группы файла;</td></tr>
+<tr><td width=10% valign=top><samp>%G</samp></td>
+<td>ID группы файла;</td></tr>
+<tr><td width=10% valign=top><samp>%h</samp></td>
+<td>маршрут к файлу (без имени файла);</td></tr>
+<tr><td width=10% valign=top><samp>%k</samp></td>
+<td>размер файла (в Кбайтах);</td></tr>
+<tr><td width=10% valign=top><samp>%m</samp></td>
+<td>биты доступа файла;</td></tr>
+<tr><td width=10% valign=top><samp>%n</samp></td>
+<td>число жестких связей файла;</td></tr>
+<tr><td width=10% valign=top><samp>%p</samp></td>
+<td>полное имя файла;</td></tr>
+<tr><td width=10% valign=top><samp>%s</samp></td>
+<td>размер файла (в байтах);</td></tr>
+<tr><td width=10% valign=top><samp>%t</samp></td>
+<td>время последней модификации файла;</td></tr>
+<tr><td width=10% valign=top><samp>%u</samp></td>
+<td>имя пользователя - владельца файла;</td></tr>
+<tr><td width=10% valign=top><samp>%U</samp></td>
+<td>ID пользователя - владельца файла;</td></tr>
+<tr><td width=10% valign=top><samp>%%</samp></td>
+<td>литерал <samp>%</samp>;</td></tr>
+<tr><td width=10% valign=top><samp>\f</samp></td>
+<td>перевод страницы;</td></tr>
+<tr><td width=10% valign=top><samp>\n</samp></td>
+<td>перевод строки;</td></tr>
+<tr><td width=10% valign=top><samp>\t</samp></td>
+<td>возврат каретки;</td></tr>
+<tr><td width=10% valign=top><samp>\r</samp></td>
+<td>горизонтальная табуляция;</td></tr>
+<tr><td width=10% valign=top><samp>\\</samp></td>
+<td>литерал <samp>\</samp>.</td></tr>
+</table>
+</td>
+</tr>
+<tr></tr>
+</table></td></tr>
+
+<tr>
+<td colspan=2><b><br>ОПЕРАЦИИ</b> (в порядке уменьшения приоритета)</td>
+</tr>
+<tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+<tr>
+<td valign=top width=25%><samp>(<i>выражение</i>) &nbsp;&nbsp;</samp></td>
+<td valign=top>Изменение порядка выполнения.
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=45%><samp>! <i>выражение</i><br> 
+<samp>или</samp><br>
+-not <i>выражение</i><br>&nbsp;&nbsp;</samp></td>
+<td valign=top>Унарное ЛОГИЧЕСКОЕ НЕ.
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=45%><samp><i>выражение1</i> <i>выражение2</i><br> 
+<samp>или</samp><br>
+<i>выражение1</i> -a <i>выражение2</i><br>
+<samp>или</samp><br>
+<i>выражение1</i> -and <i>выражение2</i><br>&nbsp;&nbsp;</samp></td>
+<td valign=top>ЛОГИЧЕСКОЕ И.
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=45%><samp><i>выражение1</i> -o <i>выражение2</i><br> 
+<samp>или</samp><br>
+<i>выражение1</i> -or <i>выражение2</i><br>&nbsp;&nbsp;</samp></td>
+<td valign=top>ЛОГИЧЕСКОЕ ИЛИ.
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=45%><samp><i>выражение1</i> , <i>выражение2</i>&nbsp;&nbsp;</samp></td>
+<td valign=top>Список. Оба выражения вычисляются, конечный результат - результат вычисления <samp><i>выражения2</i></samp>.
+</td>
+</tr>
+<tr></tr>
+</table></td></tr>
+</table>
+
+<p><hr>
+<a href=mind.html#find>Список команд</a>
+</body>
+</html>

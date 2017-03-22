@@ -1,0 +1,77 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+ <TITLE> MV command.</TITLE>
+</head>
+
+<body background=../iip_1.jpg>
+<a name=top>
+
+<p>
+<table width=100%>
+  <tr>
+    <td width=20%>&nbsp;</td>
+    <td>
+      <table border> 
+        <tr><td align=center><big><b>mv</b></big><br>
+            &nbsp;mv - перемещение/переименование файлов &nbsp;
+        </tr></td>
+      </table>
+</td></tr></table>
+
+
+<table>
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td><pre>mv  [опции] файл1 [файл2 ...] целевой_файл</pre>
+</td></tr>
+
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td><p>Команда <samp>mv</samp> перемещает (переименовывает)
+<samp>файл1</samp> в <samp>целевой_файл</samp>.
+<samp>Файл1</samp> не должен совпадать с <samp>целевым_файлом</samp>.
+<p>Если <samp>целевой_файл</samp> является каталогом, то
+<samp>файл1, файл2, ...</samp>, перемещаются в него под своими именами.
+Только в этом случае можно указывать несколько исходных файлов.
+<p>Если <samp>файл1</samp> является каталогом, то он переименовывается
+в <samp>целевой_файл</samp>, только если у этих двух каталогов общий
+надкаталог; при этом все файлы, находившиеся в <samp>файле1</samp>,
+перемещаются под своими именами в <samp>целевой_файл</samp>.
+<p>Если <samp>файл1</samp> является файлом, а <samp>целевой_файл</samp> -
+ссылкой, причем не единственной, на другой файл, то все остальные ссылки
+сохраняются, а <samp>целевой_файл</samp> становится новым независимым файлом. </td></tr>
+
+<tr>
+<td colspan=2><b><br>ОПЦИИ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+<tr>
+<td valign=top width=10%><samp>-b</samp></td>
+<td>изготовление резервной копии целевого файла при его удалении.</td>
+</tr>
+<tr>
+<td valign=top width=10%><samp>-f</samp></td>
+<td>удаление существующих целевых файлов без подтверждения.</td>
+</tr>
+<tr>
+<td valign=top width=10%><samp>-i</samp></td>
+<td>запрос подтверждения при перезаписи существующих целевых файлов.</td>
+</tr>
+</table>
+</td></tr>
+<tr>
+<td colspan=2><b><br>СМ.ТАКЖЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+  <a href=_cp.html>cp</a>,
+  <a href=_ln.html>ln</a>,
+  <a href=_rm.html>rm</a>.
+</td></tr></table>
+
+<p><hr>
+<a href=mind.html#mv>Список команд</a>
+</body>
+</html>

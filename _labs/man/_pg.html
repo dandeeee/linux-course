@@ -1,0 +1,158 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+   <TITLE> PG command.</TITLE>
+</head>
+<body background=../iip_1.jpg>
+
+<a name=top>
+<table border align=center>
+<tr><td align=center>
+<b><big>pg</big></b><br> просмотр файлов на экране </td>
+</tr>
+</table>
+<p></p>
+<table>
+
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td><pre>pg [опции] файл1 файл2 файл3</pre></td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>Команда <samp>pg</samp> позволяет просматривать файлы страницами, равными по размеру экрану. Если имена файлов не заданы или задан символ <samp>-</samp>, то просматривается стандартный ввод. После вывода очередной страницы следует приглашение. Если пользователь нажмет клавишу Enter, то будет выведена очередная страница; остальные возможности перечислены ниже. Эта команда позволяет возвращаться по тексту назад (см.ниже).</td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>ОПЦИИ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+
+<tr>
+<td valign=top width=15%><samp>-<i>число</i></samp></td>
+<td><i>число</i> задает размер (в строках) страницы (по умолчанию - 23) 
+</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>-p <i>приглашение</i></samp></td>
+<td>изменение текста <i>приглашения</i>; строка <i>приглашения</i> содержит <i>%d</i>, то при выводе первая пара символов <i>%d</i> будет заменена номером текущей страницы
+</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>-f</samp></td>
+<td>подавление расщепления строк</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>+<i>номер_строки<i></samp></td>
+<td>указание <i>номера_строки</i>, с которого следует начинать просмотр</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>+/<i>шаблон</i>/</samp></td>
+<td>указание <i>шаблона</i> для поиска строки, с которой начинается просмотр, <i>шаблон</i> задается <a href=brexpr.html>регулярным выражением</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>Команды</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>Когда команда <samp>pg</samp> делает паузу между страницами, пользователь может вводить команды одного из трех типов: просмотра, поиска и изменения режима. 
+<p>Перед командами просмотра может задаваться адрес - число, возможно со знаком, показывающее, с какого места файла продолжать просмотр. Этот адрес, в зависимости от команды, интерпретируется в единицах либо страниц, либо строк. Адрес со знаком задает точку относительно текущей страницы или строки, а адрес без знака - относительно начала файла. 
+<p><b><i>Команды просмотра </i></b>
+<table>
+<tr>
+<td width=15% valign=top><samp>(+1)<i>перевод_строки</i></samp></td>
+<td valign=top>вывод на экран очередной страницы; адрес задается в страницах</td>
+</tr>
+<tr>
+<td width=15% valign=top><samp>(+1)l</samp></td>
+<td valign=top>движение по файлу на заданное количество строк</td>
+</tr>
+<tr>
+<td width=15% valign=top><samp>(+1)d<br><i>CTRL+D</i></samp></td> 
+<td valign=top>перемещение на полэкрана вперед или назад</td>
+</tr>
+<tr>
+<td width=15% valign=top><samp><i>CTRL+L</i></samp></td> 
+<td valign=top>повторный вывод текущей страницы текста. </td>
+</tr>
+<tr>
+<td width=15% valign=top><samp>$</samp></td>
+<td valign=top>вывод последней полной страницы файла</td>
+</tr>
+</table>
+<p><b><i>Команды поиска</i></b>
+<table>
+<tr>
+<td width=15% valign=top><samp>i/<i>шаблон</i>/</samp></td>
+<td valign=top>поиск вперед до i-го (по умолчанию <samp>i=1<.samp>) появления <i><samp>шаблона</samp></i>; поиск начинается сразу после текущей страницы и продолжается до конца файла</td>
+</tr>
+<tr>
+<td width=15% valign=top><samp>i^<i>шаблон</i>^<br>i?<i>шаблон</i>?</samp></td>
+<td valign=top>поиск назад до i-го (по умолчанию <samp>i=1</samp>) появления <i><samp>шаблона</samp></i>; писк начинается сразу перед текущей страницей и продолжается до начала файла</td>
+</tr>
+</table>
+
+<p><b><i>Команды модификации режима</i></b>
+<table>
+<tr>
+<td width=15% valign=top><samp>in</samp></td> 
+<td valign=top>перейти к i-му следующему файлу командной строки (по умолчанию <samp>i=1</samp></td>
+</tr>
+<tr>
+<td width=15% valign=top><samp>ip</samp></td>
+<td valign=top>перейти к i-му предыдущему файлу командной строки (по умолчанию <samp>i=1</samp>)</td>
+</tr>
+<tr>
+<td width=15% valign=top><samp>iw</samp></td>
+<td valign=top>продвижение по файлу на размер окна</td>
+</tr>
+<tr>
+<td width=15% valign=top><samp>s <i>файл</i></samp></td>
+<td valign=top>сохранение входной информацию в заданном <i><samp>файле</samp></i></td>
+</tr>
+<tr>
+<td width=15% valign=top><samp>h
+<td valign=top>вывод справки о доступных командах</td>
+</tr>
+<tr>
+<td width=15% valign=top><samp>q</samp></td> 
+<td valign=top>завершение просмотра файлов </td>
+</tr>
+<tr>
+<td width=15% valign=top><samp>!<i>команда</i></samp></td> 
+<td valign=top><i><samp>команда</samp></i> передается интерпретатору, имя которого представляет собой значение переменной окружения SHELL
+</td>
+</tr>
+</table>
+
+<p>В процессе вывода на терминал пользователь может в любой момент нажать клавиши завершения или прерывания; в результате этого вывод будет прекращен.
+</td>
+</tr>
+</table>
+
+<tr>
+<td colspan=2><b><br>СМ.ТАКЖЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<a href=_ed.html><samp>ed</samp></a>, 
+<a href=_grep.html><samp>grep</samp></a>
+</td>
+</tr>
+
+</table>
+<p><hr>
+<a href=mind.html#pg>Список команд</a>
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+ <TITLE> COMM command.</TITLE>
+</head>
+
+<body background=../iip_1.jpg>
+<a name=top>
+
+<p>
+<table width=100%>
+  <tr>
+    <td width=20%>&nbsp;</td>
+    <td>
+      <table border> 
+        <tr><td align=center><big><b>comm</b></big><br>
+            &nbsp; построчное сравнение двух отсортированных файлов &nbsp;
+        </tr></td>
+      </table>
+</td></tr></table>
+
+
+<table>
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+  <td><pre>comm [опции] файл1 файл2</pre>
+</td></tr>
+
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+  <p>Команда <samp>comm</samp> читает <samp>файл1</samp> и <samp>файл2</samp> (их содержимое должно быть отсортировано в лексикографическом порядке) и выводит результаты в три колонки: 
+<table>
+<tr><td valign=top><samp>-1&nbsp;&nbsp;</samp></td>
+<td>- строки, входящие только в <samp>файл1</samp>;</td></tr>
+<tr><td valign=top><samp>-2&nbsp;&nbsp;</samp></td>
+<td>- строки, входящие только в </samp>файл2</samp>;</td></tr>
+<tr><td valign=top><samp>-3&nbsp;&nbsp;</samp></td>
+<td>- строки, входящие в оба файла; </td></tr>
+<tr><td valign=top><samp>-l&nbsp;&nbsp;</samp></td>
+<td>- предполагает, что входные файлы отсортированы в соответствии с 
+      текущей локализацией. </td></tr>
+</table>
+Знак <samp>-</samp> на месте имени файла означает стандартный ввод. 
+Опции <samp>1</samp>, <samp>2</samp> или <samp>3</samp> подавляют вывод 
+соответствующих колонок. 
+</td></tr>
+
+<tr>
+<td colspan=2><b><br>СМ.ТАКЖЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+  <a href=_cmp.html>cmp</a>,
+  <a href=_diff.html>diff</a>,
+  <a href=_sort.html>sort</a>,
+  <a href=_uniq.html>uniq</a>
+</td></tr></table>
+
+<p><hr>
+<a href=mind.html#comm>Список команд</a>
+</body>
+</html>

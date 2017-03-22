@@ -1,0 +1,150 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+ <TITLE> VI.</TITLE>
+</head>
+
+<body background=../iip_1.jpg>
+<h3 align=center>Очень кратко о редакторе "VI"</h3>
+<p align=right><small>Из книги: М.Мошков "Введение в системное администрирование Unix"</small>
+
+<p>Редактор <samp>vi</samp> имеет три режима:
+<ol>
+<li>Командный - в этом режиме можно перемещаться по файлу и
+выполнять редактирующие команды над текстом. Команды вызываются
+ОБЫЧНЫМИ ЛАТИНСКИМИ БУКВАМИ.
+<li>Ввода текста - в этом режиме обычные латинские буквы будут
+вставляться в текст.
+<li>Режим строчного редактора <samp>ed</samp> используется для управления
+файлами (типа сохранить файл, зачитать файл и т.д.)
+</ol>
+
+Прочитайте предыдущий абзац еще раз. Вы еще не испугались?
+Хорошо. Поехали. Итак:
+<pre>
+     vi имя_файла
+</pre>
+
+<p>VI в КОМАНДНОМ РЕЖИМЕ.
+
+<p>ЧТОБЫ ВЫЙТИ ИЗ ФАЙЛА БЕЗ СОХРАНЕНИЯ, нажмите:
+<pre>
+     ESC : q ! Enter
+</pre>
+
+<p>чтобы выйти из файла, сохранив изменения, нажмите:
+<pre>
+     ESC : w ! Enter
+     ESC : q Enter
+</pre>
+<p>выйти из файла с сохранением, одной командой:
+<pre>
+     ESC : wq Enter
+</pre>
+<p>для перехода В РЕЖИМ ВВОДА нужно нажать команды типа:
+<table>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>i</samp></td>
+<td>вставлять здесь<td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>A</samp></td>
+<td>вставлять с конца строки<td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>cw</samp></td>
+<td>заменять текущее слово<td></tr>
+
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>ESC</samp></td>
+<td>для ВОЗВРАТА В КОМАНДНЫЙ РЕЖИМ<td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>CTRL-[</samp></td>
+<td>для возврата в командный режим<td></tr>
+</table>
+
+<table>
+<tr></tr>
+<tr><td colspan=3>для перехода В РЕЖИМ УПРАВЛЕНИЯ ФАЙЛАМИ нужно нажать</td></tr>
+<td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>:</samp> </td>
+<td>перейти в режим редактора <samp>ed</samp><td></tr>
+</table>
+
+<table>
+<tr><td colspan=3>Двигаться по файлу можно командами:<td></tr>
+
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>h,j,k,l</samp></td>
+<td>влево, вниз, вверх, вправо<td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>Ctrl-F</samp> </td>
+<td>на страницу вниз<td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>Ctrl-B</samp> </td>
+<td>на страницу вверх<td></tr>
+
+<tr><td colspan=3>А если вам очень повезет, то можно будет двигаться стрелочками.<td></tr>
+
+<tr><td colspan=3>Подгоните курсор к нужному месту и нажмите<td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>i</samp></td>
+<td>перевод в режим ввода<td></tr>
+
+<tr><td colspan=3>вводите требуемый текст<td></tr>
+
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>ESC</samp></td>
+<td>прекратить ввод, перейти в командный режим<td></tr>
+
+<tr><td colspan=3>Подгоните курсор к ненужному месту и нажмите<td></tr>
+
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>x</samp></td>
+<td>удалить символ<td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>dd</samp></td>
+<td>удалить строчку<td></tr>
+
+<tr><td colspan=3>Еще парочка полезных команд:<td></tr>
+
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>o</samp></td>
+<td>вставлять с новой строки (под текущей строкой)<td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>a</samp></td>
+<td>в режим ввода ЗА курсором<td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>5yy</samp></td>
+<td>запомнить 5 строчек<td></tr>
+
+<tr><td colspan=3>Подгоните курсор к нужному месту<td></tr>
+
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>p</samp></td>
+<td>вставить запомненные строки под курсором<td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>P</samp></td>
+<td>вставить запомненные строки НАД курсором
+<tr></tr>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>J</samp></td>
+<td>склеить две строки<td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>/Шаблон поиска Enter</samp> <td>
+<td>поиск<td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td width=40% valign=top><samp>n<samp> </td>
+<td>повторить поиск<td></tr>
+</table>
+
+<p>На этом ознакомление с редактором <samp>vi</samp> можно считать законченным.
+Того, кто считает, что <samp>vi</samp> может предоставить больше удобств и
+команд по редактированию, я отсылаю к прилагаемому здесь
+справочнику-памятке "наиболее употребительные команды VI", ну, и, естественно (как всегда), к документации. 
+<hr>
+<ul>
+<li>М.Мошков: справочник-памятка <a href=vim.html>"наиболее употребительные команды VI"
+<li><a href=vi.html>vi - подробнее</a>
+</ul>
+<p><hr>
+<a href=mind.html#vi>Список команд</a>
+</body>
+</html>

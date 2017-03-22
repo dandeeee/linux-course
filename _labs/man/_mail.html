@@ -1,0 +1,116 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+   <TITLE> MAIL command.</TITLE>
+</head>
+<body background=../iip_1.jpg>
+
+<a name=top>
+<table border align=center>
+<tr><td align=center>
+<b><big>mail</big></b><br> отправка пользователям почты или ее чтение </td>
+</tr>
+</table>
+<p></p>
+
+<table>
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr>
+<tr>
+<td width=10%>&nbsp;</td>
+<td>Отправка почты<pre>
+   mail  <i>адресат</I> ...</pre>
+Чтение почты:<pre>
+   mail</pre></td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr>
+<tr><td width=10%>&nbsp;</td>
+<td>
+<p><i><samp>Адресат </samp></i> задается как сетевое имя пользователя.</td>
+</tr></table>
+
+<p><b>Отправка почты</b>
+<p>Для отправки сообщения команда <samp>mail</samp> запускается с параметром - сетевым именем адресата. После запуска команда <samp>mail</samp> выводит сообщение:<pre>
+Subject:
+</pre>
+- и переходит в состояние ожидания ввода. Отправитель должен ввести тему сообщения, затем нажать клавишу <samp>Enter</samp> и вводить текст сообщения.
+Текст сообщения может состоять из нескольких строк и должен заканчиваться 
+нажатием в начале строки комбинации клавиш <samp>Ctrl+D</samp>. После этого
+<samp>mail</samp> выводит сообщение:<pre>
+Сс:
+</pre>
+в ответ на которое Вы можете ввести имя пользователя, которому посылается копия сообщения. Если копия посылаться не должна - нажать клавишу <samp>Enter</samp>.
+
+<p><b>Чтение почты</b>
+<p>Для чтения сообщений команда <samp>mail</samp> запускается без параметров. Если для пользователя нет почты, то после запуска команда <samp>mail</samp> выводит сообщение:<pre>
+No mail for <I>имя пользователя</I>
+</pre>
+- и завершается.
+<p>Если почта есть, то <samp>mail</samp> выводит список имеющихся сообщений, в котором указан статус сообщения, отправитель, дата и время и тема сообщения. После этого <samp>mail</samp> печатает символ "<samp>&amp;</samp>" - приглашение ко вводу внутренних команд <samp>mail</samp>.
+
+<p><b>Основные внутренние команды</b>
+<table>
+<tr>
+<td valign=top width=15%><samp>p</samp></td>
+<td valign=top>печать текущего сообщения; сразу после запуска текущим является
+последнее сообщение.</td>
+</tr>
+<tr>
+<td valign=top width=15%><samp><I>число</I></samp></td>
+<td valign=top>установка номера текущего сообщения и печать текущего сообщения. </td>
+</tr>
+<tr>
+<td valign=top width=15%><samp>+</samp></td>
+<td valign=top>установка текущим следующего сообщения и печать текущего сообщения. </td>
+</tr>
+<tr>
+<td valign=top width=15%><samp>+</samp></td>
+<td valign=top>установка текущим предыдущего сообщения и печать текущего сообщения. </td>
+</tr>
+<tr>
+<td valign=top width=15%><samp>R</samp></td>
+<td valign=top>формирование и посылка ответа на текущее сообщение.</td>
+</tr>
+<tr>
+<td valign=top width=15%><samp>d</samp></td>
+<td valign=top>отметка текущего сообщения как удаленного; реальное удаление произойдет после выхода из <samp>mail</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=15%><samp>u</samp></td>
+<td valign=top>отмена всех отметок об удалении.</td>
+</tr>
+<tr>
+<td valign=top width=15%><samp>s</samp></td>
+<td valign=top>сохранение текущего сообщения в файле <samp>mailbox</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=15%><samp>x</samp></td>
+<td valign=top>окончание работы и выход из <samp>mail</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=15%><samp>?</samp></td>
+<td valign=top>получение подсказки по внутренним командам <samp>mail</samp>.</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td colspan=2><b><br>См. также</b></td>
+</tr>
+<tr><td width=10%>&nbsp;</td>
+
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td>
+  <a href=_write.html>write</a>.
+</td></tr></table>
+<p><hr>
+<a href=mind.html#mail>Список команд</a>
+</body>
+</html>
+
+

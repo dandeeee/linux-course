@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>News List</title>
+<style type="text/css">
+a {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: black; font-size: 8pt; font-weight: bold;
+}
+
+span
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: black; font-size: 10pt; font-weight: normal;
+}
+
+span.date
+{
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #D00000; font-size: 10pt; font-weight: normal;
+}
+</style>
+</head>
+<body>
+<TMPL_if newslist>
+<div align="center" style="width=100%">
+<table cellspacing="0" cellpadding="0" border="0" width="96%">
+<TMPL_foreach newslist as item>
+    <tr><td>
+        <span class="date"><b><i><TMPL_var DATE_FORMAT(date, "%d %b %Y %H:%M")>
+        </i></b></span>
+        <span><b><TMPL_var title></b><br><TMPL_var body><br>
+
+        <TMPL_if publication>
+            <a href="<TMPL_var publication>">Main URL</a><br>
+        </TMPL_if>
+
+        <TMPL_if reporter>
+            <a href="<TMPL_var reporter_url>"><TMPL_var reporter></a><br>
+        </TMPL_if>
+
+        <br>
+        </span>
+    </td></tr>
+</TMPL_foreach>
+</table>
+</div>
+</TMPL_if>
+</body>
+</html>

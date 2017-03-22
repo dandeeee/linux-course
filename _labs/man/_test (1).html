@@ -1,0 +1,104 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+ <TITLE> TEST command.</TITLE>
+</head>
+
+<body background=../iip_1.jpg>
+<a name=top>
+
+<p>
+<table width=100%>
+  <tr>
+    <td width=20%>&nbsp;</td>
+    <td>
+      <table border>
+        <tr><td align=center><big><b>test</b></big><br>
+            &nbsp; проверка условия &nbsp;
+        </tr></td>
+      </table>
+</td></tr></table>
+
+
+<table>
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+  <td><pre>test выражение
+[ выражение ]</pre>
+</td></tr>
+
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>Команда <samp>test</samp> применяется для проверки условия. Она
+вычисляет <samp><i>выражение</i></samp> и, если его значение -
+истина, возвращает код завершения 0; иначе - ненулевое значение.
+Ненулевой код возвращается и в случае, когда выражение отсутствует.
+При проверке прав доступа используется действующий
+идентификатор пользователя.
+<p>Знаки операций, флаги и скобки (второй способ записи команды <samp>test</samp>)
+должны быть
+отдельными аргументами в командной строке; обычно их разделяют пробелами.
+<p>Некоторые примитивы, из которых может состоять выражение:
+<table>
+<tr><td colspan=2><samp>&nbsp;&nbsp;-r <i>файл</i></samp></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>Истина, если файл существует и доступен для чтения.</td></tr>
+<tr><td colspan=2><samp>&nbsp;&nbsp;-w <i>файл</i></samp></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>Истина, если файл существует и доступен для записи.</td></tr>
+<tr><td colspan=2><samp>&nbsp;&nbsp;-x <i>файл</i></samp></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>Истина, если файл существует и является выполняемым.</td></tr>
+<tr><td colspan=2><samp>&nbsp;&nbsp;-f <i>файл</i></samp></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>Истина, если файл существует и является обычным файлом.</td></tr>
+<tr><td colspan=2><samp>&nbsp;&nbsp;-d <i>файл</i></samp></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>Истина, если файл существует и является каталогом.</td></tr>
+<tr><td colspan=2><samp>&nbsp;&nbsp;-s <i>файл</i></samp></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>Истина, если файл существует и имеет ненулевой размер.</td></tr>
+<tr><td colspan=2><samp>&nbsp;&nbsp;-z s1</samp></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>Истина, если длина цепочки <samp>s1</samp> нулевая.</td></tr>
+<tr><td colspan=2><samp>&nbsp;&nbsp;-n s1</samp></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>Истина, если длина цепочки <samp>s1</samp> ненулевая.</td></tr>
+<td><tr><td colspan=2><samp>&nbsp;&nbsp;s1 = s2</samp></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>Истина, если цепочки <samp>s1</samp> и <samp>s2</samp> равны.</td></tr>
+<tr><td colspan=2><samp>&nbsp;&nbsp;s1 != s2</samp></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>Истина, если цепочки <samp>s1</samp> и <samp>s2</samp> не равны.</td></tr>
+<tr><td colspan=2><samp>&nbsp;&nbsp;s1</samp></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>Истина, если <samp>s1</samp> - непустая цепочка.</td></tr>
+<tr><td colspan=2><samp>&nbsp;&nbsp;n1 -eq n2</samp></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>Истина, если целые числа <samp>n1</samp> и <samp>n2</samp> алгебраически равны.
+На месте <samp>-eq</samp> могут быть также операции сравнения <samp>-ne</samp>
+(не равно), <samp>-gt</samp> (больше), <samp>ge</samp> (больше или равно),
+<samp>-lt</samp> (меньше), <samp>-le</samp> (меньше или равно).</td></tr>
+<tr><td colspan=2><samp>&nbsp;&nbsp;( <i>выражение</I> )</samp></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>Истина, если истинно заключенное в скобки выражение (скобки должны
+быть экранированы от интерпретации shell'ом).</td></tr>
+<table>
+
+<p>Примитивы могут комбинироваться с помощью следующих операций (в порядке
+уменьшения приоритета):
+<table>
+<tr><td width=10%><samp>&nbsp;&nbsp;!&nbsp;&nbsp;</samp></td>
+<td>Унарная операция отрицания.</td></tr>
+<tr><td width=10%><samp>&nbsp;&nbsp;-a&nbsp;&nbsp;</samp></td>
+<td>Логическое И.</td></tr>
+<tr><td width=10%><samp>&nbsp;&nbsp;-o&nbsp;&nbsp;</samp></td>
+<td>Логическое ИЛИ.</td></tr>
+</table>
+</td></tr></table>
+
+<p><hr>
+<a href=mind.html#test>Список команд</a>
+</body>
+</html>

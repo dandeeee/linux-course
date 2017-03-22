@@ -1,0 +1,230 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <TITLE>Example 3</TITLE>
+</head>
+<body background=iip_1.jpg>
+<a href=l1_3.html#ex>Назад</a>
+<hr>
+<h3>Пример выполнения лабораторной работы N3</h3>
+<h4>Задание 1</h4>
+<p><i>
+В файле query2 выбрать все строки, в которых в адресе есть улица ("<samp>ST.</samp>").</i>
+<p><b>Решение:</b>
+<ol>
+<li>Адрес в файле <samp>query2</samp> начинается с 31-й позиции (см. <a
+href=fq2a.html>структуру</a> файла). Поэтому нужно прежде всего пропустить
+30 позиций от начала файла, что можно сделать таким подвыражением:
+"<samp>^.\{30\}</samp>" - 30 любых символов от начала файла.
+<li>Улица обозначается в адресе сокращением "<samp>ST.</samp>", и эта подстрока может
+стоять в адресе на любом месте, то есть перед ней могут быть и другие
+символы. Поскольку общая длина адреса - не более 20 символов, перед
+подстрокой, которую мы ищем, может быть не более 17 любых символов,
+что определяется подвыражением: "<samp>.*\{0,17\}</samp>".
+<li>Наконец, следует указать подстроку, которую мы ищем: "<samp>ST.</samp>". Поскольку
+в подстроку входит метасимвол "<samp>.</samp>" (точка), подвыражение для поиска
+вхождения будет иметь вид: "<samp>ST\.</samp>".
+<li>Итоговое регулярное выражение:
+<pre>
+    "^.\{31\}.*\{0,17\}ST\."
+</pre>
+<li>Протокол выполнения:
+</ol>
+<p><table align=center border><tr><td>
+<pre>
+Script started on Thu Sep  5 07:42:02 2002
+bash2-2.05$ <b>grep</b> "^.\{31\}.*\{0,17\}ST\." ../metod/query2
+203:REBOUND SPORTS            :2 E. 14TH ST.        :NEW-YORK       :NY:10009:5555989:10000
+205:POINT GUARD               :20 THURSTON ST.      :YONKERS        :NY:10956:5554766:3000
+211:AT BAT                    :234 BEACHEM ST.      :BROOKLINE      :MA:02146:5557385:8000
+212:ALL SPORT                 :1000 38TH ST.        :BROOKLYN       :NY:11210:5551739:6000
+213:GOOD SPORT                :400 46TH ST.         :SUNNYSIDE      :NY:11104:5553771:5000
+214:AL'S PRO SHOP             :45 SPRUCE ST.        :SPRING         :TX:77388:5555172:8000
+223:VELO SPORTS               :23 WHITE ST.         :MALDEN         :MA:02148:5554983:5000
+228:FITNESS FIRST             :5000 85TH ST.        :JACKSON-HEIGHTS:NY:11372:5558710:4000
+bash2-2.05$ 
+
+Script done on Thu Sep  5 07:42:18 2002
+</pre>
+</td></tr></table>
+<p></p>
+<hr>
+
+
+<h4>Задание 2</h4>
+<p><i>
+В файле <samp>query1</samp> выбрать все строки, в которых зарплата составляет
+целое число тысяч.</i>
+<p><b>Решение 1:</b>
+<ol>
+<li>Согласно <a href=fq1a.html>структуре</a> файла, столбец зарплаты начинается с
+позиции 60, поэтому - подвыражение: "<samp>^.\{59\}</samp>".
+<li>Если зарплата составляет целое число тысяч, то в ней содержится одна или
+несколько цифр, за которыми следует три нуля - подвыражение:
+"<samp>[0-9]\{1,\}000</samp>". <li>Однако возможна (теоретически) зарплата,
+например "<samp>10001</samp>", поэтому стоит позаботиться о том, чтобы 
+следующие за
+тремя нулями символы были отличны от значащих цифр. Таких символов может быть
+сколько угодно, и это условие можно обеспечить подвыражением: "<samp>[^0-9]*</samp>".
+<li>Итоговое регулярное выражение:
+<pre>
+    "^.\{59\}[0-9]\{1,\}000[^0-9]*"
+</pre>
+<li>Протокол выполнения:
+</ol>
+<p><table align=center border><tr><td>
+<pre>
+Script started on Thu Sep  5 07:44:14 2002
+bash2-2.05$ <b>grep</b> "^.\{59\}[0-9]\{1,\}000[^0-9]*" ../metod/query1
+7569 CHRIS     L ALBERTS   MANAGER     RESEARCH   NEW-YORK 3000
+7788 DONALD    T SCOTT     ANALYST     RESEARCH   DALLAS   3000
+7799 MATTHEW   G FISHER    ANALYST     RESEARCH   NEW-YORK 3000
+7839 FRANCIS   A KING      PRESIDENT   ACCOUNTING NEW-YORK 5000
+7902 JENNIFER  D FORD      ANALYST     RESEARCH   DALLAS   3000
+bash2-2.05$
+
+Script done on Thu Sep  5 07:44:19 2002
+</pre>
+</td></tr></table>
+<p></p>
+<hr width=50%>
+<p><b>Решение 2:</b>
+<ol>
+<li>Поскольку зарплата является последним полем строки файла
+<samp>query1</samp>, возможно, можно просто потребовать, чтобы три нуля были
+последними символами строки и сформулировать регулярное выражение таким
+образом: "<samp>000$</samp>". Однако, такое решение может наткнуться на
+неочевидное препятствие. Все зависит от того, какими средствами был подготовлен
+исходный файл <samp>query1</samp> (особенно, если он был перенесен из другой
+системы). 
+<br>Дело в том, что разные программы и редакторы используют разные
+способы перевода строки, и в конце строки могут оказаться некоторые
+дополнительные (невидимые "невооруженным глазом" символы. Таким образом,
+последний 0 в зарплате может еще не быть последним символом строки. Как
+правило, увидеть эти дополнительные символы можно, выполнив команду <samp>cat</samp>
+с опцией <samp>-v</samp>. В этом случае на выдаче команды <samp>cat</samp>
+можно увидеть непечатный символ, показываемый, например, как: "<samp>^M</samp>".
+<li>Следующие протокол иллюстрирует этот случай:
+</ol>
+<p><table align=center border><tr><td>
+<pre>
+Script started on Thu Sep  5 07:45:53 2002
+bash2-2.05$ <b>grep</b> "000$" ../metod/query1
+bash2-2.05$ <b>cat</b> -v ../metod/query1
+7369 JOHN      Q SMITH     CLERK       RESEARCH   DALLAS   800^M
+7499 KEVIN     J ALLEN     SALESPERSON SALES      CHICAGO  1600^M
+7505 JEAN      K DOYLE     MANAGER     SALES      NEW-YORK 2850^M
+7506 LYNN      S DENNIS    MANAGER     SALES      DALLAS   2750^M
+7507 LESLIE    D BAKER     MANAGER     OPERATIONS NEW-YORK 2200^M
+7521 CYNTHIA   D WARD      SALESPERSON SALES      CHICAGO  1250^M
+7555 DANIEL    T PETERS    SALESPERSON SALES      NEW-YORK 1250^M
+7557 KAREN     P SHAW      SALESPERSON SALES      NEW-YORK 1250^M
+7560 SARAH     S DUNCAN    SALESPERSON SALES      DALLAS   1250^M
+7564 GREGORY   J LANGE     SALESPERSON SALES      DALLAS   1250^M
+7566 TERRY     M JONES     MANAGER     RESEARCH   DALLAS   2975^M
+7569 CHRIS     L ALBERTS   MANAGER     RESEARCH   NEW-YORK 3000^M
+7600 RAYMOND   Y PORTER    SALESPERSON SALES      NEW-YORK 1250^M
+7609 RICHARD   M LEWIS     STAFF       OPERATIONS DALLAS   1800^M
+7654 KENNETH   J MARTIN    SALESPERSON SALES      CHICAGO  1250^M
+7676 DENISE    D SOMMERS   STAFF       OPERATIONS CHICAGO  1850^M
+7698 MARION    S BLAKE     MANAGER     SALES      CHICAGO  2850^M
+7782 CAROL     F CLARK     MANAGER     ACCOUNTING NEW-YORK 2450^M
+7788 DONALD    T SCOTT     ANALYST     RESEARCH   DALLAS   3000^M
+7789 LIVIA     N WEST      SALESPERSON SALES      DALLAS   1500^M
+7799 MATTHEW   G FISHER    ANALYST     RESEARCH   NEW-YORK 3000^M
+7820 PAUL      S ROSS      SALESPERSON SALES      BOSTON   1300^M
+7839 FRANCIS   A KING      PRESIDENT   ACCOUNTING NEW-YORK 5000^M
+7876 DIANE     G ADAMS     CLERK       RESEARCH   DALLAS   1100^M
+7900 FRED      S JAMES     CLERK       SALES      CHICAGO  950^M
+7902 JENNIFER  D FORD      ANALYST     RESEARCH   DALLAS   3000^M
+7916 GRACE     M ROBERTS   ANALYST     RESEARCH   NEW-YORK 2875^M
+7919 MICHAEL   A DOUGLAS   CLERK       RESEARCH   NEW-YORK 800^M
+7934 BARBARA   M MILLER    CLERK       ACCOUNTING NEW-YORK 1300^M
+7950 ALICE     B JENSEN    CLERK       SALES      NEW-YORK 750^M
+7954 JAMES     T MURRAY    CLERK       SALES      DALLAS   750^M
+bash2-2.05$
+
+Script done on Thu Sep  5 07:46:12 2002
+</pre>
+</td></tr></table>
+<p></p>
+<hr width=50%>
+<p><b>Решение 3:</b>
+<ol>
+<li>Уточним логику предыдущего решения, оказавшегося неправильным. За тремя
+нулями перед концом строки может следовать (а может и не следовать) еще один
+символ, отличный от значащей цифры:
+<pre>
+    "000[^0-9]\{0,1\}"
+</pre>
+<li>Протокол выполнения:
+</ol>
+<p><table align=center border><tr><td>
+<pre>
+Script started on Thu Sep  5 07:48:12 2002
+bash2-2.05$ <b>grep</b> "000[^0-9]\{0,1\}" ../metod/query1
+7569 CHRIS     L ALBERTS   MANAGER     RESEARCH   NEW-YORK 3000
+7788 DONALD    T SCOTT     ANALYST     RESEARCH   DALLAS   3000
+7799 MATTHEW   G FISHER    ANALYST     RESEARCH   NEW-YORK 3000
+7839 FRANCIS   A KING      PRESIDENT   ACCOUNTING NEW-YORK 5000
+7902 JENNIFER  D FORD      ANALYST     RESEARCH   DALLAS   3000
+bash2-2.05$
+
+Script done on Thu Sep  5 07:48:15 2002
+</pre>
+</td></tr></table>
+<p></p>
+<hr>
+
+
+<h4>Задание 3</h4>
+<p><i>В файле <samp>query4</samp> выбрать все строки, в которых дата продажи - весна 1990
+г.</i>
+<p><b>Решение:</b>
+<ol>
+<li>По <a href=fq4a.html>структуре</a> файла <samp>query4</samp> видно, что дата
+представляется достаточно легко распознаваемым способом:
+<samp><i>год-месяц-число</i></samp>, таким образом, при поиске даты,
+удовлетворяющей нашим требованиям можно не привязываться к определенным
+позициям в строке, а просто искать выражение вида:
+"<samp>[0-9]-<i>весенний_месяц</i>-[0-9]</samp>".
+<li>Как распознать <samp><i>весенний_месяц</i></samp>? Весенние месяцы -
+<samp>"MAR"</samp>, <samp>"APR"</samp>, <samp>"MAY"</samp>. Первая буква
+весеннего месяца должна быть "<samp>M</samp>" или "<samp>A</samp>", вторая -
+"<samp>A</samp>" или "<samp>P</samp>", третья -
+"<samp>R</samp>" или "<samp>Y</samp>". Из этих букв
+можно сложить буквосочетания, обозначающие весенние месяцы, а все другие
+возможные буквосочетания не являются обозначениями месяцев вообще. Таким
+образом, шаблон для распознавания весеннего месяца будет:
+"<samp>[MA][AP][RY]</samp>".
+<li>Итоговое регулярное выражение:
+<pre>
+    "[0-9]-[MA][AP][RY]-[0-9]"
+</pre>
+<li>Протокол выполнения:
+</ol>
+<p><table align=center border><tr><td>
+<pre>
+bash2-2.05$ <b>grep</b> "[0-9]-[MA][AP][RY]-[0-9]" ../metod/query4
+620 TURNER 100 12-MAR-91 4450
+526 WEST   221 04-MAR-90 7700
+555 WEST   221 04-MAR-91 8540
+528 WEST   224 24-MAR-90 3770
+558 WEST   224 31-MAR-91 1700
+503 SHAW   201 25-MAR-89 1876
+562 SHAW   203 04-MAY-91 2044.5
+536 SHAW   206 21-MAY-90 2135.6
+561 ROSS   207 20-APR-91 2558.3
+506 DUNCAN 208 27-APR-89 2600.4
+530 DUNCAN 208 03-APR-90 3026.5
+557 DUNCAN 208 08-MAR-91 2461.8
+bash2-2.05$
+
+Script done on Thu Sep  5 07:51:47 2002
+</pre>
+</td></tr></table>
+<p></p>
+<hr>
+<a href=l1_3.html#ex>Назад</a>
+</body>
+</html>

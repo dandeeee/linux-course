@@ -1,0 +1,307 @@
+<html>
+<head>
+   <TITLE>Example 3</TITLE>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body background=iip_1.jpg>
+<a href=l1_1.html#ex>Назад</a>
+<hr>
+<h3>Пример отчета по лабораторной работе N1</h3>
+<p>Ниже приведен протокол выполнения контрольных команд лабораторной работы N1.
+Команды, вводимые пользователем, выделены <samp><b>прямым жирным</b></samp> шрифтом.
+Наши комментарии выделены <samp><b><i>наклонным жирным</i></b></samp> шрифтом.
+
+<p><table align=center border>
+<tr><td><pre>
+<i><b>Команда ls демонстрирует файлы в домашнем каталоге.</b></i>
+
+bash2-2.05$ <b>ls</b> -la
+итого 24
+drwx------    2 ap10999  ap109        4096 Сен  5 19:20 .
+drwxr-xr-x  178 root     root         4096 Сен  3 07:00 ..
+-rw-------    1 ap10999  students     2956 Сен  5 19:09 .bash_history
+-rw-r--r--    1 ap10999  students      201 Сен  3 08:41 Hum-Dum.txt
+-rw-r--r--    1 ap10999  students     3831 Сен  5 19:08 mbox
+-rw-r--r--    1 ap10999  students        0 Сен  5 19:20 p2
+-rw-------    1 ap10999  students      469 Сен  5 19:20 sonet98.txt
+
+<i><b>Файлы *.txt - текстовые файлы, созданные нами.
+Файл mbox - сохраненные почтовые сообщения.
+Файл p2 - файл, в котором сохраняется данный протокол.</b></i></pre>
+</td></tr></table><p></p><p></p>
+
+<table align=center border>
+<tr><td><pre>
+<i><b>Распечатка командой cat созданных текстовых файлов.</b></i>
+
+bash2-2.05$ <b>cat</b> sonet98.txt
+Нас разлучил апрель цветущий, бурный.
+Все оживил он веяньем своим.
+В ночи звезда тяжелая Сатурна
+Смеялась и плясала вместе с ним.
+Но гомон птиц и запахи и краски
+Бесчисленных цветов не помогли
+Рождению моей весенней сказки.
+Не рвал я пестрых первенцев земли.
+Раскрывшиеся чаши снежных лилий,
+Пурпурных роз душистый первый цвет,
+Напоминая, мне не заменили
+Ланит и уст, которым равных нет.
+Была зима во мне, а блеск весенний
+Мне показался тенью милой тени.
+       
+bash2-2.05$ <b>cat</b> Hum-Dum.txt
+Humpty-Dumpty
+Set on the wall.
+Humpty-Dumpty
+Had a greate fall.
+And all the king's horses,
+And all the king's man.
+Can not Humpty,
+Can not Dumpty,
+Humpty-Dumpty,
+Dumpty-Humpty,
+Set on this wall
+Again.</pre>
+</td></tr>
+</table><p></p><p></p>
+
+<table align=center border>
+<tr><td><pre>
+<b><i>Связь при помощи команды mail.</i></b>
+
+<b><i>Распечатка содержимого почтового ящика. 
+</i>Прямым жирным <i>шрифтом выделены адреса и тексты сообщений.</i></b>
+
+bash2-2.05$ <b>cat</b> mbox
+From ap10998  Thu Sep  5 19:02:08 2002
+Return-Path: <ap10998@pegas.mipk.kharkiv.edu>
+Received: (<b>from ap10998@localhost</b>)
+	by pegas.mipk.kharkiv.edu (8.11.6/8.11.6) id g85G28K01815
+	for ap10999; Thu, 5 Sep 2002 19:02:08 +0300
+Date: Thu, 5 Sep 2002 19:02:08 +0300
+From: AP109 Test User #98 <ap10998@pegas.mipk.kharkiv.edu>
+Message-Id: <200209051602.g85G28K01815@pegas.mipk.kharkiv.edu>
+To: ap10999@pegas.mipk.kharkiv.edu
+Subject: Talk
+Status: R
+
+<b>У Вас зазвонил телефон.</b>
+
+From ap10999  Thu Sep  5 19:03:03 2002
+Return-Path: <ap10999@pegas.mipk.kharkiv.edu>
+Received: (<b>from ap10999@localhost</b>)
+	by pegas.mipk.kharkiv.edu (8.11.6/8.11.6) id g85G33D01820;
+	Thu, 5 Sep 2002 19:03:03 +0300
+Date: Thu, 5 Sep 2002 19:03:03 +0300
+From: AP109 Test User #99 <ap10999@pegas.mipk.kharkiv.edu>
+Message-Id: <200209051603.g85G33D01820@pegas.mipk.kharkiv.edu>
+To: ap10998@pegas.mipk.kharkiv.edu, ap10999@pegas.mipk.kharkiv.edu
+Subject: Re: Talk
+Status: R
+
+<b>Кто говорит?</b>
+
+From ap10998  Thu Sep  5 19:04:14 2002
+Return-Path: <ap10998@pegas.mipk.kharkiv.edu>
+Received: (from <b>ap10998@localhost</b>)
+	by pegas.mipk.kharkiv.edu (8.11.6/8.11.6) id g85G4EP01828;
+	Thu, 5 Sep 2002 19:04:14 +0300
+Date: Thu, 5 Sep 2002 19:04:14 +0300
+From: AP109 Test User #98 <ap10998@pegas.mipk.kharkiv.edu>
+Message-Id: <200209051604.g85G4EP01828@pegas.mipk.kharkiv.edu>
+To: ap10998@pegas.mipk.kharkiv.edu, ap10999@pegas.mipk.kharkiv.edu
+Subject: Re: Talk
+Status: R
+
+<b>Слон.</b>
+
+From ap10999  Thu Sep  5 19:05:02 2002
+Return-Path: <ap10999@pegas.mipk.kharkiv.edu>
+Received: (<b>from ap10999@localhost</b>)
+	by pegas.mipk.kharkiv.edu (8.11.6/8.11.6) id g85G52801836;
+	Thu, 5 Sep 2002 19:05:02 +0300
+Date: Thu, 5 Sep 2002 19:05:02 +0300
+From: AP109 Test User #99 <ap10999@pegas.mipk.kharkiv.edu>
+Message-Id: <200209051605.g85G52801836@pegas.mipk.kharkiv.edu>
+To: ap10998@pegas.mipk.kharkiv.edu, ap10999@pegas.mipk.kharkiv.edu
+Subject: Re: Talk
+Status: R
+
+<b>Откуда?</b>
+
+From ap10998  Thu Sep  5 19:05:57 2002
+Return-Path: <ap10998@pegas.mipk.kharkiv.edu>
+Received: (<b>from ap10998@localhost</b>)
+	by pegas.mipk.kharkiv.edu (8.11.6/8.11.6) id g85G5vK01845;
+	Thu, 5 Sep 2002 19:05:57 +0300
+Date: Thu, 5 Sep 2002 19:05:57 +0300
+From: AP109 Test User #98 <ap10998@pegas.mipk.kharkiv.edu>
+Message-Id: <200209051605.g85G5vK01845@pegas.mipk.kharkiv.edu>
+To: ap10998@pegas.mipk.kharkiv.edu, ap10999@pegas.mipk.kharkiv.edu
+Subject: Re: Talk
+Status: R
+
+<b>От Верблюда.</b>
+
+From ap10999  Thu Sep  5 19:06:44 2002
+Return-Path: <ap10999@pegas.mipk.kharkiv.edu>
+Received: (<b>from ap10999@localhost</b>)
+	by pegas.mipk.kharkiv.edu (8.11.6/8.11.6) id g85G6iZ01852;
+	Thu, 5 Sep 2002 19:06:44 +0300
+Date: Thu, 5 Sep 2002 19:06:44 +0300
+From: AP109 Test User #99 <ap10999@pegas.mipk.kharkiv.edu>
+Message-Id: <200209051606.g85G6iZ01852@pegas.mipk.kharkiv.edu>
+To: ap10998@pegas.mipk.kharkiv.edu, ap10999@pegas.mipk.kharkiv.edu
+Subject: Re: Talk
+Status: R
+
+<b>Что Вам надо?</b>
+
+From ap10998  Thu Sep  5 19:07:31 2002
+Return-Path: <ap10998@pegas.mipk.kharkiv.edu>
+Received: (<b>from ap10998@localhost</b>)
+	by pegas.mipk.kharkiv.edu (8.11.6/8.11.6) id g85G7UA01859;
+	Thu, 5 Sep 2002 19:07:30 +0300
+Date: Thu, 5 Sep 2002 19:07:30 +0300
+From: AP109 Test User #98 <ap10998@pegas.mipk.kharkiv.edu>
+Message-Id: <200209051607.g85G7UA01859@pegas.mipk.kharkiv.edu>
+To: ap10998@pegas.mipk.kharkiv.edu, ap10999@pegas.mipk.kharkiv.edu
+Subject: Re: Talk
+Status: R
+
+<b>Шоколада.</b>
+
+From ap10999  Thu Sep  5 19:08:11 2002
+Return-Path: <ap10999@pegas.mipk.kharkiv.edu>
+Received: (<b>from ap10999@localhost</b>)
+	by pegas.mipk.kharkiv.edu (8.11.6/8.11.6) id g85G8BY01866;
+	Thu, 5 Sep 2002 19:08:11 +0300
+Date: Thu, 5 Sep 2002 19:08:11 +0300
+From: AP109 Test User #99 <ap10999@pegas.mipk.kharkiv.edu>
+Message-Id: <200209051608.g85G8BY01866@pegas.mipk.kharkiv.edu>
+To: ap10998@pegas.mipk.kharkiv.edu, ap10999@pegas.mipk.kharkiv.edu
+Subject: Re: Talk
+Status: R
+
+<b>Вы не туда попали.</b>
+</pre></td></tr>
+</table><p></p><p></p>
+
+
+<table align=center border>
+<tr><td><table>
+<tr><td align=center colspan=2><big><b><i>Диалог при помощи команды write</i></b></big></td></tr>
+<tr>
+<td><b><i>Пользователь ap10998</i></b></td>
+<td><b><i>Пользователь ap10999</i></b></td>
+</tr>
+<tr>
+<td><pre>
+bash2-2.05$ <b>write</b> ap10999
+У Вас зазвонил телефон.
+&lt;Ctrl+D&gt;</pre></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><pre>
+Message from ap10998@pegas.mipk.kharkiv.edu on pts/3 at 07:31 ...
+У Вас зазвонил телефон.
+EOF
+bash2-2.05$ <b>write</b> ap10998
+Кто говорит?
+&lt;Ctrl+D&gt;
+</pre></td>
+</tr>
+<tr>
+<td><pre>
+Message from ap109999pegas.mipk.kharkiv.edu on pts/4 at 07:31 ...
+Кто говорит?
+EOF
+bash2-2.05$ <b>write</b> ap10999
+Слон.
+&lt;Ctrl+D&gt;
+</pre></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><pre>
+Message from ap10998@pegas.mipk.kharkiv.edu on pts/3 at 07:32 ...
+Слон.
+EOF
+bash2-2.05$ <b>write</b> ap10998
+Откуда?
+&lt;Ctrl+D&gt;
+</pre></td>
+</tr>
+<tr>
+<td><pre>
+Message from ap109999pegas.mipk.kharkiv.edu on pts/4 at 07:32 ...
+Откуда?
+EOF
+bash2-2.05$ <b>write</b> ap10999
+От Верблюда.
+&lt;Ctrl+D&gt;
+</pre></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><pre>
+Message from ap10998@pegas.mipk.kharkiv.edu on pts/3 at 07:33 ...
+От Верблюда.
+EOF
+bash2-2.05$ <b>write</b> ap10998
+Что Вам надо?
+&lt;Ctrl+D&gt;
+</pre></td>
+</tr>
+<tr>
+<td><pre>
+Message from ap109999pegas.mipk.kharkiv.edu on pts/4 at 07:33 ...
+Что Вам надо?
+EOF
+8bash2-2.05$ <b>write</b> ap10999
+Шоколада.
+&lt;Ctrl+D&gt;
+</pre></td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><pre>
+Message from ap10998@pegas.mipk.kharkiv.edu on pts/3 at 07:34 ...
+Шоколада
+EOF
+bash2-2.05$ <b>write</b> ap10998
+Вы не туда попали.
+Я заблокирую терминал.
+&lt;Ctrl+D&gt;
+bash2-2.05$ mesg n
+bash2-2.05$
+</pre></td>
+</tr>
+<tr>
+<td><pre>
+Message from ap109999pegas.mipk.kharkiv.edu on pts/4 at 07:31 ...
+bash2-2.05$ <b>write</b> ap10999
+Вы не туда попали.
+Я заблокирую терминал.
+EOF
+bash2-2.05$ <b>write</b> ap10999
+write: ap10999 has messages disabled
+bash2-2.05$
+</pre></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+</td></tr></table>
+
+<p></p>
+<p></p>               
+<hr>   
+<a href=l1_1.html#ex>Назад</a>
+</body>
+</html>

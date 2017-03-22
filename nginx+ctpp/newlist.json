@@ -1,0 +1,32 @@
+{
+"newslist" :
+[
+	{
+		"date"  : 1169090455,
+		"title" : "FreeBSD 6.3-RELEASE is now available",
+		"body"  : "Please ......."
+	},
+	{
+		"date"  : 1169019722,
+		"title" : "New RSS Feeds",
+		"body"  : "Six new ......."
+	},
+	{
+		"date"  : 1169010455,
+		"title" : "$199 Linux PC Now Available at Sears.com",
+		"body"  : "Linspire, Inc ........",
+
+		"publication"  : "http:// .......",
+		"reporter"     : "SOURCE Linspire, Inc."
+	},
+	{
+		"date"  : 1168840430,
+		"title" : "Samba's Tridge clusters code and crowds",
+		"body"  : "Andrew .......",
+
+		"publication"  : "http:// .......",
+		"reporter"     : "Dahna McConnachie",
+		"reporter_url" : "http:// ......."
+	}
+]
+}

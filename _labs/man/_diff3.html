@@ -1,0 +1,99 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+   <TITLE> DIFF3 command.</TITLE>
+</head>
+<body background=../iip_1.jpg>
+
+<a name=top>
+<table border align=center>
+<tr><td align=center>
+<b><big>diff3</big></b><br> поиск различий между тремя файлами </td>
+</tr>
+</table>
+<p></p>
+<table>
+
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td><pre>diff3 [опции] файл1 файл2 файл3</pre></td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>Команда <samp>diff3</samp> сравнивает содержимое трех файлов и выводит описание различий между ними. Одно из имен файлов может быть <samp>-</samp> (знак "минус"), это означает, что текст должен читаться из стандартного ввода.
+<p>Команда <samp>diff3</samp> выдает различающиеся фрагменты текста, помеченные следующим образом: 
+<table width=100%>
+<tr><td width=15%><samp>====</samp></td>
+<td>Все три файла различны.</td></tr>
+<tr><td width=15%><samp>====1</samp></td>
+<td>Отличия в <samp>файле1</samp>.</td></tr>
+<tr><td width=15%><samp>====2</samp></td>
+<td>Отличия в <samp>файле2</samp>.</td></tr>
+<tr><td width=15%><samp>====3</samp></td>
+<td>Отличия в <samp>файле3</samp>.</td></tr>
+</table>
+<p>Изменения, которые необходимо произвести, чтобы отмеченный фрагмент одного файла привести в соответствие с другим файлом, указываются командой <samp>diff3</samp> одним из следующих способов: <pre>
+  f: n1 a 
+     Добавить текст в файл f, где f = 1, 2 или 3, после
+     строки n1.
+  f: n1,n2 c 
+     Изменить текст в строках с n1  по n2. Если  n1=n2,
+     то запись может быть сокращена до n1.</pre>
+<p>Исходный вид изменяемых строк приводится сразу после символа <samp>c</samp>. Если два файла совпадают, то вид изменяемых строк приводится только для файла с большим номером.</td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>ОПЦИИ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+<tr>
+<td valign=top width=7%><samp>-e</samp></td>
+<td>Сгенерировать набор команд для редактора ed, который добавляет к файлу1 отличия между файлом2 и файлом3 , то есть фрагменты, которые в нормальном режиме помечаются как <samp>====</samp> и <samp>====3</samp>. </td>
+</tr>
+<tr>
+<td valign=top width=7%><samp>-x</samp></td>
+<td>То же что и <samp>-e</samp>, но для фрагментов, помечаемых, как <samp>====</samp>.</td>
+</tr>
+<tr>
+<td valign=top width=7%><samp>-3</samp></td>
+<td>То же что и <samp>-e</samp>, но для фрагментов, помечаемых, как <samp>====3</samp>.</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>СМ.ТАКЖЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<a href=_cmp.html><samp>cmp</samp></a>, 
+<a href=_comm.html><samp>comm</samp></a>, 
+<a href=_diff.html><samp>diff</samp></a>, 
+<a href=_ed.html><samp>ed</samp></a>.
+</td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>КОДЫ ЗАВЕРШЕНИЯ </b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+<tr><td><samp>0&nbsp;&nbsp;&nbsp;</samp></td>
+<td>Различий нет.</td></tr>
+<tr><td><samp>1&nbsp;&nbsp;&nbsp;</samp></td>
+<td>Различия есть.</td></tr>
+<tr><td><samp>2&nbsp;&nbsp;&nbsp;</samp></td>
+<td>При выполнении команды зафиксированы ошибки.</td></tr>
+</table>
+</td>
+</tr>
+</table>
+<p><hr>
+<a href=mind.html#diff3>Список команд</a>
+</body>
+</html>
+

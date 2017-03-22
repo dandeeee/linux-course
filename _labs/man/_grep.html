@@ -1,0 +1,98 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+   <TITLE> GREP command.</TITLE>
+</head>
+<body background=../iip_1.jpg>
+
+<a name=top>
+
+<p>
+<table width=100%>
+<tr><td width=20%>&nbsp;</td>
+<td>
+<table border> 
+  <tr><td align=center><big><b>grep</b></big><br>
+    &nbsp;&nbsp; поиск по шаблону, заданному регулярным выражением &nbsp;&nbsp;
+  </tr></td>
+</table>
+</td></tr></table>
+
+
+<p><b>Синтаксис</b>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td>
+<pre>
+    grep [опции] [шаблон] [файл...]
+</pre>
+</td></tr></table>
+
+<p><b>Описание</b>
+
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td>
+  <p>Команда <samp>grep</samp> выполняет поиск строк, соответствующих
+  <samp>шаблону</samp>,
+  заданному <a href=brexpr.html>регулярным_выражением</a>, в
+  <samp>файлах</samp> или во
+  входном потоке. Если команда задана без опций, выводятся все 
+  найденные строки. Если имя файла не задано, команда выполняет поиск
+  во входном потоке. Если задано несколько имен файлов или в составе имени
+  файла использован символ <samp>'*'</samp>, <samp>grep</samp> перед строкой 
+  выводит имя файла, которому эта строка принадлежит.
+</td></tr></table>
+
+<p><b>Опции</b>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td>
+<p><table>
+  <tr>
+    <td width=10% valign=top><samp>-c&nbsp;&nbsp;</samp></td>
+    <td valign=top>выводится <u>только</u> число строк файла, соответствующих шаблону</td>
+  </tr>
+  <tr>
+    <td width=10% valign=top><samp>-f <i>файл</i>&nbsp;&nbsp;</samp></td>
+    <td valign=top>чтение шаблона из <i>файла</i></td>   </tr>
+  <tr>
+    <td width=10% valign=top><samp>-h&nbsp;&nbsp;</samp></td>
+    <td valign=top>не выводятся имена файлов, в которых найдены строки, 
+                   соответствующие шаблону</td>
+  </tr>
+  <tr>
+    <td width=10% valign=top><samp>-i&nbsp;&nbsp;</samp></td>
+    <td valign=top>игнорирование верхнего/нижнего регистров</td>
+  </tr>
+  <tr>
+    <td width=10% valign=top><samp>-l&nbsp;&nbsp;</samp></td>
+    <td valign=top>выводятся <u>только</u> имена файлов, в которых найдены
+строки,                    соответствующие шаблону</td>
+  </tr>
+  <tr>
+    <td width=10% valign=top><samp>-n&nbsp;&nbsp;</samp></td>
+    <td valign=top>перед каждой выводимой строкой выводится ее номер в файле</td>
+  </tr>
+  <tr>
+    <td width=10% valign=top><samp>-v&nbsp;&nbsp;</samp></td>
+    <td valign=top>ищутся строки, <u>не</u> соответствующие заданному
+шаблону</td>   </tr>
+  <tr>
+    <td width=10% valign=top><samp>-w&nbsp;&nbsp;</samp></td>
+    <td valign=top>ищутся слова, <u>полностью</u> соответствующие шаблону</td>
+  </tr>
+  <tr>
+    <td width=10% valign=top><samp>-x&nbsp;&nbsp;</samp></td>
+    <td valign=top>ищутся строки, <u>полностью</u> соответствующие
+шаблону</td>   </tr>
+</table>
+</td></tr></table>
+
+<p><hr>
+<a href=mind.html#grep>Список команд</a>
+</body>
+</html>
+
+
+

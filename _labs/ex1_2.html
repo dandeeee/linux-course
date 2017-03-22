@@ -1,0 +1,398 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <TITLE>Example 2</TITLE>
+</head>
+<body background=iip_1.jpg>
+<a href=l1_2.html#ex>Назад</a>
+<hr>
+<h3>Пример выполнения лабораторной работы N2</h3>
+<p>В данном примере мы выполняем лабораторную работу в сеансе
+пользователя с сетевым именем "ap10999". Соответственно, домашний
+каталог этого пользователя - <samp>/home/ap10999</samp>.
+В процессе работы нашему
+пользователю приходится взаимодействовать с пользователем "ap10998". 
+<p>В нашем примере мы создаем следующую структуру каталогов:
+<p align=center><img src=var99.gif>
+<p>За основу взят файл <samp>Hum-Dum.txt</samp> из примера к 
+предыдущей лабораторной работе.
+<p>Ниже приведен протокол выполнения команд лабораторной работы N2.
+Команды, вводимые пользователем, выделены <samp><b>прямым жирным</b></samp> шрифтом.
+Наши комментарии выделены <samp><b><i>наклонным жирным</i></b></samp> шрифтом.
+<h4>Создание структуры каталогов и файлов</h4>
+<p>
+<p><table align=center border>
+<tr><td><pre>
+<b><i>Создание рабочей копии файла и внесение в нее 
+версионных изменений.</i></b>
+ 
+bash2-2.05$ <b>cp</b> Hum-Dum.txt HD
+bash2-2.05$ <b>ed</b> HD
+201
+1i
+Версия 1
+.
+w
+210
+q
+
+<b><i>Создание подкаталога D1 и новой версии файла в нем.</i></b>
+
+bash2-2.05$ <b>mkdir</b> D1
+bash2-2.05$ <b>cd</b> D1
+bash2-2.05$ <b>cp</b> ../HD HD
+bash2-2.05$ <b>ed</b> HD
+210
+1c
+Версия 2
+.
+w
+210
+q
+
+<b><i>Создание подкаталога D3 и мягкой ссылки в нем.</i></b>
+
+bash2-2.05$ <b>mkdir</b> D3
+bash2-2.05$ <b>cd</b> D3
+bash2-2.05$ <b>ln</b> -s ../HD HD
+
+<b><i>Создание подкаталога D6 и жесткой ссылки в нем.</i></b>
+
+bash2-2.05$ <b>mkdir</b> D6
+bash2-2.05$ <b>cd</b> D6
+bash2-2.05$ <b>ln</b> ../../../HD HD
+
+<b><i>Возврат в домашний каталог.</i></b>
+
+bash2-2.05$ <b>cd</b>
+
+<b><i>Создание подкаталога D2 и подкаталогов в нем.</i></b>
+
+bash2-2.05$ <b>mkdir</b> D2
+bash2-2.05$ <b>cd</b> D2
+bash2-2.05$ <b>mkdir</b> D4
+bash2-2.05$ <b>mkdir</b> D5
+
+<b><i>Создание файла и жесткой ссылки в подкаталоге D4.</i></b>
+
+bash2-2.05$ <b>cp</b> ../../HD HD
+bash2-2.05$ <b>ed</b> HD
+210
+1c
+Версия 3
+.
+w
+210
+q
+bash2-2.05$ <b>ln</b> HD HD1
+
+<b><i>Создание мягкой ссылки в подкаталоге D5.</i></b>
+
+bash2-2.05$ <b>cd</b> ../D4
+bash2-2.05$ <b>ln</b> -s HD HD1
+
+<b><i>Возврат в домашний каталог.</i></b>
+
+bash2-2.05$ <b>cd</b>
+
+<b><i>Следующий протокол должен войти в отчет.</i></b>
+
+<table width=100% border>
+<tr><td><pre>
+
+bash2-2.05$ <b>pwd</b>
+/home/ap10999
+
+<b><i>Распечатка структуры.</i></b>
+
+bash2-2.05$ <b>ls</b> -laR
+.:
+итого 36
+drwx------    4 ap10999  ap109        4096 Сен  6 07:43 .
+drwxr-xr-x  178 root     root         4096 Сен  3 07:00 ..
+-rw-------    1 ap10999  students     3651 Сен  6 07:40 .bash_history
+drwxr-xr-x    3 ap10999  students     4096 Сен  6 07:41 D1
+drwxr-xr-x    4 ap10999  students     4096 Сен  6 07:43 D2
+-rw-r--r--    2 ap10999  students      210 Сен  6 07:41 HD
+-rw-r--r--    1 ap10999  students      201 Сен  3 08:41 Hum-Dum.txt
+-rw-r--r--    1 ap10999  students     3831 Сен  5 19:08 mbox
+-rw-r--r--    1 ap10999  students        0 Сен  6 07:40 p2
+-rw-------    1 ap10999  students      469 Сен  5 19:20 sonet98.txt
+
+./D1:
+итого 16
+drwxr-xr-x    3 ap10999  students     4096 Сен  6 07:41 .
+drwx------    4 ap10999  ap109        4096 Сен  6 07:43 ..
+drwxr-xr-x    3 ap10999  students     4096 Сен  6 07:42 D3
+-rw-r--r--    1 ap10999  students      210 Сен  6 07:41 HD
+
+./D1/D3:
+итого 12
+drwxr-xr-x    3 ap10999  students     4096 Сен  6 07:42 .
+drwxr-xr-x    3 ap10999  students     4096 Сен  6 07:41 ..
+drwxr-xr-x    2 ap10999  students     4096 Сен  6 07:43 D6
+lrwxrwxrwx    1 ap10999  students        5 Сен  6 07:42 HD -> ../HD
+
+./D1/D3/D6:
+итого 12
+drwxr-xr-x    2 ap10999  students     4096 Сен  6 07:43 .
+drwxr-xr-x    3 ap10999  students     4096 Сен  6 07:42 ..
+-rw-r--r--    2 ap10999  students      210 Сен  6 07:41 HD
+
+./D2:
+итого 16
+drwxr-xr-x    4 ap10999  students     4096 Сен  6 07:43 .
+drwx------    4 ap10999  ap109        4096 Сен  6 07:43 ..
+drwxr-xr-x    2 ap10999  students     4096 Сен  6 07:44 D4
+drwxr-xr-x    2 ap10999  students     4096 Сен  6 07:45 D5
+
+./D2/D4:
+итого 16
+drwxr-xr-x    2 ap10999  students     4096 Сен  6 07:44 .
+drwxr-xr-x    4 ap10999  students     4096 Сен  6 07:43 ..
+-rw-r--r--    2 ap10999  students      210 Сен  6 07:44 HD
+-rw-r--r--    2 ap10999  students      210 Сен  6 07:44 HD1
+
+./D2/D5:
+итого 8
+drwxr-xr-x    2 ap10999  students     4096 Сен  6 07:45 .
+drwxr-xr-x    4 ap10999  students     4096 Сен  6 07:43 ..
+lrwxrwxrwx    1 ap10999  students        8 Сен  6 08:14 HD -> ../D4/HD
+
+<b><i>Распечатка файлов (по 3 первых строки файла).</i></b>
+
+bash2-2.05$ <b>head</b> -n3 HD
+Версия 1
+Humpty-Dumpty
+Set on the wall.
+
+bash2-2.05$ <b>head</b> -n3 HD
+Версия 2
+Humpty-Dumpty
+Set on the wall.
+
+bash2-2.05$ <b>head</b> -n3 ./D1/HD
+Версия 2
+Humpty-Dumpty
+Set on the wall.
+
+bash2-2.05$ <b>head</b> -n3 ./D1/D3/HD
+Версия 1
+Humpty-Dumpty
+Set on the wall.
+
+bash2-2.05$ <b>head</b> -n3 ./D1/D3/D6/HD
+Версия 1
+Humpty-Dumpty
+Set on the wall.
+
+bash2-2.05$ <b>head</b> -n3 ./D2/D4/HD1
+Версия 3
+Humpty-Dumpty
+Set on the wall.
+
+bash2-2.05$ <b>head</b> -n3 ./D2/D4/HD1
+Версия 3
+Humpty-Dumpty
+Set on the wall.
+
+bash2-2.05$ <b>head</b> -n3 ./D2/D5/HD
+Версия 3
+Humpty-Dumpty
+Set on the wall.
+
+</pre></td></tr></table>
+</pre></td></tr>
+</table>
+
+<h4>Проверка поведения ссылок при удалении/переименовании файла</h4>
+<p>В ходе выполнения этого этапа будет продемонстрировано то обстоятельство, что при удалении/переименовании файла 
+жесткие ссылки на него сохраняются, а мягкие - теряются.
+<p><table align=center border>
+<tr><td><pre>
+<b><i>Удаление файла.</i></b>
+
+bash2-2.05$ <b>rm</b> ./D2/D4/HD
+
+<b><i>Проверка жесткой ссылки к удаленному файлу.</i></b>
+
+bash2-2.05$ <b>head</b> -n3 ./D2/D4/HD1
+Версия 3
+Humpty-Dumpty
+Set on the wall.
+
+<b><i>Проверка мягкой ссылки к удаленному файлу.</i></b>
+
+bash2-2.05$ <b>head</b> ./D2/D5/HD
+head: ./D2/D5/HD: No such file or directory
+
+<b><i>Переименование файла.</i></b>
+
+bash2-2.05$ <b>mv</b> HD HD1
+
+<b><i>Проверка жесткой ссылки к переименованному файлу.</i></b>
+
+bash2-2.05$ <b>head</b> ./D1/D3/D6/HD
+Версия 1
+Humpty-Dumpty
+Set on the wall.
+
+<b><i>Переименование файла.</i></b>
+
+bash2-2.05$ <b>mv</b> ./D1/HD ./D1/HD1
+
+<b><i>Проверка мягкой ссылки к переименованному файлу.</i></b>
+
+bash2-2.05$ <b>head</b> -n3 ./D1/D3/HD
+head: ./D1/D3/HD: No such file or directory
+
+<b><i>Удаление созданных каталогов</i></b>
+
+bash2-2.05$ <b>rm</b> -r D1
+bash2-2.05$ <b>rm</b> -r D2
+bash2-2.05$ <b>ls</b> -la
+итого 32
+drwx------    2 ap10999  ap109        4096 Сен  6 18:18 .
+drwxr-xr-x  179 root     root         4096 Сен  6 11:58 ..
+-rw-------    1 ap10999  students     4257 Сен  6 08:22 .bash_history
+-rw-r--r--    1 ap10999  students      210 Сен  6 07:41 HD1
+-rw-r--r--    1 ap10999  students      201 Сен  3 08:41 Hum-Dum.txt
+-rw-r--r--    1 ap10999  students     3831 Сен  5 19:08 mbox
+-rw-r--r--    1 ap10999  students        0 Сен  6 18:12 p2
+-rw-------    1 ap10999  students      469 Сен  5 19:20 sonet98.txt
+bash2-2.05$ 
+</pre></td></tr>
+</table>
+
+<h4>Проверка управления доступом</h4>
+<p>Следующий протокол демонстрирует реализацию пунктов 7 - 12
+плана выполнения работы.
+<p><table align=center border>
+<tr><td><pre>
+<b><i>Открытие доступа.</i></b>
+
+bash2-2.05$ <b>chmod</b> g+w HD1
+bash2-2.05$ <b>chmod</b> g+x .
+
+<b><i>Посылка сообщения.</i></b>
+
+bash2-2.05$ <b>write</b> ap10998
+Открыт доступ: /home/ap10999/HD1
+&lt;Ctrl+D&gt;
+
+<b><i>Сообщение от партнера.</i></b>
+
+Message from ap10999@pegas.mipk.kharkiv.edu on pts/2 at 08:47 ...
+Открыт доступ: /home/ap10998/Lir1
+EOF
+
+<b><i>Чтение "чужого" файла.</i></b>
+
+bash2-2.05$ <b>head</b> -n3 ../ap10998/Lir1
+Версия 1
+Мы в восторге от мистера Лира,
+Исписал он стихами тома.
+                 
+<b><i>Редактирование "чужого" файла.</i></b>
+
+bash2-2.05$ <b>ed</b> ../ap10998/Lir1
+857
+1a
+Модификация ap10999.
+.
+w
+878
+q
+                 
+<b><i>Создание ссылок на "чужой" файл.</i></b>
+
+bash2-2.05$ <b>ln</b> ../ap10998/Lir1 Lir
+bash2-2.05$ <b>ln</b> -s ../ap10998/Lir1 Lir1
+
+<b><i>Посылка сообщения.</i></b>
+
+bash2-2.05$ <b>write</b> ap10998
+Модификация завершена.
+&lt;Ctrl+D&gt;
+
+<b><i>Сообщение от партнера.</i></b>
+
+Message from ap10999@pegas.mipk.kharkiv.edu on pts/2 at 08:47 ...
+Модификация завершена.
+EOF
+
+<b><i>Закрытие доступа и посылка сообщения.</i></b>
+
+bash2-2.05$ <b>chmod</b> g-x .
+bash2-2.05$ <b>write</b> ap10998
+Доступ закрыт.
+&lt;Ctrl+D&gt;
+
+<b><i>Сообщение от партнера.</i></b>
+
+Message from ap10999@pegas.mipk.kharkiv.edu on pts/2 at 08:47 ...
+Доступ закрыт.
+EOF
+
+<b><i>Проверка доступа к "чужому" файлу по ссылкам.</i></b>
+
+bash2-2.05$ <b>ls</b> -la
+итого 40
+drwx------    2 ap10999  ap109        4096 Сен  6 08:43 .
+drwxr-xr-x  179 root     root         4096 Сен  6 11:58 ..
+-rw-------    1 ap10999  students     6162 Сен  6 08:12 .bash_history
+-rw-rw-r--    1 ap10999  students      231 Сен  6 07:22 HD1
+-rw-r--r--    1 ap10999  students      201 Сен  3 08:41 Hum-Dum.txt
+-rw-rw-r--    2 ap10998  students      878 Сен  6 08:43 Lir
+lrwxrwxrwx    1 ap10999  students       15 Сен  6 08:43 Lir1 -> ../ap10998/Lir1
+-rw-r--r--    1 ap10999  students     3831 Сен  5 19:08 mbox
+-rw-r--r--    1 ap10999  students      845 Сен  6 08:39 p1
+-rw-r--r--    1 ap10999  students        0 Сен  6 08:40 p2
+-rw-------    1 ap10999  students      469 Сен  5 19:20 sonet98.txt
+
+bash2-2.05$ <b>cat</b> Lir
+Версия 1
+Модификация ap10999.
+Мы в восторге от мистера Лира,
+Исписал он стихами тома.
+Для одних он - ворчун и придира,
+А другим он приятен весьма.
+Десять пальцев, два глаза, два уха
+Подарила природа ему.
+Не лишен он известного слуха
+И в гостях не поет потому.
+Книг у Лира на полках немало.
+Он привез их из множества стран.
+Пьет вино он с наклейкой "Марсала",
+И совсем не бывает он пьян.
+Есть у Лира знакомые разные.
+Кот его называется Фосс.
+Тело автора - шарообразное,
+И совсем нет под шляпой волос.
+Если ходит он, тростью стуча,
+В белоснежном плаще за границей,
+Все мальчишки кричат: - Англича-
+нин в халате бежал из больницы!
+Он рыдает, бродя в одиночку
+По горам, среди каменных глыб,
+Покупает в аптеке примочку,
+А в ларьке - марципановых рыб.
+По-испански не пишет он, дети,
+И не любит он пить рыбий жир...
+Как приятно нам знать, что на свете
+Есть такой человек - мистер Лир!
+
+bash2-2.05$ <b>cat</b> Lir1
+cat: Lir1: Permission denied
+bash2-2.05$ 
+</pre></td></tr>
+</table>
+
+
+
+
+<p></p>
+<hr>
+<a href=l1_2.html#ex>Назад</a>
+</body>
+</html>

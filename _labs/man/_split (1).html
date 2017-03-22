@@ -1,0 +1,51 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+   <TITLE> SPLIT command.</TITLE>
+</head>
+<body background=../iip_1.jpg>
+
+<a name=top>
+<table border align=center>
+<tr><td align=center>
+<b><big>split</big></b><br> деление файла на части  </td>
+</tr>
+</table>
+<p></p>
+<table>
+
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td><pre>split [опции] [файл [префикс]]</pre></td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>Команда <samp>split</samp> читает <samp>файл</samp> и записывает его заданными порциями (по умолчанию порция  оставляет 1000 строк) в набор выходных файлов. Имя первого выходного файла получается из <samp>префикса</samp> добавлением <samp>aa</samp>, и далее в лексикографическом порядке вплоть до <samp>zz</samp>. Если <samp>префикс</samp> не указан, он принимается равным <samp>x</samp>. Если входной <samp>файл</samp> не указан, или вместо его имени стоит <samp>-</samp> (знак "минус"), используется стандартный ввод. 
+</td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>ОПЦИИ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table width=100%>
+<tr>
+<td valign=top width=12%><samp>-b число</samp></td>
+<td>Выводит <samp>число</samp> байт в каждый выходной файл.</td>
+</tr>
+<tr>
+<td valign=top width=12%><samp>-число </samp></td>
+<td>Выводит <samp>число</samp> строк в каждый выходной файл. То же, что и <samp>-l число</samp>.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p><hr>
+<a href=mind.html#split>Список команд</a>
+</body>
+</html>
+

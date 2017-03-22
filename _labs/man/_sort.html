@@ -1,0 +1,140 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+ <TITLE> SORT command.</TITLE>
+</head>
+
+<body background=../iip_1.jpg>
+<a name=top>
+
+<p>
+<table width=100%>
+  <tr>
+    <td width=20%>&nbsp;</td>
+    <td>
+      <table border> 
+        <tr><td align=center><big><b>sort</b></big><br>
+            &nbsp; сортировка и/или слияние файлов &nbsp;
+        </tr></td>
+      </table>
+</td></tr></table>
+
+
+<table>
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+  <td><pre>sort [опции...] [файл...]</pre>
+</td></tr>
+
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<p>Команда <samp>sort</samp> выводит строки всех заданных <samp>файлов</samp>, отсортированные в лексикографическом порядке. Опции могут изменять порядок сортировки.
+<p>Если имена файлов не указаны, или в качестве файла указан символ <samp>-</samp>, исходная информация поступает со стандартного ввода. 
+
+</td></tr>
+
+<tr>
+<td colspan=2><b><br>ОПЦИИ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+<tr>
+<td valign=top width=20%><samp>+<i>поз1</i> -<i>поз2</i>&nbsp;</samp></td>
+<td valign=top>применять ключ сортировки, начиная с позиции после 
+  <samp><i>поз1</i></samp>, до позиции <samp><i>поз2</i></samp> 
+  (включительно); если <samp><i>поз2</i></samp> не задано - до конца строки. 
+  Позиция кодируется как <samp>n[.m]</samp>, где <samp>n</samp> - номер поля, 
+  <samp>m</samp> - номер символа в поле (по умолчанию - 0).<br>
+  Например, для сортировки по первому полю эти опции должны быть заданы как:
+  <samp>+0 -1</samp>.<br>
+  Полем называется
+  минимальная последовательность символов, за которой следует разделитель 
+  полей или перевод строки. По умолчанию символом-разделителем считается 
+  пробел или символ табуляции. 
+</td>
+</tr>
+<tr></tr>
+
+
+<tr>
+<td valign=top width=20%><samp>-с&nbsp;</samp></td>
+<td valign=top>не сортировать файл, а только проверить, является ли он уже 
+отсортированным.</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=20%><samp>-f&nbsp;</samp></td>
+<td valign=top>преобразовывать малые буквы в большие. </td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=20%><samp>-m&nbsp;</samp></td>
+<td valign=top>только слияние исходных файлов, которые предполагаются уже 
+отсортированными. </td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=20%><samp>-M&nbsp;</samp></td>
+<td valign=top>сравнивать как месяцы: <samp>"JAN" &lt; "FEB" &lt; ... &lt; 
+"DEC"</samp> (малые буквы преобразуются в большие). Остальные 3-символьные 
+сочетания считаются меньшими, чем <samp>"JAN"</samp>. </td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=20%><samp>-n&nbsp;</samp></td>
+<td valign=top>числовое сравнение: начальные пробелы отбрасываются, затем 
+цифровые цепочки символов (возможно, содержащие знак минус и десятичную точку) 
+сравниваются как числа.</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=20%><samp>-o <i>файл</i>&nbsp;</samp></td>
+<td valign=top>результат направляется не на стандартный вывод, а в 
+<samp><i>файл</i></samp>.</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=20%><samp>-r&nbsp;</samp></td>
+<td valign=top>сортировка в обратном порядке.
+</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=20%><samp>-t<i>символ</i>&nbsp;</samp></td>
+<td valign=top>задание <samp><i>символа</i></samp> - разделителя полей.</td>
+</tr>
+<tr></tr>
+
+<tr>
+<td valign=top width=20%><samp>-u&nbsp;</samp></td>
+<td valign=top>из всех совпадающих строк выводить только одну.</td>
+</tr>
+</table>
+</td></tr>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>Если опции, задающие способ сравнения, указаны до ограничений на ключи сортировки, то они применяются глобально ко всем ключам. Если же соответствующие флаги ассоциированы с определенными ключами сортировки , они воздействуют только на "свои" ключи. 
+<p>Если указано несколько ключей сортировки, то более поздние используются только в случае равенства более ранних. Если значения ключей сортировки двух строк совпадают, строки упорядочиваются с учетом всех символов. 
+</td></tr>
+
+<tr>
+<td colspan=2><b><br>СМ.ТАКЖЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+  <a href=_cut.html>cut</a>,
+  <a href=_join.html>join</a>,
+  <a href=_uniq.html>uniq</a>
+</td></tr></table>
+
+<p><hr>
+<a href=mind.html#sort>Список команд</a>
+</body>
+</html>

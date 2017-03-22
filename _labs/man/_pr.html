@@ -1,0 +1,113 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+   <TITLE> PR command.</TITLE>
+</head>
+<body background=../iip_1.jpg>
+
+<a name=top>
+<table border align=center>
+<tr><td align=center>
+<b><big>pr</big></b><br> форматная печать файлов </td>
+</tr>
+</table>
+<p></p>
+<table>
+
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td><pre>pr [опции] [файл...]</pre></td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>Команда <samp>pr</samp> форматирует и выдает <samp>файлы</samp> на
+стандартный вывод. Если имена файлов не заданы или задан символ
+<samp>-</samp>, информация берется из стандартного ввода.
+<p>По умолчанию выдача разбивается на страницы, каждая из которых
+содержит в заголовке свой номер, дату, время и имя файла. Длина
+страницы 66 строк, включая 10 строк заголовка и "хвостовика".
+При выводе в несколько
+колонок ширину строки можно задать, а по умолчанию она равна 72.
+<p>Опции команды <samp>pr</samp> могут быть заданы по одной или вместе в
+произвольном порядке.</td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>ОПЦИИ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+
+<tr>
+<td valign=top width=15%><samp>+<i>стр</i></samp></td>
+<td valign=top>начать печать со страницы <samp><i>стр</i></samp> (по умолчанию с 1)</td>
+</tr>
+     
+<tr>
+<td valign=top width=15%><samp>-<i>кол</i></samp></td>
+<td valign=top>печать в <samp><i>кол</i></samp> колонок (по умолчанию 1); автоматически включаются опции <samp>-e</samp> и <samp>-i</samp>; несовместима с опцией <samp>-m</samp>. 
+</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>-m</samp></td>
+<td valign=top>слияние и печать всех файлов одновременно, по одному в колонке; максимальное число файлов - 8; несовместима с опцией <samp>-<i>кол</i></samp>. 
+</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>-n[<i>символ</i>][<i>число</i>] </samp></td>
+<td valign=top>нумерация строк; номер занимает <samp><i>число</i>+1</samp> первых
+позиций каждой колонки при обычном выводе или каждой строки при выводе с опцией
+<samp>-m</samp>; если задан любой нецифровой <samp><i>символ</i></samp>, то он
+присоединяется к номеру строки, отделяя ее от последующего текста</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>-w<i>ширина</i></samp></td>
+<td valign=top>Установка ширины строки (по умолчанию - 72 позиции);действует
+только при печати в несколько колонок </td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp></samp></td>
+<td valign=top></td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>-l<i>длина</i></samp></td>
+<td valign=top>установка длины страницы (по умолчанию 66)</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>-t</samp></td>
+<td valign=top>подавление печати заголовка и "хвостовика"</td> </tr>
+
+<tr>
+<td valign=top width=15%><samp>-T</samp></td>
+<td valign=top>подавление печати заголовка и "хвостовика" и всех
+других форматирующих элементов</td>
+</tr>
+
+
+</table>
+</td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>СМ.ТАКЖЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<a href=_cat.html><samp>cat</samp></a>, 
+<a href=_pg.html><samp>pg</samp></a>
+</td>
+</tr>
+</table>
+<p><hr>
+<a href=mind.html#pr>Список команд</a>
+</body>
+</html>
+

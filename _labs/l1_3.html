@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Transitional//EN">
+<HTML>
+<HEAD>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+   <meta name="Generator" content="Far Editor">
+   
+   
+   <meta name="Keywords" content="системное программное обеспечение, unix, linux, grep">
+
+<TITLE>Лабораторная работа 3.</TITLE>
+<!--                                                                   -->
+
+
+
+
+</head>
+
+<body background=iip_1.jpg>
+<p>
+
+<table cellpadding=10>
+<tr><td><a href=l1_2.html>Назад</a></td><td><a href=index.htm>Оглавление</a></td><td><a href=l1_4.html>Вперед</a></td></tr>
+</table>
+</p>
+<hr>
+
+<table width=90%>
+<tr><td align=center><img src=logo_3.gif><samp>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<h2 align=center>Лабораторная работа 3</h2>
+<p><b>Цель работы</b>: ознакомление с языком <a href=./man/brexpr.html>базовых регулярных выражений</a> 
+и командой <a href=./man/_grep.html><samp>grep</samp></a>.
+</td></tr></table>
+
+
+<h3>Выполнение  работы</h3>
+
+<p><a href=./man/brexpr.html>Регулярные выражения</a> представляют собой одно из 
+наиболее интересных и полезных свойств операционной системы Unix. Регулярные 
+выражения являются языком описания текстовых шаблонов, который используется во 
+многих системных утилитах для выполнения операций поиска и отбора при 
+разнообразных обработках текстовых строк. Мы начинаем изучать регулярные 
+выражения с применения их в утилите поиска 
+<samp><a href=./man/_grep.html>grep</a></samp>.
+<p>В каталоге <samp>/home/metod</samp> имеются пять текстовых файлов с именами 
+<samp>query1</samp>, <samp>query2</samp>, <samp>query3</samp>, <samp>query4</samp> и 
+<samp>query5</samp>. Файлы содержат структурированный текст. Структура и
+содержимое файлов представлена в следующих справках:
+<ul>
+<li><a href=fq1a.html>структура</a> файла <samp>query1</samp>;
+    <a href=fq1b.html>содержимое</a> файла <samp>query1</samp>
+<li><a href=fq2a.html>структура</a> файла <samp>query2</samp>;
+    <a href=fq2b.html>содержимое</a> файла <samp>query2</samp>
+<li><a href=fq3a.html>структура</a> файла <samp>query3</samp>;
+    <a href=fq3b.html>содержимое</a> файла <samp>query3</samp>
+<li><a href=fq4a.html>структура</a> файла <samp>query4</samp>;
+    <a href=fq4b.html>содержимое</a> файла <samp>query4</samp>
+<li><a href=fq5a.html>структура</a> файла <samp>query5</samp>;
+    <a href=fq5b.html>содержимое</a> файла <samp>query5</samp>
+</ul>
+Используя команду <a href=./man/_grep.html><samp>grep</samp></a>, выполните поиск
+в файлах строк, соответствующих определенным критериям. Имена исходных
+файлов и критерии поиска приводятся в Вашем варианте индивидуального задания.
+
+<h3>Варианты индивидуальных заданий</h3>
+<p><table width=100%>
+ <tr>
+  <td align=center width=20%>
+   <A href=./var/v3_01.html>1</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v3_02.html>2</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v3_03.html>3</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v3_04.html>4</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v3_05.html>5</A>
+  </td>   
+ </tr>
+ <tr>
+  <td align=center width=20%>
+   <A href=./var/v3_06.html>6</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v3_07.html>7</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v3_08.html>8</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v3_09.html>9</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v3_10.html>10</A>
+  </td>   
+ </tr>
+ <tr>
+  <td align=center width=20%>
+   <A href=./var/v3_11.html>11</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v3_12.html>12</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v3_13.html>13</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v3_14.html>14</A>
+  </td>   
+  <td align=center width=20%>
+   <A href=./var/v3_15.html>15</A>
+  </td>   
+ </tr>
+</table>
+
+<h3>Предъявление результатов и содержание отчета.</h3>
+<p>Отчет по лабораторной работе 3 должен содержать протокол выполнения трех 
+команд <samp>grep</samp></a> (в соответствии с Вашим вариантом).
+<a name=ex>
+<p><a href=ex1_3.html>Пример</a> выполнения задания.
+<p>Для протоколирования работы используйте команду 
+<a href=./man/_script.html><samp>script</samp></a>
+
+<h3>Справка</h3>
+<ul>
+<li>Команда <a href=./man/_grep.html><samp>grep</samp></a>
+<li><a href=./man/brexpr.html>Базовые регулярные выражения</a>
+</ul>
+
+<hr>
+<p>
+<table cellpadding=10>
+<tr><td><a href=l1_2.html>Назад</a></td><td><a href=index.htm>Оглавление</a></td><td><a href=l1_4.html>Вперед</a></td></tr>
+</table>
+
+
+</body>
+</html>

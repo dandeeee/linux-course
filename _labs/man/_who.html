@@ -1,0 +1,120 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+   <TITLE> WHO command.</TITLE>
+</head>
+<body background=../iip_1.jpg>
+
+<a name=top>
+<table border align=center>
+<tr><td align=center>
+<b><big>who</big></b><br> кто в системе? </td>
+</tr>
+</table>
+<p></p>
+
+<table>
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td><pre>who [опции]</pre></td>
+</tr>                                               
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>Команда <samp>who</samp> сообщает имя пользователя, имя терминальной линии, астрономическое время начала сеанса, продолжительность бездействия терминальной линии с момента последнего обмена, идентификатор процесса для каждого из пользователей, работающих в системе. 
+<p>Сообщения команды <samp>who</samp> имеют следующий формат:
+<pre>
+	NAME STATE LINE TIME IDLE PID COMMENT
+<pre>
+<table>
+  <tr>
+    <td valign=top> где </td>
+    <td valign=top> NAME </td>
+    <td> - входное имя пользователя;</td>
+  </tr>
+  <tr>
+    <td valign=top>&nbsp;</td>
+    <td valign=top>LINE </td>
+    <td>- имя терминальной линии, 
+под которым она фигурирует в каталоге <samp>/dev</samp>;</td>
+  </tr>
+  <tr>
+    <td valign=top>&nbsp;</td>
+    <td valign=top>TIME </td>
+    <td> - время начала сеанса;</td>
+  </tr>
+  <tr>
+    <td valign=top>&nbsp;</td>
+    <td valign=top>IDLE </td>
+    <td>-  время (часы и минуты), протекшее с последнего момента 
+активизации данной линии. Точка (.) свидетельствует о том, 
+что это действующий терминал.</td> 
+  </tr>
+  <tr>
+    <td valign=top>&nbsp;</td>
+    <td valign=top>PID </td>
+    <td>- идентификатор процесса интерпретатора shell, обслуживающего 
+данного пользователя;</td>
+  </tr>
+  <tr>
+    <td valign=top>&nbsp;</td>
+    <td valign=top>COMMENT </td>
+    <td>- комментарий, характеризующий данную линию.</td>
+  </tr>
+ </table>
+</td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>ОПЦИИ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+<tr>
+<td valign=top width=7%><samp>-H</samp></td>
+<td>отображение заголовков столбцов в выводимой информации</td>
+</tr>
+<tr>
+<td valign=top width=7%><samp>-i</samp></td>
+<td>отображается поле IDLE</td>
+</tr>
+<tr>
+<td valign=top width=7%><samp>-q</samp></td>
+<td>отображение только имен и количества пользователей, 
+    работающих в системе в данный момент; все прочие опции 
+    при этом игнорируются</td>
+</tr>
+<tr>
+<td valign=top width=7%><samp>-T</samp></td>
+<td>аналогично <samp>-s</samp>, но при этом отображается также 
+    поле STATE, как:
+  <table>
+  <tr>
+  <td valign=top><samp>&nbsp;&nbsp;+&nbsp</samp></td>
+  <td>терминал, на который можно передавать сообщения</td>
+  </tr>
+  <tr>
+  <td valign=top><samp>&nbsp;&nbsp;-&nbsp</samp></td>
+  <td>терминал, на который нельзя передавать сообщения</td>
+  </tr>
+  <tr>
+  <td valign=top><samp>&nbsp;&nbsp;?&nbsp</samp></td>
+  <td>терминал неисправен</td>
+  </tr>
+  </table></td>
+</tr>
+<tr>
+<td valign=top width=7%><samp>-s</samp></td>
+<td>выводятся только поля NAME, LINE и TIME; это опция по умолчанию</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p><hr>
+<a href=mind.html#who>Список команд</a>
+</body>
+</html>
+
+

@@ -1,0 +1,145 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+ <TITLE> MORE command.</TITLE>
+</head>
+
+<body background=../iip_1.jpg>
+<a name=top>
+
+<p>
+<table width=100%>
+  <tr>
+    <td width=20%>&nbsp;</td>
+    <td>
+      <table border> 
+        <tr><td align=center><big><b>more</b></big><br>
+            &nbsp; поэкранный просмотр текста файла &nbsp;
+        </tr></td>
+      </table>
+</td></tr></table>
+
+
+<table>
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+  <td><pre>more [-опции] [-число] [+/шаблон] [+номер] [файл ...]</pre>
+</td></tr>
+</table>
+
+<table>
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<p>Команда <samp>more</samp> осуществляет вывод на экран текста файла. После каждого заполнения экрана команда делает паузу и выводит на нижней строке экрана сообщение типа: 
+<pre>  --More-</pre>
+После этого сообщения пользователь может вводить команды интерактивного режима.
+<p>Чаще всего команда <samp>more</samp> применяется в конвейере с другими
+командами для того, чтобы обеспечить поэкранный просмотр выдачи, не
+помещающейся на одном экране, например:<pre>    ls -l | more</pre> </td></tr>
+</table>
+
+<table>
+<tr>
+<td colspan=2><b><br>ОПЦИИ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+<tr>
+<td valign=top width=20%><samp>-число&nbsp;&nbsp;</samp></td>
+<td valign=top>задается <samp>число</samp>, используемое в качестве размера окна (в строках), по умолчанию - 22. </td>
+</tr>
+
+<tr>
+<td valign=top width=20%><samp>+номер&nbsp;&nbsp;</samp></td>
+<td valign=top>задается <samp>номер</samp> строки, с которой начинается вывод.
+</td>
+</tr>
+
+<tr>
+<td valign=top width=20%><samp>-d&nbsp;&nbsp;</samp></td>
+<td valign=top>вывод сообщения после каждого экрана.</td>
+</tr>
+
+<tr>
+<td valign=top width=20%><samp>-с&nbsp;&nbsp;</samp></td>
+<td valign=top>вывод каждого нового экрана с предварительной очисткой экрана. </td>
+</tr>
+<tr>
+<td valign=top width=20%><samp>-l&nbsp;&nbsp;</samp></td>
+<td valign=top>если не задана эта опция, команда <samp>more</samp> останавливается после любой строки, содержащей <samp>Ctrl-L</samp>, до тех пор, пока экран не заполнится до конца. </td>
+</tr>
+
+<tr>
+<td valign=top width=20%><samp>-p&nbsp;&nbsp;</samp></td>
+<td valign=top>вывод каждого нового экрана с верхней строки без предварительной очистки экрана.</td>
+</tr>
+
+<tr>
+<td valign=top width=20%><samp>-s&nbsp;&nbsp;</samp></td>
+<td valign=top>отображение нескольких пустых строк как одной.</td>
+</tr>
+
+<tr>
+<td valign=top width=20%><samp>+/шаблон&nbsp;&nbsp;</samp></td>
+<td valign=top>просмотр текста, начиная за две строки до той строки, в которой содержится <samp>шаблон</samp>, заданный 
+<a href=brexpr.html>регулярным выражением</a>. 
+</td>
+</tr>
+
+</td></tr></table>
+</td></tr></table>
+
+
+
+<table>
+<tr>
+<td colspan=2><b><br>Команды интерактивного режима</b></td>
+</tr>
+<tr>
+<td colspan=2><p>После каждой остановки команда <samp>more</samp> ожидает 
+ввода пользователем команд интерактивного режима. Интерактивные команды 
+<samp>more</samp> базируются на редакторе <a href=_vi.html>vi</a>. Основные 
+интерактивные команды <samp>more</samp>:</td>
+</tr>
+<tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+
+<tr>
+<td valign=top width=20%><samp>&lt;Enter&gt;&nbsp;&nbsp;</samp></td>
+<td valign=top>вывод следующих строк файла, число строк - установлено по 
+умолчанию; начальное значение умолчания - 1, команда <samp><i>число</i></samp> 
+изменяет значение по умолчанию.</td>
+</tr>
+
+<tr>
+<td valign=top width=20%><samp>&lt;пробел&gt;&nbsp;&nbsp;</samp></td>
+<td valign=top>вывод следующего экрана.</td>
+</tr>
+
+<tr>
+<td valign=top width=20%><samp><i>число</i>&nbsp;&nbsp;</samp></td>
+<td valign=top>вывод <samp><i>числа</i></samp> следующих строк файла, 
+изменение числа строк по умолчанию.</td>
+</tr>
+
+
+
+</table>
+</td></tr>
+</table>
+
+<table>
+<tr>
+<td colspan=2><b><br>СМ.ТАКЖЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+  <a href=_vi.html>vi</a>
+</td></tr></table>
+
+<p><hr>
+<a href=mind.html#more>Список команд</a>
+</body>
+</html>

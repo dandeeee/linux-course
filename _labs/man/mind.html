@@ -1,0 +1,1059 @@
+<html>
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+   <TITLE>command index.</TITLE>
+
+</HEAD>
+<body background=../iip_1.jpg>
+<a name=top>
+<p><a href=../index.htm>Оглавление лабораторного практикума</a>
+<hr>
+<p><b><a href=shindex.html>Командный интерпретатор shell</a></b>
+<p><b><a href=brexpr.html>Базовые регулярные выражения</a></b>
+<p>&nbsp;</p>
+<p><table width=80% border=3 align=center><tr><td>
+<b>Внимание!</b> В приводимых здесь описаниях отражены далеко не все
+опции и аргументы команд. Для получения полной информации используйте
+команды <a href=_man.html>man</a> и/или <a href=_info.html>info</a>.
+</td></tr></table>
+
+<p><b><big>Информационные команды</big></b><br>
+<samp>
+<A href=#info>info</a>,
+<A href=#man>man</a>.
+</samp>
+<p><b><big>Ввод и редактирование текстов</big></b><br>
+<samp>
+<A href=#tee>tee</a>, 
+<A href=#ed>ed</a>, 
+<A href=#sed>sed</a>, 
+<A href=#vi>vi</a>
+</samp>
+<p><b><big>Вывод текстов</big></b><br>
+<samp>
+<A href=#cat>cat</a>, 
+<A href=#more>more</a>, 
+<A href=#pr>pr</a>, 
+<A href=#pg>pg</a>
+</samp>
+<p><b><big>Команды файловой системы</big></b><br>
+<samp>
+<A href=#cd>cd</a>,
+<A href=#chgrp>chgrp</a>,
+<A href=#chmod>chmod</a>, 
+<A href=#chown>chown</a>, 
+<A href=#cp>cp</a>, 
+<A href=#file>file</a>, 
+<A href=#find>find</a>, 
+<A href=#ln>ln</a>,
+<A href=#ls>ls</a>, 
+<A href=#mkdir>mkdir</a>, 
+<A href=#mv>mv</a>, 
+<A href=#pwd>pwd</a>, 
+<A href=#rm>rm</a>,
+<A href=#rmdir>rmdir</a> 
+</samp>
+<p><b><big>Обработка [текстовых] файлов</big></b><br>
+<samp>
+<A href=#awk>awk</a>,
+<A href=#cmp>cmp</a>,
+<A href=#comm>comm</a>,
+<A href=#cut>cut</a>,
+<A href=#diff>diff</a>,
+<A href=#diff3>diff3</a>,
+<A href=#grep>grep</a>,
+<A href=#head>head</a>,
+<A href=#join>join</a>,
+<A href=#paste>paste</a>,
+<A href=#sort>sort</a>,
+<A href=#split>split</a>,
+<A href=#tail>tali</a>,
+<A href=#uniq>uniq</a>,
+<A href=#wc>wc</a>
+</samp>
+<p><b><big>Почта, процессы, время, etc.</big></b><br>
+<samp>
+<A href=#cal>cal</a>,
+<A href=#date>date</a>,
+<A href=#echo>echo</a>,
+<A href=#env>env</a>,
+<A href=#export>export</a>,
+<A href=#kill>kill</a>,
+<A href=#mail>mail</a>,
+<A href=#mesg>mesg</a>,
+<A href=#nice>nice</a>,
+<A href=#ps>ps</a>,
+<A href=#script>script</a>,
+<A href=#sh>sh</a>,
+<A href=#who>who</a>,
+<A href=#write>write</a>
+</samp>
+<p><b><big>Команды интерпретатора shell</big></b><br>
+<samp>
+<A href=#basename>basename</a>, 
+<A href=#expr>expr</a>, 
+<A href=#read>read</a>, 
+<A href=#shift>shift</a>, 
+<A href=#test>test</a>
+</samp>
+
+  <p align=right>
+  <br><a href=#top>в начало</a>
+
+
+<p></p>
+<hr>
+<p><b><big>Информационные команды</big></b>
+<p><table width=100%>
+<tr>
+  <td colspan=2><a name=info>Онлайновая подсказка Linux</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>info <i>имя</i>...</pre>
+  <p align=right><a href=_info.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+  <hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=man>Онлайновая подсказка Unix</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>man [<i>раздел</i>] <i>имя</i>...</pre>
+  <p align=right><a href=_man.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+  <hr>
+</td></tr>
+</table>
+<p></p>
+<hr>
+<p><b><big>Ввод и редактирование текстов</big></b>
+<p><table width=100%>
+<tr>
+  <td colspan=2><a name=tee>Дублирование стандартного вывода</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>tee [<i>опции</i>] [<i>файл</i>]...</pre>
+  <p align=right><a href=_tee.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+  <hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=ed>Интерактивный текстовый редактор</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>ed [<i>опции</i>] [<i>файл</i>]...</pre>
+  <p align=right><a href=_ed.html>подробнее</a>
+  <br><a href=ed.html>еще подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=sed>Потоковый текстовый редактор</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>sed [<i>опции</i>] [<i>файл</i>]...</pre>
+  <p align=right><a href=_sed.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=vi>Полноэкранный текстовый редактор</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>vi [<i>опции</i>] [<i>файл</i>]...</pre>
+  <p align=right><a href=_vi.html>подробнее</a>
+  <br><a href=vi.html>еще подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+</table>
+
+<p><b><big>Вывод текстов</big></b>
+<p><table width=100%>
+<tr>
+  <td colspan=2><a name=cat>Конкатенация файлов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>саt [<i>файл</i>...]</pre>
+  <p align=right><a href=_cat.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=more>Поэкранный просмотр текста </td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>more [-cdf] [-n] [+/<i>шаблон</i>] [+n] [<i>файл</i> ...]</pre>
+аргументы:
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-n&nbsp;</samp></td>
+<td>печать в <samp>n</samp> строк</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>+n&nbsp;</samp></td>
+<td>печать с <samp>n</samp>-й строки</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-c&nbsp;</samp></td>
+<td>вывод с предварительной очисткой экрана</td></tr>
+</table>
+  <p align=right><a href=_more.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=pr>Печать файлов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>pr [<i>аргумент</i>]... [<i>файл</i>]...</pre>
+аргументы:
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-n&nbsp;</samp></td>
+<td>печать в <samp>n</samp> колонок</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>+n&nbsp;</samp></td>
+<td>печать с <samp>n</samp>-й страницы</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-T&nbsp;</samp></td>
+<td>подавление печати заголовка и т.п.</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-ln&nbsp;</samp></td>
+<td>длина страницы</td></tr>
+</table>
+  <p align=right><a href=_pr.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=pg>Просмотр файлов на экране</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>pg [<i>аргумент</i>]... [<i>файл</i>]...</pre>
+  <p align=right><a href=_pg.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+</table>
+
+<p><b><big>Команды файловой системы</big></b>
+<p><table width=100%>
+<tr>
+  <td colspan=2><a name=cd>Смена группы файла</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>cd <i>каталог</i></pre>
+  <p align=right><a href=_cd.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=chgrp>Смена группы файла</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>chgrp <i>группа</i> <i>файл</i></pre>
+  <p align=right><a href=_chgrp.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=chmod>Установка кода защиты файла</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>chmod <i>код_защиты</i> <i>файл</i></pre>
+код_защиты:
+<table>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>0400&nbsp;</samp></td>
+<td>чтение для владельца</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>0200&nbsp;</samp></td>
+<td>запись для владельца</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>0100&nbsp;</samp></td>
+<td>выполнение для владельца</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>0700&nbsp;</samp></td>
+<td>чтение, запись, выполнение для группы</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>0007&nbsp;</samp></td>
+<td>чтение, запись, выполнение для прочих</td></tr>
+</table>
+  <p align=right><a href=_chmod.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=chown>Смена владельца файла</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>chown <i>имя</i> <i>файл</i></pre>
+  <p align=right><a href=_chown.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=cp>Копирование файла</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>cp <i>файл_1 файл_2</i>
+cp <i>файл</i>... <i>каталог</i></pre>
+  <p align=right><a href=_cp.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=file>Тип файла</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>file <i>имя</i>...</pre>
+  <p align=right><a href=_file.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=find>Поиск файлов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>find <i>список_поиска</i> <i>выражение</i></pre>
+аргументы:
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-name&nbsp;</samp></td>
+<td>имя файла</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>mtime n&nbsp;</samp></td>
+<td>файлы изменены в течение
+  <samp>n</samp> последних дней</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-print&nbsp;</samp></td>
+<td>печать найденных имен файлов</td></tr>
+</table>
+  <p align=right><a href=_find.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=ln>Создание ссылки</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>ln [-s] <i>файл</i> <i>ссылка</i></pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-s&nbsp;</samp></td>
+<td>создание символьной ссылки</td></tr>
+</table>
+  <p align=right><a href=_ln.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=ls>Содержимое каталогов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>ls [-<i>опции</i>...] <i>имя</i>...</pre>
+опции:
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>l&nbsp;</samp></td>
+<td>полная информация</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>t&nbsp;</samp></td>
+<td>сортировка по времени</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>a&nbsp;</samp></td>
+<td>вывод всех имен (. и ..)</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>d&nbsp;</samp></td>
+<td>информация о каталогах</td></tr>
+</table>
+  <p align=right><a href=_ls.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=mkdir>Создание каталогов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>mkdir <i>имя</i>...</pre>
+  <p align=right><a href=_mkdir.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=mv>Переименование/перенос файлов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>mv <i>файл</i>... <i>целевой_файл</i></pre>
+  <p align=right><a href=_mv.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=pwd>Текущий каталог</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>pwd</pre>
+  <p align=right><a href=_pwd.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=rm>Удаление файлов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>rm [<i>опции</i>] <i>файл</i>...</pre>
+опции:
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-b&nbsp;</samp></td>
+<td>безусловное удаление</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-r&nbsp;</samp></td>
+<td>удаление всех файлов и подкаталогов</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-i&nbsp;</samp></td>
+<td>интерактивное удаление</td></tr>
+</table>
+  <p align=right><a href=_rm.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=rmdir>Удаление каталогов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>rmdir <i>каталог</i>...</pre>
+  <p align=right><a href=_rmdir.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</table>
+
+<p><b><big>Обработка [текстовых] файлов</big></b>
+<p><table width=100%>
+<tr>
+  <td colspan=2><a name=awk>Сопоставление с шаблонами и преобразование текста</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>awk [-F<i>символ</i>] [[-f] <i>программа</i>] ['<i>скрипт awk</i>'][<i>файл</i> ...]</pre> <table width=100%> <tr><td width=10%>&nbsp;</td> <td
+valign=top><samp>-F&nbsp;</samp></td> <td>задание символа-разделителя</td></tr>
+<tr><td width=10%>&nbsp;</td> <td valign=top><samp>-f&nbsp;</samp></td>
+<td>чтение сценария awk из файла</td></tr>
+</table>
+  <p align=right><a href=_awk.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=cmp>Сравнение двух файлов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>cmp [-l][-s] <i>файл</i>_1 <i>файл</i>_2</pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-l&nbsp;</samp></td>
+<td>печать полной таблицы различий</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-s&nbsp;</samp></td>
+<td>установка кода возврата</td></tr>
+</table>
+  <p align=right><a href=_cmp.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=comm>Построчное сравнение файлов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>comm [-[123]] <i>файл</i>_1 <i>файл</i>_2</pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>123&nbsp;</samp></td>
+<td>номера печатаемых колонок</td></tr>
+</table>
+  <p align=right><a href=_comm.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=cut>Удаление секции из каждой строки файла   </td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>cut [cfd] [<i>файл</i>...]</pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-f&nbsp;</samp></td>
+<td>- задание списка полей</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-d&nbsp;</samp></td>
+<td>- задание разделителя</td></tr>
+</table>
+  <p align=right><a href=_cut.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=diff>Различия между двумя файлами</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>diff [-efbh] <i>файл</i>_1 <i>файл</i>_2</pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-e&nbsp;</samp></td>
+<td>генерация команд редактора</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-b&nbsp;</samp></td>
+<td>игнорировать лишние пробелы</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-f&nbsp;</samp></td>
+<td>краткий список различий</td></tr>
+</table>
+  <p align=right><a href=_diff.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=diff3>Различия между тремя файлами</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>diff3 [-ex3] <i>файл_1 файл_2 файл_3</i></pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-e&nbsp;</samp></td>
+<td>генерация команд редактора</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-x3&nbsp;</samp></td>
+<td>различия только для файл_3</td></tr>
+</table>
+  <p align=right><a href=_diff3.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=grep>Поиск строк по шаблону</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>grep [<i>опции</i>] <i>выражение</i>... [<i>файл</i>]</pre>
+опции:
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-v&nbsp;</samp></td>
+<td>печать строк без шаблона</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-n&nbsp;</samp></td>
+<td>печать строк с номерами</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-y&nbsp;</samp></td>
+<td>сопоставление строчных и прописных букв</td></tr>
+</table>
+  <p align=right><a href=_grep.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=head>Вывод первых строк файла</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>head [-cn] [<i>файл</i>...]</pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-n&nbsp;</samp></td>
+<td>число строк</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-c&nbsp;</samp></td>
+<td>число байт</td></tr>
+</table>
+  <p align=right><a href=_head.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=join>Соединение файлов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>join [aijt] <i>файл</i>1 <i>файл</i>2</pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-a&nbsp;</samp></td>
+<td>печатать непарные строки</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-i&nbsp;</samp></td>
+<td>игнорировать регистр</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-j&nbsp;</samp></td>
+<td>задание номера поля</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-t&nbsp;</samp></td>
+<td>задание разделителя</td></tr>
+</table>
+  <p align=right><a href=_join.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=paste>Сцепление строк файлов </td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>paste [-ds] [<i>файл</i>...]</pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-d&nbsp;</samp></td>
+<td>замена символа табуляции</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-s&nbsp;</samp></td>
+<td>сцепление последовательных строк</td></tr>
+</table>
+  <p align=right><a href=_paste.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=sort>Сортировка</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>sort [-<i>опции</i>] [+pos] [-pos2]... [-o <i>имя</i>] [<i>имя</i>]...</pre>
+опции:
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>m&nbsp;</samp></td>
+<td>слияние</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>n&nbsp;</samp></td>
+<td>арифметическая сортировка</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>o&nbsp;</samp></td>
+<td>имя выходного файла</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>u&nbsp;</samp></td>
+<td>игнорировать одинаковые строки</td></tr>
+</table>
+  <p align=right><a href=_sort.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=split>Разбиение файла</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>split [-n] [<i>файл</i> [<i>имя</i>]]</pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-n&nbsp;</samp></td>
+<td>число строк в выходных файлах</td></tr>
+</table>
+  <p align=right><a href=_split.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2><a name=tail>Вывод последних строк файла</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>tail [+][-][число][f] [<i>файл</i>...]</pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>f&nbsp;</samp></td>
+<td>отслеживание приращения файла</td></tr>
+</table>
+  <p align=right><a href=_tail.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=uniq>Вывод одинаковых строк файла</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>uniq [-<i>опции</i>] [<i>файл_1</i> [<i>файл_2</i>]]</pre>
+опции:
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>u&nbsp;</samp></td>
+<td>вывод неповторяющихся строк</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>d&nbsp;</samp></td>
+<td>вывод повторяющихся строк</td></tr>
+</table>
+  <p align=right><a href=_uniq.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2><a name=wc>Подсчет числа слов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>wc [-lwc] [<i>файл</i>...]</pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>l&nbsp;</samp></td>
+<td>число строк</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>w&nbsp;</samp></td>
+<td>число слов</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>c&nbsp;</samp></td>
+<td>число символов</td></tr>
+</table>
+  <p align=right><a href=_wc.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+</table>
+
+
+
+<p><b><big>Почта, процессы, время, etc.</big></b>
+<p><table width=100%>
+<tr>
+  <td colspan=2>
+  <a name=cal>
+Календарь</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>сal [-mjy] [[месяц] год]</pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-m&nbsp;</samp></td>
+<td>Monday - 1-й день недели</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-j&nbsp;</samp></td>
+<td>отображение порядкового номера дня </td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-y&nbsp;</samp></td>
+<td>календарь на текущий год</td></tr>
+</table>
+  <p align=right><a href=_cal.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2>
+  <a name=date>
+Печать и установка времени</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>date [yymmddhhmm[.ss]]</pre>
+  <p align=right><a href=_date.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2>
+  <a name=echo>
+Вывод аргументов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>echo [-n] [<i>аргумент</i>]</pre>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>-n&nbsp;</samp></td>
+<td>отмена перевода строки</td></tr>
+</table>
+  <p align=right><a href=_echo.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2>
+  <a name=env>
+Чтение окружения</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>env</pre>
+  <p align=right><a href=_env.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2>
+  <a name=export>
+Добавление переменных в окружение</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>export [переменная[=значение]]...</pre>
+  <p align=right><a href=_export.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2>
+  <a name=kill>
+Принудительное прекращение процесса</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>kill ID_процесса...</pre>
+  <p align=right><a href=_kill.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2>
+  <a name=mail>
+Почта</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>mail [<i>имя</i>...]
+mail [<i>опции</i>...]</pre>
+  <p align=right><a href=_mail.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2>
+  <a name=mesg>
+Запрет выдачи сообщений на терминал</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>mesg [<i>опции</i>...]</pre>
+опции:
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>n&nbsp;</samp></td>
+<td>запретить сообщения</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>y&nbsp;</samp></td>
+<td>разрешить сообщения</td></tr>
+</table>
+  <p align=right><a href=_mesg.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2>
+  <a name=nice>
+Понижение приоритета команды</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>nice [-число] [команда [<i>аргументы</i>]]</pre>
+  <p align=right><a href=_nice.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2>
+  <a name=ps>
+Состояние процессов</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>ps [<i>опции</i>...] [<i>имя</i>]</pre>
+опции:
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>a&nbsp;</samp></td>
+<td>все терминальные процессы</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>e&nbsp;</samp></td>
+<td>все процессы</td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td valign=top><samp>l&nbsp;</samp></td>
+<td>полная информация</td></tr>
+</table>
+  <p align=right><a href=_ps.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2>
+  <a name=script>
+Протоколирование сеанса</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>script [-a] <i>файл</i></pre>
+  <p align=right><a href=_script.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2>
+  <a name=sh>
+Вызов интерпретатора shell</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>sh <i>файл</i></pre>
+  <p align=right><a href=_sh.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+
+<tr>
+  <td colspan=2>
+  <a name=who>
+Информация о работающих пользователях</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>who [<i>файл</i>] [aml]</pre>
+  <p align=right><a href=_who.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+<tr>
+  <td colspan=2>
+  <a name=write>
+Передача сообщения другому пользователю</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>write <i>адресат</i></pre>
+  <p align=right><a href=_write.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+</table>
+
+<p><b><big>Команды интерпретатора shell</big></b><br>
+<p><table width=100%>
+<tr>
+  <td colspan=2>
+  <a name=basename>
+Выделение локального имени</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>basename <i>имя_файла</i></pre>
+  <p align=right><a href=_basename.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2>
+  <a name=expr>
+Вычисление выражения</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>expr <i>выражение</i></pre>
+  <p align=right><a href=_expr.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2>
+  <a name=read>
+Ввод</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>read</pre>
+  <p align=right><a href=_read.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+<tr>
+  <td colspan=2>
+  <a name=shift>
+Сдвиг списка параметров</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>shift</pre>
+  <p align=right><a href=_shift.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+
+<tr>
+  <td colspan=2>
+  <a name=test>
+Проверка условия</td>
+</tr>
+<tr>
+  <td width=10%>&nbsp;</td>
+  <td><pre>test <i>выражение</i></pre>
+  <p align=right><a href=_test.html>подробнее</a>
+  <br><a href=#top>в начало</a>
+<hr>
+</td></tr>
+
+
+</table>
+
+<hr>
+<p><a href=../index.htm>Оглавление лабораторного практикума</a>
+<hr>
+</body>
+</html>
+
+
+
+

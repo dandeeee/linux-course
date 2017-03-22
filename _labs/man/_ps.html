@@ -1,0 +1,245 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+ <TITLE> PS command.</TITLE>
+</head>
+
+<body background=../iip_1.jpg>
+<a name=top>
+
+<p>
+<table width=100%>
+  <tr>
+    <td width=20%>&nbsp;</td>
+    <td>
+      <table border> 
+        <tr><td align=center><big><b>ps</b></big><br>
+            &nbsp; вывод информации о состоянии процессов &nbsp;
+        </tr></td>
+      </table>
+</td></tr></table>
+
+
+<table width=100%>
+<tr><td colspan=2><b><br>СИНТАКСИС</b></td></tr>
+<tr><td width=10%>&nbsp;</td>
+  <td><pre>ps [опции] </pre>
+</td></tr>
+</table>
+
+<table>
+<tr><td colspan=2><b><br>ОПИСАНИЕ</b></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>
+<p>Команда <samp>ps</samp> выводит в стандартный вывод информацию о текущем состоянии процессов.
+</td></tr>
+
+<tr>
+<td colspan=2><b><br>ОПЦИИ</b></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+
+<tr>
+<td valign=top width=25%><samp>-a&nbsp;&nbsp;</samp></td>
+<td valign=top>все процессы, кроме лидеров групп и процессов, не ассоциированных с терминалом.</td>
+</tr>
+
+<tr>
+<td valign=top width=25%><samp>-d&nbsp;&nbsp;</samp></td>
+<td valign=top>все процессы, кроме лидеров групп.</td>
+</tr>
+
+<tr>
+<td valign=top width=25%><samp>-e&nbsp;&nbsp;</samp></td>
+<td valign=top>все процессы.</td>
+</tr>
+
+<tr>
+<td valign=top width=25%><samp>-g<i>список</i>&nbsp;</samp></td>
+<td valign=top>выбирать процессы по <i><samp>списку</samp></i> лидеров групп.</td>
+</tr>
+
+<tr>
+<td valign=top width=25%><samp>-p<i>список</i>&nbsp;</samp></td>
+<td valign=top>выбирать процессы по <i><samp>списку</samp></i> идентификаторов процессов.</td>
+</tr>
+
+<tr>
+<td valign=top width=25%><samp>-t<i>список</i>&nbsp;</samp></td>
+<td valign=top>выбирать процессы по <i><samp>списку</samp></i> терминалов.</td>
+</tr>
+
+<tr>
+<td valign=top width=25%><samp>-u<i>список</i>&nbsp;</samp></td>
+<td valign=top>выбирать процессы по <i><samp>списку</samp></i> идентификаторов пользователей.</td>
+</tr>
+
+<tr>
+<td valign=top width=25%><samp>f&nbsp;&nbsp;</samp></td>
+<td valign=top>генерировать полный листинг.
+</td>
+</tr>
+
+<tr>
+<td valign=top width=25%><samp>-l&nbsp;&nbsp;</samp></td>
+<td valign=top>генерировать листинг в длинном формате.
+</td>
+</tr>
+
+</table>
+</td></tr>
+</table>
+
+<table>
+<tr>
+<td colspan=2><b><br>РЕЗУЛЬТАТ КОМАНДЫ ps</b></td>
+</tr>
+<tr><td width=10%>&nbsp;</td>
+<td colspan=2>
+Ниже приводятся заголовки колонок выдачи команды <samp>ps</samp>и 
+об'ясняется смысл их содержимого. Буквы <samp>l</samp> или <samp>f</samp> 
+в скобках означают, что эта колонка появляется соответственно при длинном 
+или полном формате выдачи; отсутствие букв означает, что данная колонка 
+выводится всегда. </td>
+</tr>
+<tr><td width=10%>&nbsp;</td>
+<td>
+  <table>
+  <tr>
+    <td valign=top width=15%><samp>F&nbsp;&nbsp;</samp></td>
+    <td valign=top width=10%><samp>l&nbsp;&nbsp;</samp></td>
+    <td valign=top>Флаги (шестнадцатеричные), логическая сумма которых дает следующие сведения о процессе: 
+      <table>
+      <tr><td valign=top><samp>&nbsp;&nbsp;00&nbsp;&nbsp;</samp></td>
+      <td>процесс терминирован; элемент таблицы процессов свободен; </td></tr>
+      <tr><td valign=top><samp>&nbsp;&nbsp;01&nbsp;&nbsp;</samp></td>
+      <td>системный процесс: всегда в основной памяти;</td></tr>
+      <tr><td valign=top><samp>&nbsp;&nbsp;02&nbsp;&nbsp;</samp></td>
+      <td>процесс трассируется родительским процессом; </td></tr>
+      <tr><td valign=top><samp>&nbsp;&nbsp;04&nbsp;&nbsp;</samp></td>
+      <td>родительский трассировочный сигнал остановил процесс; родительский процесс ждет; </td></tr>
+      <tr><td valign=top><samp>&nbsp;&nbsp;08&nbsp;&nbsp;</samp></td>
+      <td>процесс не может быть разбужен сигналом; </td></tr>
+      <tr><td valign=top><samp>&nbsp;&nbsp;10&nbsp;&nbsp;</samp></td>
+      <td>процесс в основной памяти; </td></tr>
+      <tr><td valign=top><samp>&nbsp;&nbsp;20&nbsp;&nbsp;</samp></td>
+      <td>процесс в основной памяти; блокирован до завершения события; </td></tr>
+      <tr><td valign=top><samp>&nbsp;&nbsp;40&nbsp;&nbsp;</samp></td>
+      <td>идет сигнал к удаленной системе;</td></tr>
+      <tr><td valign=top><samp>&nbsp;&nbsp;80&nbsp;&nbsp;</samp></td>
+      <td>процесс в очереди на ввод/вывод. </td></tr>
+      </table>
+    </td>
+    </tr>
+
+<tr>
+<td valign=top width=15%><samp>S&nbsp;&nbsp;</samp></td>
+<td valign=top width=10%><samp>l&nbsp;&nbsp;</samp></td>
+<td valign=top>статус процесса:
+<table>
+<tr><td valign=top><samp>&nbsp;&nbsp;O&nbsp;&nbsp;</samp></td>
+<td>активный: обрабатывается процессором; </td></tr>
+<tr><td valign=top><samp>&nbsp;&nbsp;S&nbsp;&nbsp;</samp></td>
+<td>спящий: ожидает завершения события;</td></tr>
+<tr><td valign=top><samp>&nbsp;&nbsp;R&nbsp;&nbsp;</samp></td>
+<td>готов: стоит в очереди на выполнение;</td></tr>
+<tr><td valign=top><samp>&nbsp;&nbsp;I&nbsp;&nbsp;</samp></td>
+<td>рождающийся: процесс создается;</td></tr>
+<tr><td valign=top><samp>&nbsp;&nbsp;Z&nbsp;&nbsp;</samp></td>
+<td>состояние "зомби": процесс завершен, но родительский процесс не ждет этого;</td></tr>
+<tr><td valign=top><samp>&nbsp;&nbsp;T&nbsp;&nbsp;</samp></td>
+<td>трассируемый: процесс остановлен сигналом, так как родительский процесс трассирует его;</td></tr>
+<tr><td valign=top><samp>&nbsp;&nbsp;X&nbsp;&nbsp;</samp></td>
+<td>растущий: процесс ожидает получения большего об'ема основной памяти. </td></tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>UID&nbsp;&nbsp;</samp></td>
+<td valign=top width=10%><samp>f,l&nbsp;&nbsp;</samp></td>
+<td valign=top>идентификатор владельца процесса; при указании опции <samp>-f</samp> выдается входное имя пользователя. </td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>PID&nbsp;&nbsp;</samp></td>
+<td valign=top width=10%><samp>&nbsp;&nbsp;</samp></td>
+<td valign=top>идентификатор процесса .</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>PPID&nbsp;&nbsp;</samp></td>
+<td valign=top width=10%><samp>f,l&nbsp;&nbsp;</samp></td>
+<td valign=top>идентификатор родительского процесса.</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>C&nbsp;&nbsp;</samp></td>
+<td valign=top width=10%><samp>f,l&nbsp;&nbsp;</samp></td>
+<td valign=top>доля выделенного планировщиком времени ЦП. 
+</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>STIME&nbsp;&nbsp;</samp></td>
+<td valign=top width=10%><samp>f&nbsp;&nbsp;</samp></td>
+<td valign=top>время запуска процесса (часы:минуты:секунды); если процесс запущен более чем 24 часа назад, выдается месяц и день запуска. 
+</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>PRI&nbsp;&nbsp;</samp></td>
+<td valign=top width=10%><samp>l&nbsp;&nbsp;</samp></td>
+<td valign=top>приоритет процесса.</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>NI&nbsp;&nbsp;</samp></td>
+<td valign=top width=10%><samp>l&nbsp;&nbsp;</samp></td>
+<td valign=top>поправка к приоритету.</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>ADDR&nbsp;&nbsp;</samp></td>
+<td valign=top width=10%><samp>l&nbsp;&nbsp;</samp></td>
+<td valign=top>адрес процесса в памяти. </td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>SZ&nbsp;&nbsp;</samp></td>
+<td valign=top width=10%><samp>l&nbsp;&nbsp;</samp></td>
+<td valign=top>размер (в блоках по 512 байт) образа процесса в памяти.</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>WCHAN&nbsp;</samp></td>
+<td valign=top width=10%><samp>l&nbsp;&nbsp;</samp></td>
+<td valign=top>адрес события, которого ожидает процесс.</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>TTY&nbsp;&nbsp;</samp></td>
+<td valign=top width=10%><samp>l&nbsp;&nbsp;</samp></td>
+<td valign=top>управляющий терминал.</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>TIME&nbsp;&nbsp;</samp></td>
+<td valign=top width=10%><samp>l&nbsp;&nbsp;</samp></td>
+<td valign=top>использованное процессом время.</td>
+</tr>
+
+<tr>
+<td valign=top width=15%><samp>COMMAND&nbsp;</samp></td>
+<td valign=top width=10%><samp>l&nbsp;&nbsp;</samp></td>
+<td valign=top>имя программы; если указана опция <samp>-f</samp>, то выводится полное имя команды и ее аргументы.</td>
+</tr>
+</table>
+
+</td></tr>
+</table>
+
+<p><hr>
+<a href=mind.html#ps>Список команд</a>
+</body>
+</html>

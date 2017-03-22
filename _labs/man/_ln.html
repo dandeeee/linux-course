@@ -1,0 +1,62 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+ <TITLE> LN command.</TITLE>
+</head>
+<body background=../iip_1.jpg>
+
+<a name=top>
+<table border align=center>
+<tr><td align=center>
+<b><big>ln</big></b><br> создание ссылки на файл </td>
+</tr>
+</table>
+<p></p>
+<table>
+
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td><pre>    ln  [-f] файл1 [файл2 ...] целевой_файл</pre></td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>
+Команда <samp>ln</samp> делает <samp>целевой_файл</samp> ссылкой на 
+<samp>файл1</samp>. <samp>Файл1</samp> не должен совпадать с 
+<samp>целевым_файлом</samp>. Если <samp>целевой_файл</samp> является 
+каталогом, то в нем создаются ссылки на <samp>файл1, файл2,...</samp> с 
+теми же именами. Только в этом случае можно указывать несколько исходных 
+файлов.<br>
+Если <samp>целевой_файл</samp> существует и не является каталогом, его 
+старое содержимое теряется.<br>
+</td></tr>
+
+<tr><td colspan=2><b><br>ОПЦИИ</b></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+  <tr>
+    <td valign=top width=7%><samp>-f&nbsp;&nbsp;</samp></td>
+    <td valign=top>удаление существующего целевого файла</td>
+  </tr>
+  <tr>
+    <td valign=top width=7%><samp>-s&nbsp;&nbsp;</samp></td>
+    <td valign=top>создание символической ссылки (по умолчанию создается жесткая ссылка)</td>
+  </tr>
+</table></td>
+</tr>
+<tr></tr>
+<tr><td colspan=2><b>СМ. ТАКЖЕ</b></td></tr>
+<tr><td width=10%>&nbsp;</td>
+<td>
+<samp><a href=_cp.html>cp</a>,
+      <a href=_mv.html>mv</a>
+      </samp>. </td>
+ </tr>
+</table>
+<p><hr>
+<a href=mind.html#ln>Список команд</a>
+</body>
+</html>

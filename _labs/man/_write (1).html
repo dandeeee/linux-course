@@ -1,0 +1,59 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+ <TITLE> WRITE command.</TITLE>
+</head>
+
+<body background=../iip_1.jpg>
+<a name=top>
+
+<p>
+<table width=100%>
+  <tr>
+    <td width=20%>&nbsp;</td>
+    <td>
+      <table border> 
+        <tr><td align=center><big><b>find</b></big><br>
+            &nbsp; передача сообщения другому пользователю &nbsp;
+        </tr></td>
+      </table>
+</td></tr></table>
+
+
+<table>
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+  <td><pre>write <i>адресат</i></pre>
+</td></tr>
+</table>
+
+
+<table>
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td><samp><i>Адресат</i> </samp> задается как сетевое имя пользователя. После запуска команда <samp>mail</samp> устанавливает связь с адресатом и переходит в режим ожидания ввода. В момент установки связи на терминал адресата выводится сообщение: 
+<pre>    Message from <i>отправитель</i> ...</pre>
+Отправитель вводит любой текст, который отображается на терминале получателя. Отправитель заканчивает сообщение нажатием комбинации клавиш <samp>Ctrl+D</samp> в начале строки. У адресата окончание сообщение индицируется строкой:
+<pre>    EOF</pre>
+Получатель может заблокировать/разблокировать вывод сообщений на свой экран при помощи команды 
+<a href=_mesg.html><samp>mesg</samp></a>. При попытке передать сообщение на заблокированный терминал отправитель
+получает диагностику:
+<pre>    write: <i>адресат</i> has messages disabled </pre>
+</td></tr>
+</table>
+
+
+<table>
+<tr>
+<td colspan=2><b><br>СМ. ТАКЖЕ </b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td><a href=_mesg.html><samp>mesg</samp></a>,
+<a href=_mail.html><samp>mail</samp></a>.
+</td></tr>
+</table>
+
+<p><hr>
+<a href=mind.html#find>Список команд</a>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+   <TITLE> DIFF command.</TITLE>
+</head>
+<body background=../iip_1.jpg>
+
+<a name=top>
+<table border align=center>
+<tr><td align=center>
+<b><big>diff</big></b><br> поиск различий между двумя файлами </td>
+</tr>
+</table>
+<p></p>
+
+<table>
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td><pre>diff [опции] файл1 файл2</pre></td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>Команда <samp>diff</samp> сравнивает содержимое двух файлов, 
+    <samp>файла1</samp> и <samp>файла2</samp>. Имя файла
+    <samp>-</samp> (знак "минус") означает, что текст должен читаться из 
+    стандартного ввода.
+<p>Если и <samp>файл1</samp>, и <samp>файл2</samp> - каталоги, то
+    <samp>diff</samp> сравнивает соответствующие файлы в обоих каталогах, в 
+    алфавитном порядке; такое сравнение будет выполняться рекурсивно, если 
+    задана опция <samp>-r</samp>. </td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>ОПЦИИ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+<tr>
+<td valign=top width=7%><samp>-a</samp></td>
+<td>Считать все файлы текстовыми, даже если они не выглядят таковыми, и 
+    сравнивать их построчно.</td>
+</tr>
+<tr>
+<td valign=top width=7%><samp>-b</samp></td>
+<td>Игнорировать изменения в количестве пробелов, табуляций и т.п.</td>
+</tr>
+<tr>
+<td valign=top width=7%><samp>-B </samp></td>
+<td>Игнорировать изменения, касающиеся только вставки или удаления 
+    пустых строк.</td>
+</tr>
+<tr>
+<td valign=top width=7%><samp>-e</samp></td>
+<td>Создает вывод в форме сценария для <samp><a
+href=_ed.html>ed</a></samp>.</td> </tr>
+<tr>
+<td valign=top width=7%><samp>-f </samp></td>
+<td>Делает вывод похожим на сценарий для <samp>ed</samp>, но изменения 
+    показываются в том порядке, в котором они встречаются в файле.</td>
+</tr>
+<tr>
+<td valign=top width=7%><samp>-i </samp></td>
+<td>Игнорировать изменения в регистре символов; считать буквы верхнего и 
+    нижнего регистров (строчные и прописные) эквивалентными. </td>
+</tr>
+<tr>
+<td valign=top width=7%><samp>-q </samp></td>
+<td>Извещать только о самом факте различия файлов, без каких-либо 
+    подробностей.</td>
+</tr>
+<tr>
+<td valign=top width=7%><samp>-r </samp></td>
+<td>При сравнении каталогов производить рекурсивное сравнение всех найденных 
+    подкаталогов.</td>
+</tr>
+<tr>
+<td valign=top width=7%><samp>-w </samp></td>
+<td>Игнорировать пробелы и табуляции при сравнении строк.</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>СМ.ТАКЖЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<a href=_cmp.html><samp>cmp</samp></a>, 
+<a href=_comm.html><samp>comm</samp></a>, 
+<a href=_diff3.html><samp>diff3</samp></a>, 
+<a href=_ed.html><samp>ed</samp></a>.
+</td>
+</tr>
+
+<tr>
+<td colspan=2><b><br>КОДЫ ЗАВЕРШЕНИЯ </b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+<tr><td><samp>0&nbsp;&nbsp;&nbsp;</samp></td>
+<td>Различий нет.</td></tr>
+<tr><td><samp>1&nbsp;&nbsp;&nbsp;</samp></td>
+<td>Различия есть.</td></tr>
+<tr><td><samp>2&nbsp;&nbsp;&nbsp;</samp></td>
+<td>При выполнении команды зафиксированы ошибки.</td></tr>
+</table>
+</td>
+</tr>
+</table>
+<p><hr>
+<a href=mind.html#diff>Список команд</a>
+</body>
+</html>
+

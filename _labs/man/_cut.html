@@ -1,0 +1,77 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+ <TITLE> CUT command.</TITLE>
+</head>
+
+<body background=../iip_1.jpg>
+<a name=top>
+
+<p>
+<table width=100%>
+  <tr>
+    <td width=20%>&nbsp;</td>
+    <td>
+      <table border> 
+        <tr><td align=center><big><b>cut</b></big><br>
+            &nbsp; удаление секции из каждой строки файла &nbsp;
+        </tr></td>
+      </table>
+</td></tr></table>
+
+
+<table>
+<tr>
+<td colspan=2><b><br>СИНТАКСИС</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+  <td><pre>cut [опции...] [файл...]</pre>
+</td></tr>
+
+<tr>
+<td colspan=2><b><br>ОПИСАНИЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+  <p>Команда <samp>cut</samp> выводит заданную часть каждой строки <samp>файла</samp> в стандартный вывод. Команда используется для выборки колонок из таблицы или полей из каждой строки файла.
+Если не указано ни одного файла или задано имя <samp>-</samp>, используется стандартный ввод.
+</td></tr>
+
+<tr>
+<td colspan=2><b><br>ОПЦИИ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+<table>
+  <tr>
+    <td valign=top width=15%>
+-f<i>список</i>&nbsp;</samp></td>
+    <td valign=top>выводить только эти поля.<br>
+<samp><i>Список</i></samp> представляет собой разделенный запятыми
+список диапазонов, перечисленных в порядке их возрастания. Диапазон может быть
+задан в одной из форм: <table>
+<tr><td valign=top width=15%><samp><i>n</i></samp></td>
+<td>- каждое <samp><i>n</i></samp>-е поле строки;</td></tr>
+<tr><td valign=top width=15%><samp><i>n</i>-</samp></td>
+<td>- от <samp><i>n</i></samp>-го поля до конца строки;</td></tr>
+<tr><td valign=top width=15%><samp><i>n</i>-<i>m</i></samp></td>
+<td>- от <samp><i>n</i></samp>-го поля до <samp><i>m</i></samp>-го поля включительно;</td></tr>
+<tr><td valign=top width=15%><samp>-<i>m</i></samp></td>
+<td>- от начала строки до <samp><i>m</i></samp>-го поля включительно.</td></tr>
+</table>
+</td>
+</tr>
+  <tr>
+    <td valign=top width=15%><samp>-d<i>символ</i></samp></td>
+    <td valign=top>задание <samp><i>символа</i></samp> - разделителя полей.
+</td>
+</tr>
+</table></td></tr>
+
+<tr>
+<td colspan=2><b><br>СМ.ТАКЖЕ</b></td>
+</tr><tr><td width=10%>&nbsp;</td>
+<td>
+  <a href=_paste.html>paste</a>
+</td></tr></table>
+
+<p><hr>
+<a href=mind.html#cut>Список команд</a>
+</body>
+</html>

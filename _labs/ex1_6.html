@@ -1,0 +1,207 @@
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <TITLE>Пример 1.6</TITLE>
+</head>
+<body background=iip_1.jpg>
+<a href=l1_6.html#ex>Назад</a>
+<hr>
+<h3>Пример выполнения лабораторной работы N6</h3>
+<p>Разработка последовательностей команд была подробно рассмотрена
+в примере к лабораторной работе N4. Здесь мы воспользуемся первой из последовательностей,
+созданных в той работе, и проследим ее оформление как командного скрипта.
+<p>Отличия нашего скрипта от последовательности команд, созданной
+в лабораторной работе N4, состоят в том, что:<ul>
+<li>имена все файлов, используемых и создаваемых в скрипте, записываются как: 
+<samp>$HOME/<i>имя_файла</i></samp> - для того, чтобы скрипт мог запускаться из
+любых каталогов, но использовал бы при этом файлы, находящиеся в нашем домашнем
+каталоге;
+<li>в конец скрипта вставлена команда <samp>echo</samp> - для того, чтобы выполнение 
+скрипта как-то было видно на экране.
+</ul>
+
+<p>Протокол выполнения работы по п.1 выглядит так:
+<p><table align=center border><tr><td><pre>
+<b><i>Создание файла-скрипта.</i></b>
+bash2-2.05$ <b>ed</b> myscript
+myscript: No such file or directory
+a
+pr -n' ' -T $HOME/Hum-Dum.txt |
+sed -n 's/^ *//p' |
+cut -f1,3 -d' ' |
+sed -n '/[^0-9]/p' >$HOME/temp01
+cut -f1 -d' ' $HOME/temp01 |
+sed -n 's/$/a\\/p' >$HOME/temp02
+cut -f2 -d' ' $HOME/temp01 >$HOME/temp03
+paste -d'\n' $HOME/temp02 $HOME/temp03 >$HOME/temp01
+sed -f $HOME/temp01 $HOME/Hum-Dum.txt >$HOME/result
+rm -f $HOME/temp*
+echo "Скрипт выполнен!"
+.
+w
+355
+q
+<b><i>Вызов командного интерпретатора для выполнения скрипта.</i></b>
+bash2-2.05$ <b>sh</b> myscript
+Скрипт выполнен!
+<b><i>Распечатка результата.</i></b>
+bash2-2.05$ <b>cat</b> result
+Humpty-Dumpty
+Set on the wall.
+on
+Humpty-Dumpty
+Had a greate fall.
+a
+And all the king's horses,
+all
+And all the king's man.
+all
+Can not Humpty,
+not
+Can not Dumpty,
+not
+Humpty-Dumpty,
+Dumpty-Humpty,
+Set on this wall
+on
+Again.
+bash2-2.05$
+</pre></td><tr></table>
+
+<p>Далее, чтобы не загромождать наши примеры мы не будем приводить 
+в протоколах распечатки файла <samp>result</samp>.
+<hr>
+
+<p>Протокол выполнения работы по п.2 выглядит так:
+<p><table align=center border><tr><td><pre>
+<b><i>Придание скрипту права на выполнение.</i></b>
+bash2-2.05$ <b>chmod</b> u+x myscript
+<b><i>Проверка прав доступа к файлу-скрипту.
+Видно, что есть право "x" для владельца.</i></b>
+bash2-2.05$ <b>ls</b> -l myscript
+-rw<b>x</b>r--r--    1 ap10999  students      355 Сен 11 13:38 myscript
+<b><i>Попытка выполнить скрипт из родительского каталога.</i></b>
+bash2-2.05$ <b>cd</b> ..
+bash2-2.05$ <b>myscript</b>
+bash2: myscript: command not found
+<b><i>Удачное выполнение: при вызове указан путь к файлу.</i></b>
+bash2-2.05$ <b>./ap10999/myscript</b>
+Скрипт выполнен!
+bash2-2.05$
+</pre></td><tr></table>
+<hr>
+
+<p>Протокол выполнения работы по п.3 выглядит так:
+<p><table align=center border><tr><td><pre>
+<b><i>Создание подкаталога ./bin.</i></b>
+bash2-2.05$ <b>mkdir</b> bin
+<b><i>Перенос скрипта в подкаталог.</i></b>
+bash2-2.05$ <b>mv</b> myscript ./bin/myscript
+<b><i>Устанавливается значение переменной PATH.</i></b>
+bash2-2.05$ <b>PATH=</b>$PATH:$HOME/bin; <b>export</b> PATH
+<b><i>Определение текущего каталога (это наш домашний каталог).</i></b>
+bash2-2.05$ <b>pwd</b>
+/home/ap10999
+<b><i>Вызов скрипта.</i></b>
+bash2-2.05$ <b>myscript</b>
+Скрипт выполнен!
+<b><i>Переход в подкаталог ./bin.</i></b>
+bash2-2.05$ <b>cd</b> bin
+<b><i>Вызов скрипта.</i></b>
+bash2-2.05$ <b>myscript</b>
+Скрипт выполнен!
+<b><i>Переход в каталог, родительский для нашего домашнего.</i></b>
+bash2-2.05$ <b>cd</b> ..
+bash2-2.05$ <b>cd</b> ..
+bash2-2.05$ <b>pwd</b>
+/home
+<b><i>Вызов скрипта.</i></b>
+bash2-2.05$ <b>myscript</b>
+Скрипт выполнен!
+<b><i>Проверка переменных окружения 
+(то, что мы добавили в PATH, выделено).</i></b>
+bash2-2.05$ <b>env</b>
+PWD=/home/ap10999
+HOSTNAME=pegas.mipk.kharkiv.edu
+LESSOPEN=|/usr/bin/lesspipe.sh %s
+USER=ap10999
+LS_COLORS=no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;0
+1:or=01;05;37;41:mi=01;05;37;41:ex=01;32:*.cmd=01;32:*.exe=01;32:*.com=01;32:*.b
+tm=01;32:*.bat=01;32:*.sh=01;32:*.csh=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:
+*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*
+.bz=01;31:*.tz=01;31:*.rpm=01;31:*.cpio=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;3
+5:*.xbm=01;35:*.xpm=01;35:*.png=01;35:*.tif=01;35:
+MACHTYPE=i386-redhat-linux-gnu
+MAIL=/var/spool/mail/ap10999
+INPUTRC=/etc/inputrc
+LANG=ru_RU.koi8r
+LOGNAME=ap10999
+SHLVL=1
+SHELL=/bin/bash2
+HOSTTYPE=i386
+OSTYPE=linux-gnu
+HISTSIZE=1000
+HOME=/home/ap10999
+TERM=xterm
+USER=ap10999
+LS_COLORS=no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;0
+1:or=01;05;37;41:mi=01;05;37;41:ex=01;32:*.cmd=01;32:*.exe=01;32:*.com=01;32:*.b
+tm=01;32:*.bat=01;32:*.sh=01;32:*.csh=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:
+*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*
+.bz=01;31:*.tz=01;31:*.rpm=01;31:*.cpio=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;3
+5:*.xbm=01;35:*.xpm=01;35:*.png=01;35:*.tif=01;35:
+MACHTYPE=i386-redhat-linux-gnu
+MAIL=/var/spool/mail/ap10999
+INPUTRC=/etc/inputrc
+LANG=ru_RU.koi8r
+LOGNAME=ap10999
+SHLVL=1
+SHELL=/bin/bash2
+HOSTTYPE=i386
+OSTYPE=linux-gnu
+HISTSIZE=1000
+HOME=/home/ap10999
+TERM=xterm
+PATH=/usr/local/bin:/bin:/usr/bin:/usr/X11R6/bin<b>:/home/ap10999/bin</b>
+SSH_TTY=/dev/pts/0
+_=/usr/bin/env
+OLDPWD=/home
+bash2-2.05$
+</pre></td><tr></table>
+<hr>
+
+<p>При выполнении п.4 мы в создаваемый профиль пользователя
+включили также команду <samp>echo</samp> - чтобы выполнение профиля
+было видно на экране.
+<p>Протокол выполнения работы по п.4 выглядит так:
+<p><table align=center border><tr><td><pre>
+<b><i>Переход в домашний каталог.</i></b>
+bash2-2.05$ <b>cd</b>
+<b><i>Создание файла-профиля.</i></b>
+bash2-2.05$ <b>ed</b> .profile
+.profile: No such file or directory
+a
+PATH=$PATH:$HOME/bin; export PATH
+echo "Каталог /home/ap10999/bin добавлен в PATH!"
+.
+w
+84
+q
+<b><i>Выходим из системы.</i></b>
+bash2-2.05$<b><i>&lt;Ctrl+D&gt;</i></b>
+
+
+<b><i>При новом входе в систему .profile автоматически выполняется</i></b>
+login as: ap10999
+ap10999@pegas.mipk.kharkiv.edu's password:
+Last login: Wed Sep 11 13:46:43 2002 from tiger.mipk-kspu.kharkov.ua
+Каталог /home/ap10999/bin добавлен в PATH!
+<b><i>Вызов скрипта.</i></b>
+bash2-2.05$ <b>myscript</b>
+Скрипт выполнен!
+bash2-2.05$
+</pre></td><tr></table>
+<p><hr>
+<a href=l1_5.html#ex>Назад</a>
+</body>
+</html>

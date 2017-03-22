@@ -1,0 +1,113 @@
+
+
+СУПЕРПРОСТО
+Из-под привелегированного пользователя вам нужно отдать сл. команду:
+yum install nginx
+После установки вам нужно его запустить
+/etc/init.d/nginx start
+или
+service nginx start
+Так же рекомендуется включить этот сервис в автозагрузку
+chkconfig nginx on
+
+
+ВСЕ РУЧКАМИ
+
+# Установленную из исходников
+rm -rf /usr/nginx /usr/local/nginx /usr/sbin/nginx /var/log/nginx /var/spool/nginx
+
+
+Качаем и распаковываем nginx (http://sysoev.ru/nginx/download.html)
+wget http://nginx.org/download/nginx-1.2.4.tar.gz
+tar xzf nginx-*.tar.gz
+cd nginx-*/
+Компиляция и установка
+
+./configure --prefix=/usr/nginx
+ 
+make
+strip objs/nginx
+make install
+ 
+ln -s /usr/nginx/conf /etc/nginx
+
+РОТАЦИЯ ЛОГОВ (это только для матерых, иначе крутим до секции СОЗДАЕМ НОВЫЙ ФАЙЛ)
+
+# Создаём файл
+vi /etc/logrotate.d/nginx
+
+/usr/nginx/logs/*log {
+    daily
+    rotate 7
+    missingok
+    notifempty
+    compress
+    delaycompress
+    sharedscripts
+    postrotate
+        /bin/kill -USR1 `cat /usr/nginx/logs/nginx.pid` 2> /dev/null || true
+    endscript
+}
+
+Не забываем прописать остальные пути для логов (через пробел)
+init скрипт и автозапуск
+
+# СОЗДАЁМ НОВЫЙ ФАЙЛ
+sudo gedit /etc/init.d/nginx
+
+#!/bin/sh
+#
+# Init file for nginx server daemon
+#
+# chkconfig: - 99 00
+# description: nginx server daemon
+#
+ 
+bin='/usr/nginx/sbin/nginx'
+pid_file='/usr/nginx/logs/nginx.pid'
+ 
+case "$1" in
+    start)
+        echo -n "Starting nginx: "
+        $bin && echo OK || echo FAILED
+        ;;
+ 
+    stop)
+        echo -n "Stopping nginx: "
+        kill `cat $pid_file` && echo OK || echo FAILED
+        ;;
+ 
+    configtest)
+        $bin -t
+        ;;
+ 
+    reload)
+        echo -n "Reloading nginx: "
+        kill -HUP `cat $pid_file` && echo OK || echo FAILED
+        ;;
+ 
+    restart)
+        $0 stop
+        sleep 1
+        $0 start
+        ;;
+ 
+    *)
+        echo "Usage: $0 {start|stop|restart|reload|configtest}"
+        exit 1
+        ;;
+esac
+
+Добавляем право на выполнение
+chmod +x /etc/init.d/nginx
+
+После конфигурации запускаем nginx
+# centos/fedora
+service nginx configtest
+service nginx start
+
+
+Добавляем nginx в автозагрузку
+# centos/fedora
+chkconfig nginx on
+

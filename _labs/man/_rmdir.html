@@ -1,0 +1,63 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html; charset=koi8-r">
+ <TITLE> RMDIR command.</TITLE>
+</head>
+
+<body background=../iip_1.jpg>
+<a name=top>
+
+<p>
+<table width=100%>
+  <tr>
+    <td width=20%>&nbsp;</td>
+    <td>
+      <table border> 
+        <tr><td align=center><big><b>rmdir</b></big><br>
+            &nbsp;&nbsp; удаление пустых каталогов&nbsp;&nbsp;
+        </tr></td>
+      </table>
+</td></tr></table>
+
+<p><b>Синтаксис</b>
+<table width=100%>
+  <tr><td width=10%>&nbsp;</td>
+  <td>
+    <pre>
+rmdir [опции] каталог...
+</pre>
+</td></tr></table>
+
+<p><b>Описание</b>
+
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td>
+  <p>Команда <samp>rmdir</samp> удаляет пустые каталоги.
+  <p>Если какой-либо из аргументов каталог не указывает на существующий пустой каталог, то будет выдано сообщение об ошибке.
+</td></tr></table>
+
+<p><b>Опции</b>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td>
+<p><table>
+  <tr>
+    <td valign=top width=7%><samp>-p&nbsp;&nbsp;</samp></td>
+    <td valign=top>Если каталог включает более, чем один компонент  пути, то удаляется каталог, затем убирается  последний компонент пути и удаляется получившийся  каталог и т.д. до тех пор, пока все компоненты не  будут удалены. Таким образом, команда <samp>'rmdir -p a/b/c'</samp> эквивалентна <samp>'rmdir a/b/c; rmdir a/b; rmdir a'</samp>.</td>
+  </tr>
+</table>
+</td></tr></table>
+
+<p><b>См. также</b>
+<table width=100%>
+<tr><td width=10%>&nbsp;</td>
+<td>
+  <a href=_rm.html>rm</a>,
+  <a href=_mkdir.html>mkdir</a>.
+</td></tr></table>
+
+<p><hr>
+<a href=mind.html#rmdir>Список команд</a>
+</body>
+</html>
+
